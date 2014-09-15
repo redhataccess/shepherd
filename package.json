@@ -1,0 +1,24 @@
+{
+  "name": "access-tours",
+  "version": "0.0.1",
+  "description": "Tours for access.redhat.com",
+  "main": "tour.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/connyay/access-tours.git"
+  },
+  "authors": [
+    "Connor Hindley <conn.hindley@gmail.com>"
+  ],
+  "license": "Apache v2",
+  "bugs": {
+    "url": "https://github.com/connyay/access-tours/issues"
+  },
+  "homepage": "https://github.com/connyay/access-tours",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-jsoncombine": "^1.0.0",
+    "gulp-replace-task": "0.0.6"
+  }
+}
