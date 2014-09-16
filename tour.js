@@ -12,15 +12,17 @@ require(['//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js'], function(introJs) {
         }
     }
 
-    window.startIntro = function() {
+    function startIntro() {
         var intro = introJs();
-
         intro.setOptions({
             steps: getCurrentSteps()
         });
-
         intro.start();
     }
-    window.startIntro();
+
+    var tourBtn = document.createElement('a');
+    tourBtn.className = 'btn tour-btn';
+    tourBtn.onclick = startIntro;
+    document.body.appendChild(tourBtn);
 });
 }());
