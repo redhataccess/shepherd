@@ -39,14 +39,8 @@ module.exports = function(grunt) {
           footer: '}());',
         },
         files: {
-          'dist/tour.js': ['bower_components/intro.js/minified/intro.min.js', '.tmp/tours.js', 'tour.js']
+          'dist/tour.js': ['.tmp/tours.js', 'tour.js']
         }
-      }
-    },
-    copy: {
-      deps: {
-        src: 'bower_components/intro.js/minified/introjs.min.css',
-        dest: 'dist/introjs.css'
       }
     }
   });
@@ -54,8 +48,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-json-merge');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'copy']);
+  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat']);
 
 };
