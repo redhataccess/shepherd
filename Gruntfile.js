@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       tours: {
         options: {
           // Hack.
-          banner: 'var tours = ',
+          banner: 'window.tours = ',
           footer: ';',
         },
         files: {
