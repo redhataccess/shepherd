@@ -17,10 +17,10 @@
   "homepage": "https://github.com/connyay/access-tours",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "gulp-cssmin": "^0.1.6",
-    "gulp-jsoncombine": "^1.0.0",
-    "gulp-replace-task": "0.0.6",
-    "gulp-uglify": "^1.0.1"
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-json-merge": "~0.2.2"
   }
 }

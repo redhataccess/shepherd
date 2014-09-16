@@ -1,6 +1,3 @@
-'use strict';
-var paths = @@paths;
-
 function getCurrentSteps() {
     var path = window.location.pathname;
 
