@@ -1,4 +1,4 @@
-require(['//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js', 'jquery'], function(introJs, $) {
+require(['//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js'], function(introJs) {
     var paths = window.tours;
     function getCurrentSteps() {
         var path = window.location.pathname;
