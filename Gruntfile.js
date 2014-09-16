@@ -42,13 +42,20 @@ module.exports = function(grunt) {
           'dist/tour.js': ['.tmp/tours.js', 'tour.js']
         }
       }
-    }
+    },
+    copy: {
+      main: {
+        src: 'tour.css',
+        dest: 'dist/',
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-json-merge');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat']);
+  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'copy']);
 
 };
