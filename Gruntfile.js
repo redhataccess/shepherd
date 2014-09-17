@@ -39,7 +39,7 @@ module.exports = function(grunt) {
           footer: '}());',
         },
         files: {
-          'dist/tour.js': ['.tmp/tours.js', 'tour.js']
+          'dist/tour.js': ['actions.js', '.tmp/tours.js', 'tour.js']
         }
       }
     },
