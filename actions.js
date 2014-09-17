@@ -3,15 +3,17 @@ window.portal_tour.actions = {
         jQuery('#accountUserName').trigger('click');
     },
     trySearch: function() {
-        var $searchForm = jQuery('#homePageSearchForm'),
+        var searchQuery = 'Red Hat Satellite',
+            $searchForm = jQuery('#homePageSearchForm'),
             $searchInput = jQuery('#search-query');
         $searchInput.attr('placeholder', '');
         $searchForm.attr('action', $searchForm.attr('action') + '?tour=true');
         $searchInput.typed({
-            strings: ['Red Hat Satellite'],
+            strings: [searchQuery],
             typeSpeed: 30,
-            callback: function(){
+            callback: function() {
                 setTimeout(function() {
+                    $searchInput.attr('value', searchQuery);
                     $searchForm.submit();
                 }, 300);
             }
