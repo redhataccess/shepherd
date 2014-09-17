@@ -25,21 +25,21 @@ function initTour(introJs) {
         intro.setOptions({
             steps: steps
         });
-        intro.onbeforechange = function(element) {
+        intro.onbeforechange(function(element) {
             console.log('onbeforechange');
-        };
-        intro.onchange = function(element) {
+        });
+        intro.onchange(function(element) {
             console.log('onchange');
-        };
-        intro.onafterchange = function(element) {
+        });
+        intro.onafterchange(function(element) {
             console.log('onafterchange');
-        };
-        intro.oncomplete = function() {
+        });
+        intro.oncomplete(function() {
             console.log('oncomplete');
-        };
-        intro.onexit = function() {
+        });
+        intro.onexit(function() {
             console.log('onexit');
-        };
+        });
         intro.start();
     }
 
