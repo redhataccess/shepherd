@@ -38,12 +38,6 @@ function initTour(introJs) {
             this.executeCurrentStepCb('post');
             console.log('onafterchange');
         });
-        intro.oncomplete(function() {
-            console.log('oncomplete');
-        });
-        intro.onexit(function() {
-            console.log('onexit');
-        });
         intro.start();
     }
 
