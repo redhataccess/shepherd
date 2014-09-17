@@ -12,12 +12,12 @@ window.portal_tour.actions = {
         $searchForm.attr('action', $searchForm.attr('action') + '?tour=true');
         $searchInput.typed({
             strings: [searchQuery],
-            typeSpeed: 30,
+            typeSpeed: 42,
             callback: function() {
                 setTimeout(function() {
                     $searchInput.attr('value', searchQuery);
                     $searchForm.submit();
-                }, 300);
+                }, 400);
             }
         });
     }
