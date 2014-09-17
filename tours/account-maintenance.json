@@ -1,5 +1,5 @@
 {
-    "\/wapps\/ugc\/protected\/account.html$": {
+    "/wapps/ugc/protected/account.html$": {
         "steps": [{
             "intro": "Start of account maintenance tour...",
             "tooltipClass": "tooltip-hero"

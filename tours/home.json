@@ -1,5 +1,5 @@
 {
-    "\/home\/?$": {
+    "/home/?$": {
         "steps": [{
             "intro": "<h1>Welcome to the customer portal!</h1><p>We will take you on a short guided tour to get you situated.</p><p>You may use the arrow keys on your keyboard to navigate the tour.</p><p>Have fun!</p>",
             "tooltipClass": "tooltip-hero"
