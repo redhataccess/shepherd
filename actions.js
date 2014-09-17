@@ -9,6 +9,7 @@ window.portal_tour.actions = {
         $searchForm.attr('action', $searchForm.attr('action') + '?tour=true');
         $searchInput.typed({
             strings: ['Red Hat Satellite'],
+            typeSpeed: 30,
             callback: function(){
                 setTimeout(function() {
                     $searchForm.submit();
