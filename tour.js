@@ -1,5 +1,6 @@
 function initTour(introJs) {
-    var tours = window.tours;
+    var tours = window.tours,
+        tour_actions = window.tour_actions;
 
     function getCurrentSteps() {
         var path = window.location.pathname;
@@ -12,16 +13,29 @@ function initTour(introJs) {
 
     function startIntro(steps) {
         var intro = introJs();
+
         intro.setOptions({
             steps: steps
         });
+        intro.executeCurrentStepCb = function(phase) {
+            if (this._options && this._options.steps && this._currentStep) {
+                var step = this._options.steps[this._currentStep];
+                if (step && step[phase]) {
+                    step[phase]();
+                }
+            }
+        };
         intro.onbeforechange(function(element) {
+            // Reset any menus opened
+            jQuery('body').trigger('click');
+            this.executeCurrentStepCb('pre');
             console.log('onbeforechange');
         });
         intro.onchange(function(element) {
             console.log('onchange');
         });
         intro.onafterchange(function(element) {
+            this.executeCurrentStepCb('post');
             console.log('onafterchange');
         });
         intro.oncomplete(function() {

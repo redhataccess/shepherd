@@ -1,8 +1,5 @@
-var actions = {
-    doThisOneBefore: function() {
-        console.log('action before');
-    },
-    doThisOneAfter: function() {
-        console.log('action after');
+window.tour_actions = {
+    openUserMenu: function() {
+        jQuery('#accountUserName').trigger('click');
     }
 };

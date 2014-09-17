@@ -33,8 +33,7 @@
         }, {
             "element": "#accountUserNameMenu",
             "intro": "You can manage your account here.",
-            "pre": "doThisOneBefore",
-            "post": "doThisOneAfter",
+            "pre": "openUserMenu",
             "position": "left"
         }, {
             "element": "#navhome",
