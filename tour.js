@@ -58,7 +58,7 @@ function initTour(introJs) {
     }
     var searchObj = searchToObject(),
         currentSteps = getCurrentSteps();
-    if (currentSteps && searchObj.tour === true) {
+    if (currentSteps && searchObj.tour) {
         startIntro(currentSteps);
     } else if (currentSteps) {
         createTourButton(currentSteps);
