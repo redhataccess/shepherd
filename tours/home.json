@@ -1,11 +1,11 @@
 {
     "/home/?$": {
         "steps": [{
-            "intro": "<h1>Welcome to the Customer Portal!</h1><h3>We will take you on a short guided tour to get you situated. You may use the arrow keys on your keyboard to navigate the tour.</h3><h4>Have fun!</h4>",
+            "intro": "<h1>Welcome to the Customer Portal!</h1><h3>We will take you on a short guided tour to get you situated.</h3><h3>You may use the arrow keys on your keyboard to navigate the tour.</h3>",
             "tooltipClass": "tooltip-hero"
         }, {
             "element": "#home-search .search-form .field",
-            "intro": "Enter a search term here to search our vast knowledgebase."
+            "intro": "<h3>Enter a search term here to search our vast knowledgebase.</h3><br><br><br><a href=\"#\" onclick=\"window.portal_tour.actions.trySearch\" class=\"introjs-button introjs-prevbutton introjs-disabled\">Try it!</a>"
         }, {
             "element": "#home-announcements .box-column-inner",
             "intro": "Announcements are posted here, and they are updated frequently. Make sure to check back!",
