@@ -27,8 +27,8 @@ function initTour(introJs) {
         intro.executeCurrentStepCb = function(phase) {
             if (this._options && this._options.steps && this._currentStep) {
                 var step = this._options.steps[this._currentStep];
-                if (step && step[phase]) {
-                    step[phase]();
+                if (step && step[phase] && tour_actions[step[phase]]) {
+                    tour_actions[step[phase]]();
                 }
             }
         };
