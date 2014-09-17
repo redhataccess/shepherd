@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       tours: {
         options: {
           // Hack.
-          banner: 'window.tours = ',
+          banner: 'window.portal_tour.tours = ',
           footer: ';',
         },
         files: {
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          banner: '(function(){',
+          banner: '(function(){ window.portal_tour = {};',
           footer: '}());',
         },
         files: {

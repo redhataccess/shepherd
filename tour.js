@@ -1,6 +1,18 @@
 function initTour(introJs) {
-    var tours = window.tours,
-        tour_actions = window.tour_actions;
+    var tours = window.portal_tour.tours,
+        tour_actions = window.portal_tour.actions;
+
+
+    function searchToObject() {
+        var query = document.location.search;
+        if (query === '') {
+            return {};
+        }
+        return query.replace(/(^\?)/, '').split('&').map(function(n) {
+            return n = n.split('='), this[n[0]] = n[1], this
+        }.bind({}))[0];
+    }
+
 
     function getCurrentSteps() {
         var path = window.location.pathname;
@@ -29,14 +41,9 @@ function initTour(introJs) {
             // Reset any menus opened
             jQuery('body').trigger('click');
             this.executeCurrentStepCb('pre');
-            console.log('onbeforechange');
-        });
-        intro.onchange(function(element) {
-            console.log('onchange');
         });
         intro.onafterchange(function(element) {
             this.executeCurrentStepCb('post');
-            console.log('onafterchange');
         });
         intro.start();
     }
@@ -49,9 +56,11 @@ function initTour(introJs) {
         };
         document.body.appendChild(tourBtn);
     }
-
-    var currentSteps = getCurrentSteps();
-    if (currentSteps) {
+    var searchObj = searchToObject(),
+        currentSteps = getCurrentSteps();
+    if (currentSteps && searchObj.tour === true) {
+        startIntro(currentSteps);
+    } else if (currentSteps) {
         createTourButton(currentSteps);
     }
 }
