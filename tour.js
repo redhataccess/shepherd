@@ -13,7 +13,19 @@ function initTour(introJs) {
     function startIntro(steps) {
         var intro = introJs();
         intro.setOptions({
-            steps: steps
+            steps: steps,
+            onbeforechange: function(element) {
+                console.log('onbeforechange');
+            },
+            onafterchange: function(element) {
+                console.log('onafterchange');
+            },
+            oncomplete: function() {
+                 console.log('oncomplete');
+            },
+            onexit: function() {
+                 console.log('onexit');
+            }
         });
         intro.start();
     }

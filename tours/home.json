@@ -1,7 +1,7 @@
 {
     "/home/?$": {
         "steps": [{
-            "intro": "<h1>Welcome to the customer portal!</h1><p>We will take you on a short guided tour to get you situated.</p><p>You may use the arrow keys on your keyboard to navigate the tour.</p><p>Have fun!</p>",
+            "intro": "<h1>Welcome to the Customer Portal!</h1><h3>We will take you on a short guided tour to get you situated. You may use the arrow keys on your keyboard to navigate the tour.</h3><h4>Have fun!</h4>",
             "tooltipClass": "tooltip-hero"
         }, {
             "element": "#home-search .search-form .field",
@@ -30,6 +30,12 @@
             "element": "#home-knowledge",
             "intro": "This is a list of recently added or changed entries in our knowledgebase.",
             "position": "right"
+        }, {
+            "element": "#accountUserNameMenu",
+            "intro": "You can manage your account here.",
+            "pre": "doThisOneBefore",
+            "post": "doThisOneAfter",
+            "position": "left"
         }, {
             "element": "#navhome",
             "intro": "This will always bring you back here."
