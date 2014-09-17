@@ -13,20 +13,23 @@ function initTour(introJs) {
     function startIntro(steps) {
         var intro = introJs();
         intro.setOptions({
-            steps: steps,
-            onbeforechange: function(element) {
-                console.log('onbeforechange');
-            },
-            onafterchange: function(element) {
-                console.log('onafterchange');
-            },
-            oncomplete: function() {
-                 console.log('oncomplete');
-            },
-            onexit: function() {
-                 console.log('onexit');
-            }
+            steps: steps
         });
+        intro.onbeforechange = function(element) {
+            console.log('onbeforechange');
+        };
+        intro.onchange = function(element) {
+            console.log('onchange');
+        };
+        intro.onafterchange = function(element) {
+            console.log('onafterchange');
+        };
+        intro.oncomplete = function() {
+            console.log('oncomplete');
+        };
+        intro.onexit = function() {
+            console.log('onexit');
+        };
         intro.start();
     }
 
