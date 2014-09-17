@@ -1,4 +1,4 @@
-require(['//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js'], function(introJs) {
+function initTour(introJs) {
     var tours = window.tours;
 
     function getCurrentSteps() {
@@ -31,5 +31,12 @@ require(['//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js'], function(introJs) {
     if (currentSteps) {
         createTourButton(currentSteps);
     }
-
-});
+}
+var introJsSrc = '//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js';
+if (typeof require !== 'undefined') {
+    require([introJsSrc], initTour);
+} else {
+    jQuery.getScript(introJsSrc, function() {
+        initTour(window.introJs);
+    });
+}
