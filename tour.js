@@ -11,22 +11,27 @@ require(['//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js'], function(introJs) {
         }
     }
 
-    function startIntro() {
-        var steps = getCurrentSteps();
-        if (!steps) {
-            // Couldn't find tour, bail.
-            return;
-        }
+    function startIntro(steps) {
         var intro = introJs();
         intro.setOptions({
-            steps: getCurrentSteps()
+            steps: steps
         });
         intro.start();
     }
 
-    var tourBtn = document.createElement('a');
-    tourBtn.className = 'btn tour-btn';
-    tourBtn.onclick = startIntro;
-    document.body.appendChild(tourBtn);
+    function createTourButton(steps) {
+        var tourBtn = document.createElement('a');
+        tourBtn.className = 'btn tour-btn';
+        tourBtn.onclick = function() {
+            startIntro(steps);
+        };
+        document.body.appendChild(tourBtn);
+    }
+
+    var currentSteps = getCurrentSteps();
+    if (currentSteps) {
+        createTourButton(currentSteps);
+    }
+
 });
 }());
