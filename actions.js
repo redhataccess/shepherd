@@ -1,4 +1,4 @@
-window.portal_tour.actions = {
+var actions = {
     openUserMenu: function() {
         jQuery('#accountUserName').trigger('click');
     },

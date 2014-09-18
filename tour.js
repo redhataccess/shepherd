@@ -1,74 +1,91 @@
-function initTour(introJs) {
-    var tours = window.portal_tour.tours,
-        tour_actions = window.portal_tour.actions;
+'use strict';
+var PortalTour = function(introjs) {
+    this.intro = introjs();
+    this.init(tours, actions);
+};
 
+PortalTour.prototype.init = function(tours, actions) {
+    this.tours = tours;
+    this.actions = actions;
 
-    function searchToObject() {
-        var query = document.location.search;
-        if (query === '') {
-            return {};
-        }
-        return query.replace(/(^\?)/, '').split('&').map(function(n) {
-            return n = n.split('='), this[n[0]] = n[1], this
-        }.bind({}))[0];
+    this.currentSteps = this.getCurrentSteps();
+    this.buildTour();
+
+    var searchObj = this.utils.searchToObject();
+    if (this.currentSteps && searchObj.tour) {
+        this.startTour();
+    } else if (this.currentSteps) {
+        this.buildTourButton();
     }
+};
 
+PortalTour.prototype.getCurrentSteps = function() {
+    var path = window.location.pathname;
+    for (var tour in this.tours) {
+        if (new RegExp(tour).test(path)) {
+            return this.tours[tour].steps;
+        }
+    }
+};
 
-    function getCurrentSteps() {
-        var path = window.location.pathname;
-        for (var tour in tours) {
-            if (new RegExp(tour).test(path)) {
-                return tours[tour].steps;
+PortalTour.prototype.buildTour = function() {
+    var self = this;
+    this.intro.setOptions({
+        steps: this.currentSteps
+    });
+    this.intro.executeCurrentStepCb = function(phase) {
+        if (this._options && this._options.steps && this._currentStep) {
+            var step = this._options.steps[this._currentStep];
+            if (step && step[phase] && self.actions[step[phase]]) {
+                self.actions[step[phase]]();
             }
         }
-    }
+    };
+    this.intro.onbeforechange(function(element) {
+        jQuery('body').trigger('click');
+        this.executeCurrentStepCb('pre');
+    });
+    this.intro.onafterchange(function(element) {
+        this.executeCurrentStepCb('post');
+    });
+};
 
-    function startIntro(steps) {
-        var intro = introJs();
+PortalTour.prototype.startTour = function() {
+    this.intro.start();
+};
 
-        intro.setOptions({
-            steps: steps
-        });
-        intro.executeCurrentStepCb = function(phase) {
-            if (this._options && this._options.steps && this._currentStep) {
-                var step = this._options.steps[this._currentStep];
-                if (step && step[phase] && tour_actions[step[phase]]) {
-                    tour_actions[step[phase]]();
-                }
-            }
-        };
-        intro.onbeforechange(function(element) {
-            // Reset any menus opened
-            jQuery('body').trigger('click');
-            this.executeCurrentStepCb('pre');
-        });
-        intro.onafterchange(function(element) {
-            this.executeCurrentStepCb('post');
-        });
-        intro.start();
-    }
+PortalTour.prototype.buildTourButton = function() {
+    var tourBtn = document.createElement('a');
+    tourBtn.className = 'btn tour-btn';
+    tourBtn.onclick = function() {
+        this.startTour();
+    };
+    document.body.appendChild(tourBtn);
+};
 
-    function createTourButton(steps) {
-        var tourBtn = document.createElement('a');
-        tourBtn.className = 'btn tour-btn';
-        tourBtn.onclick = function() {
-            startIntro(steps);
-        };
-        document.body.appendChild(tourBtn);
+PortalTour.prototype.utils = {};
+
+PortalTour.prototype.utils.searchToObject = function() {
+    var result = {},
+        pairs = location.search.slice(1).split('&'),
+        length = pairs.length;
+    for (var i = 0; i < length; i++) {
+        var pair = pairs[i];
+        pair = pair.split('=');
+        result[pair[0]] = decodeURIComponent(pair[1] || '');
     }
-    var searchObj = searchToObject(),
-        currentSteps = getCurrentSteps();
-    if (currentSteps && searchObj.tour) {
-        startIntro(currentSteps);
-    } else if (currentSteps) {
-        createTourButton(currentSteps);
-    }
-}
+};
+
+// Export
+window.PortalTour = PortalTour;
+
 var introJsSrc = '//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js';
-if (typeof require !== 'undefined') {
-    require([introJsSrc], initTour);
-} else {
+if (typeof require === 'undefined') {
     jQuery.getScript(introJsSrc, function() {
-        initTour(window.introJs);
+        new PortalTour(window.introJs);
+    });
+} else {
+    require([introJsSrc], function(introJs) {
+        new PortalTour(introJs);
     });
 }
