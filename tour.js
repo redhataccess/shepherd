@@ -112,11 +112,11 @@ PortalTour.prototype.utils.searchToObject = function() {
 };
 
 PortalTour.prototype.utils.unbindDocClick = function() {
-    this.utils._bindDocClick('unbind');
+    this._bindDocClick('unbind');
 };
 
 PortalTour.prototype.utils.rebindDocClick = function() {
-    this.utils._bindDocClick('bind');
+    this._bindDocClick('bind');
 };
 
 PortalTour.prototype.utils._bindDocClick = function(action) {
