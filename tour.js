@@ -78,6 +78,14 @@ PortalTour.prototype.buildTour = function() {
 
 PortalTour.prototype.startTour = function() {
     this.intro.start();
+    this.hijackClicks();
+};
+
+PortalTour.prototype.hijackClicks = function() {
+    jQuery('.introjs-tooltip').click(function(event) {
+        // Clicks inside introjs tooltip should not bubble
+        event.stopPropagation();
+    });
 };
 
 PortalTour.prototype.buildTourButton = function() {
