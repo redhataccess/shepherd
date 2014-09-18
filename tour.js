@@ -84,7 +84,7 @@ PortalTour.prototype.startTour = function() {
 PortalTour.prototype.buildTourButton = function() {
     var tourBtn = document.createElement('a');
     tourBtn.className = 'btn tour-btn';
-    tourBtn.onclick = this.startTour;
+    tourBtn.onclick = this.startTour.bind(this);
     document.body.appendChild(tourBtn);
 };
 
