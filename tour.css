@@ -2,7 +2,7 @@
     border-right: 1px solid transparent !important;
 }
 
-.btn,
+._btn,
 .introjs-button {
     display: inline-block;
     padding: 4px 10px 4px;
@@ -50,7 +50,7 @@
     text-decoration: none;
 }
 
-.btn.tour-btn {
+.tour-btn {
     position: fixed;
     left: 7px;
     bottom: 7px;
