@@ -69,6 +69,8 @@ PortalTour.prototype.buildTour = function() {
         }
     };
     this.intro.onbeforechange(function(element) {
+        // Reset menus
+        jQuery('body').trigger('click');
         this.executeCurrentStepCb('pre');
     });
     this.intro.onafterchange(function(element) {
