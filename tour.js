@@ -13,9 +13,10 @@ window.portal_tour.actions = {
         $searchInput.typed({
             strings: [searchQuery],
             typeSpeed: 42,
+            attr: 'value',
+            showCursor: false,
             callback: function() {
                 setTimeout(function() {
-                    $searchInput.attr('value', searchQuery);
                     $searchForm.submit();
                 }, 400);
             }
