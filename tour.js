@@ -93,6 +93,9 @@ PortalTour.prototype.buildTourButton = function() {
 PortalTour.prototype.utils = {};
 
 PortalTour.prototype.utils.searchToObject = function() {
+    if(!location.search) {
+        return {};
+    }
     var result = {},
         pairs = location.search.slice(1).split('&'),
         length = pairs.length;
@@ -101,6 +104,7 @@ PortalTour.prototype.utils.searchToObject = function() {
         pair = pair.split('=');
         result[pair[0]] = decodeURIComponent(pair[1] || '');
     }
+    return result;
 };
 
 // Export
