@@ -83,7 +83,7 @@ PortalTour.prototype.buildTour = function() {
 };
 
 PortalTour.prototype.startTour = function() {
-    this.utils.unbindDocClick();
+    this.utils.unbindDocClick.call(this);
     this.intro.start();
 };
 
@@ -112,11 +112,11 @@ PortalTour.prototype.utils.searchToObject = function() {
 };
 
 PortalTour.prototype.utils.unbindDocClick = function() {
-    this._bindDocClick('unbind');
+    this.utils._bindDocClick.call(this, 'unbind');
 };
 
 PortalTour.prototype.utils.rebindDocClick = function() {
-    this._bindDocClick('bind');
+    this.utils._bindDocClick.call(this, 'bind');
 };
 
 PortalTour.prototype.utils._bindDocClick = function(action) {
