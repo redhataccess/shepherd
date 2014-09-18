@@ -17,6 +17,8 @@ PortalTour.prototype.init = function(tours, actions) {
     } else if (this.currentSteps) {
         this.buildTourButton();
     }
+
+    this._cachedDocClickEvents = jQuery(document).data('events').click || [];
 };
 
 PortalTour.prototype.getCurrentSteps = function() {
@@ -30,6 +32,7 @@ PortalTour.prototype.getCurrentSteps = function() {
 
 PortalTour.prototype.buildTour = function() {
     var self = this;
+    var rebindDocClick = this.utils.rebindDocClick.bind(this);
     this.intro.setOptions({
         steps: this.currentSteps
     });
@@ -48,9 +51,12 @@ PortalTour.prototype.buildTour = function() {
     this.intro.onafterchange(function(element) {
         this.executeCurrentStepCb('post');
     });
+    this.intro.oncomplete(rebindDocClick);
+    this.intro.onexit(rebindDocClick);
 };
 
 PortalTour.prototype.startTour = function() {
+    this.utils.unbindDocClick.call(this);
     this.intro.start();
 };
 
@@ -64,7 +70,7 @@ PortalTour.prototype.buildTourButton = function() {
 PortalTour.prototype.utils = {};
 
 PortalTour.prototype.utils.searchToObject = function() {
-    if(!location.search) {
+    if (!location.search) {
         return {};
     }
     var result = {},
@@ -76,6 +82,24 @@ PortalTour.prototype.utils.searchToObject = function() {
         result[pair[0]] = decodeURIComponent(pair[1] || '');
     }
     return result;
+};
+
+PortalTour.prototype.utils.unbindDocClick = function() {
+    this.utils._bindDocClick.call(this, 'unbind');
+};
+
+PortalTour.prototype.utils.rebindDocClick = function() {
+    this.utils._bindDocClick.call(this, 'bind');
+};
+
+PortalTour.prototype.utils._bindDocClick = function(action) {
+    if (!this._cachedDocClickEvents.length) {
+        return;
+    }
+    var $doc = jQuery(document);
+    for (var i = 0; i < this._cachedDocClickEvents.length; i++) {
+        $doc[action]('click', this._cachedDocClickEvents.length[i]);
+    }
 };
 
 // Export
