@@ -5,7 +5,7 @@
             "tooltipClass": "tooltip-hero"
         }, {
             "element": "#home-search .search-form .field",
-            "intro": "<h3>Enter a search term here to search our vast knowledgebase.</h3><p style=\"text-align:center;\"><a href=\"#\" onclick=\"window.portal_tour.actions.trySearch()\" class=\"btn\">Try it!</a>"
+            "intro": "<h3>Enter a search term here to search our vast knowledgebase.</h3><p style=\"text-align:center;\"><br><a href=\"#\" onclick=\"window.portal_tour.actions.trySearch()\" class=\"btn\">Try it!</a>"
         }, {
             "element": "#home-announcements .box-column-inner",
             "intro": "Announcements are posted here, and they are updated frequently. Make sure to check back!",
