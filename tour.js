@@ -65,7 +65,7 @@ PortalTour.prototype.hijackClicks = function() {
 
 PortalTour.prototype.buildTourButton = function() {
     var tourBtn = document.createElement('a');
-    tourBtn.className = 'btn tour-btn';
+    tourBtn.className = 'btn _btn tour-btn';
     tourBtn.onclick = this.startTour.bind(this);
     document.body.appendChild(tourBtn);
 };
