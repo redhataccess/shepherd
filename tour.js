@@ -59,7 +59,7 @@ PortalTour.prototype.getCurrentSteps = function() {
 
 PortalTour.prototype.buildTour = function() {
     var self = this;
-    var rebindClicks = this.utils.rebindClicks.bind(this);
+    var rebindDocClick = this.utils.rebindDocClick.bind(this);
     this.intro.setOptions({
         steps: this.currentSteps
     });
@@ -78,8 +78,8 @@ PortalTour.prototype.buildTour = function() {
     this.intro.onafterchange(function(element) {
         this.executeCurrentStepCb('post');
     });
-    this.oncomplete(rebindClicks);
-    this.onexit(rebindClicks);
+    this.intro.oncomplete(rebindDocClick);
+    this.intro.onexit(rebindDocClick);
 };
 
 PortalTour.prototype.startTour = function() {
