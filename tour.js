@@ -42,12 +42,14 @@ PortalTour.prototype.buildTour = function() {
         }
     };
     this.intro.onbeforechange(function(element) {
-        // Reset menus
-        jQuery('body').trigger('click');
-        this.executeCurrentStepCb('pre');
+        self.actions.resetMega();
+        this.executeCurrentStepCb('before');
+    });
+    this.intro.onchange(function(element) {
+        this.executeCurrentStepCb('on');
     });
     this.intro.onafterchange(function(element) {
-        this.executeCurrentStepCb('post');
+        this.executeCurrentStepCb('after');
     });
 };
 
