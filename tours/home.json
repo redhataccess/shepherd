@@ -39,7 +39,7 @@
             "intro": "You can search, login, and change your language from this global bar at any time!",
             "tooltipClass": "tooltip-md",
             "position": "left",
-            "highlightClass": "light top"
+            "highlightClass": "light top right"
         }, {
             "element": ".home-quick-links",
             "intro": "We've also provided some key tasks from here to jump right into the tasks that matter the most to you.",
