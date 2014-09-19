@@ -68,3 +68,8 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+
+.introjs-helperLayer.top .introjs-helperNumberLayer {
+    top: initial;
+    bottom: -16px;
+}
