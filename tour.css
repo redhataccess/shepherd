@@ -59,12 +59,12 @@
     border-radius: 3px;
 }
 
-.introjs-nextbutton {
+.introjs-tooltipbuttons .btn.btn-sm.introjs-nextbutton {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-.introjs-prevbutton {
+.introjs-tooltipbuttons .btn.btn-sm.introjs-prevbutton {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
