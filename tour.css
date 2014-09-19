@@ -46,8 +46,15 @@
 }
 
 .nimbus .introjs-helperLayer {
+    border: 2px solid #08c0fc;
+    border: 2px solid rgba(8,192,252,.35);
     background-color: #646464;
     background-color: rgba(100,100,100,0.9);
+}
+
+.nimbus .introjs-helperLayer.light {
+    background-color: #FFF;
+    background-color: rgba(255,255,255,.9);
 }
 
 .nimbus .introjs-helperNumberLayer {
