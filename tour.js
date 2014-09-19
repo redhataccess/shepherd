@@ -38,7 +38,7 @@ var actions = {
     }
 };
 
-var tours = {"/home/?$":{"steps":[{"intro":"<h1>Welcome to the Customer Portal!</h1><h2>We will take you on a short guided tour to get you situated.</h2><h4>You may use the arrow keys on your keyboard to navigate the tour.</h4>","tooltipClass":"tooltip-lg"},{"element":".primary-nav","intro":"Main Nav text here","tooltipClass":"tooltip-md"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","intro":"Product & Services text here","tooltipClass":"tooltip-md","before":"openProducts","position":"left"},{"element":".tools-menu .col-sm-9.basic","intro":"Tools text here","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","intro":"Security text here","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","intro":"Community text here","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".top-nav","intro":"Top left nav text","tooltipClass":"tooltip-md"},{"element":".utility-nav","intro":"Utility vav text","tooltipClass":"tooltip-md"},{"element":".home-quick-links","intro":"Quick links text here","tooltipClass":"tooltip-md","position":"top"},{"element":".home-bottom .row","intro":"What's not text Here","tooltipClass":"tooltip-md","position":"top"}]}};
+var tours = {"/home/?$":{"steps":[{"intro":"<h1>Welcome to the newly redesigned Customer Portal</h1><h2>Tour the new layout to see what's changed</h2>","tooltipClass":"tooltip-lg"},{"element":".primary-nav","intro":"We've refined our navigation to make it easier to find things in the Portal","tooltipClass":"tooltip-md"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","intro":"Products & Services is the single place to find everything you need about your product. Certification, Product documentation and content, and Support Policies can all be found from here.","tooltipClass":"tooltip-md","before":"openProducts","position":"left"},{"element":".tools-menu .col-sm-9.basic","intro":"Tools is a new place for everything Red Hat Support develops to make your life easier. Red Hat Access Labs and Plug-in, and additional tools can now all be found here.","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","intro":"Everything Security related can be found here including the CVE database, information on the Red Hat Product Security team, and relevant policy information.","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","intro":"Community is now the place for our two-way interactions! Discussions, Blogs, Events, and feedback are now available from here.","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".top-nav","intro":"We've placed important utilities at the top of the Customer Portal. Now, you're only one click away any time from managing your subscriptions, downloads, or support cases.","tooltipClass":"tooltip-md"},{"element":".utility-nav","intro":"You can search, login, and change your language from this global bar at any time!","tooltipClass":"tooltip-md"},{"element":".home-quick-links","intro":"We've also provided some key tasks from here to jump right into the tasks that matter the most to you.","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"element":".home-bottom .row","intro":"See what's new in the Customer Portal including important announcements, new labs, product releases, and more.","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"}]}};
 'use strict';
 var PortalTour = function(introjs) {
     this.intro = introjs();
@@ -72,7 +72,8 @@ PortalTour.prototype.getCurrentSteps = function() {
 PortalTour.prototype.buildTour = function() {
     var self = this;
     this.intro.setOptions({
-        steps: this.currentSteps
+        steps: this.currentSteps,
+        buttonClass: 'btn btn-sm',
     });
     this.intro.executeCurrentStepCb = function(phase) {
         if (this._options && this._options.steps && this._currentStep) {
@@ -133,7 +134,7 @@ PortalTour.prototype.utils.searchToObject = function() {
 // Export
 window.PortalTour = PortalTour;
 
-var introJsSrc = '//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js';
+var introJsSrc = 'https://rawgit.com/connyay/intro.js/master/intro.js';
 if (typeof require === 'undefined') {
     jQuery.getScript(introJsSrc, function() {
         window.portal_tour = new PortalTour(window.introJs);

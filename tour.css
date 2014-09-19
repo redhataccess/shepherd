@@ -2,34 +2,6 @@
     border-right: 1px solid transparent !important;
 }
 
-._btn,
-.introjs-button {
-    display: inline-block;
-    padding: 4px 10px 4px;
-    margin-bottom: 0;
-    font-size: 13px;
-    line-height: 18px;
-    color: #333333;
-    text-align: center;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-    vertical-align: middle;
-    cursor: pointer;
-    background-color: #f5f5f5;
-    background-image: -ms-linear-gradient(top, white, #e6e6e6);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
-    background-image: -webkit-linear-gradient(top, white, #e6e6e6);
-    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-    background-repeat: repeat-x;
-    border: 1px solid #cccccc;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-    border-bottom-color: #b3b3b3;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
 .introjs-nextbutton {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -57,6 +29,7 @@
     width: 40px;
     height: 40px;
     z-index: 2;
+    padding: 0;
     background-position: 5px !important;
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAAYagMeiWXwAAAAJiS0dEAACqjSMyAAAACXBIWXMAAASwAAAEsACQKxcwAAABvElEQVRIx93VP2gUQRQG8N/uzeU8gilEsBDFQoO9fyrtLKKVhZWgjVjZKHaWFoIIsROUQ1SsFCGtnYUEDAiC2IhaWFhIbCKKsrc3FrfG3fvj7Z2db4uBmfm++d573840jI5UKmqYOZKBcWykY8A7PPLeXQv1SELla+G+6IfoBraU1oYODOjpVeZy7C3GRWTykrq0ujvgqCN6JaGJrl1oYdEl7QISBSveCLrVfG+66KNmRcWGTCKasyAWcz3zWk54pikrb75tlZot64hOUj2uY60mQYJronNo9pMOleU4kSK4Yl3HdtcFeR9RXwGJJs6KlvuKwpQOjTLBA588tdNpeTqj1d/asF9rtJX/Hk1dh7zzwmHfJenU8Mwxa55Y6jslbLYnTP5pJDKnPHbLBQ3xd9fu1DRSivOiq+XjAn466J52qdKJr7qFlefFYnPXNksuW/7jgD7BS6t2S0op9By3VZT44lXR6ihqO+NhGT7esM9F30QrQ8k1hu+DdKB8ia5msRaGIPmoC2VYQdysB/kgaNKdOFX8xwRxYJyZYCYFKdYLks9qvEyjCA74IHpt3+x1attj7l+Km+g/8hPiFxJUcyNB3jBOAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE0LTA5LTE2VDE5OjE3OjAyLTA0OjAw28C58QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wOS0xNlQxOToxNzowMi0wNDowMKqdAU0AAAAmdEVYdHN2ZzpiYXNlLXVyaQBmaWxlOi8vL3RtcC90bXBEVURid00uc3Zntu0ZlgAAAABJRU5ErkJggg==);
@@ -80,4 +53,11 @@
 .nimbus .introjs-helperNumberLayer {
     width: 30px;
     height: 30px;
+}
+
+.introjs-tooltipbuttons .btn .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
 }
