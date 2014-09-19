@@ -31,7 +31,8 @@ PortalTour.prototype.getCurrentSteps = function() {
 PortalTour.prototype.buildTour = function() {
     var self = this;
     this.intro.setOptions({
-        steps: this.currentSteps
+        steps: this.currentSteps,
+        buttonClass: 'btn btn-sm',
     });
     this.intro.executeCurrentStepCb = function(phase) {
         if (this._options && this._options.steps && this._currentStep) {
@@ -92,7 +93,7 @@ PortalTour.prototype.utils.searchToObject = function() {
 // Export
 window.PortalTour = PortalTour;
 
-var introJsSrc = '//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js';
+var introJsSrc = 'https://rawgit.com/connyay/intro.js/master/intro.js';
 if (typeof require === 'undefined') {
     jQuery.getScript(introJsSrc, function() {
         window.portal_tour = new PortalTour(window.introJs);
