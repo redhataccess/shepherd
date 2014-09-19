@@ -73,3 +73,8 @@
     top: initial;
     bottom: -16px;
 }
+
+.introjs-helperLayer.right .introjs-helperNumberLayer {
+    left: initial;
+    right: -16px;
+}
