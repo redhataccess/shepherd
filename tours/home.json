@@ -32,12 +32,14 @@
             "element": ".top-nav",
             "intro": "We've placed important utilities at the top of the Customer Portal. Now, you're only one click away any time from managing your subscriptions, downloads, or support cases.",
             "tooltipClass": "tooltip-md",
-            "highlightClass": "light"
+            "position": "right",
+            "highlightClass": "light top"
         }, {
             "element": ".utility-nav",
             "intro": "You can search, login, and change your language from this global bar at any time!",
             "tooltipClass": "tooltip-md",
-            "highlightClass": "light"
+            "position": "left",
+            "highlightClass": "light top"
         }, {
             "element": ".home-quick-links",
             "intro": "We've also provided some key tasks from here to jump right into the tasks that matter the most to you.",
