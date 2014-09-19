@@ -2,16 +2,6 @@
     border-right: 1px solid transparent !important;
 }
 
-.introjs-nextbutton {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.introjs-prevbutton {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
 .introjs-button.introjs-disabled {
   color: #9a9a9a;
     border-color: #d4d4d4;
@@ -67,4 +57,14 @@
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
+}
+
+.introjs-nextbutton {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.introjs-prevbutton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
