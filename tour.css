@@ -56,17 +56,6 @@
     padding: 5px 10px;
     font-size: 12px;
     line-height: 1.5;
-    border-radius: 3px;
-}
-
-.introjs-tooltipbuttons .btn.btn-sm.introjs-nextbutton {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.introjs-tooltipbuttons .btn.btn-sm.introjs-prevbutton {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 }
 
 .introjs-helperLayer.top .introjs-helperNumberLayer {
