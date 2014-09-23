@@ -47,6 +47,39 @@
     background-color: rgba(255,255,255,.9);
 }
 
+.introjs-helperNumberLayer {
+      position: absolute;
+      top: -16px;
+      left: -9px;
+      z-index: 9999999999 !important;
+      padding: 2px;
+      font-family: Arial, verdana, tahoma;
+      font-size: 13px;
+      font-weight: bold;
+      color: #fff;
+      background: #DA4433;
+      width: 20px;
+      box-shadow: 0 1px 1px rgba(0,0,0,.35);
+      height:20px;
+      text-align: center;
+      line-height: 20px;
+      border: 2px solid #DA4433;
+      border-radius: 0;
+}
+
+.introjs-helperNumberLayer:after {
+      content:"";
+      width:0;
+      height:0;
+      position:absolute;
+      content:0;
+      left:-3px;
+      bottom:-10px;
+      border:4px solid transparent;
+      border-right-color:#900;
+      border-top-color:#900;
+}
+
 .nimbus .introjs-helperNumberLayer {
     width: 30px;
     height: 30px;
