@@ -1,3 +1,13 @@
+.introjs-helperLayer *,
+.introjs-helperLayer *:before,
+.introjs-helperLayer *:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+      -ms-box-sizing: content-box;
+       -o-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
 .introjs-overlay {
   position: absolute;
   z-index: 999999;
@@ -63,7 +73,6 @@ tr.introjs-showElement > th {
   top: -16px;
   left: -9px;
   z-index: 9999999999 !important;
-  padding: 2px;
   font-family: Arial, verdana, tahoma;
   font-size: 13px;
   font-weight: bold;
@@ -267,11 +276,6 @@ tr.introjs-showElement > th {
 .nimbus .introjs-helperLayer.light {
     background-color: #FFF;
     background-color: rgba(255,255,255,.9);
-}
-
-.nimbus .introjs-helperNumberLayer {
-    width: 30px;
-    height: 30px;
 }
 
 .introjs-tooltipbuttons .btn.btn-sm {
