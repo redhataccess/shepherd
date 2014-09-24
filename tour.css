@@ -288,9 +288,25 @@ tr.introjs-showElement > th {
     bottom: -16px;
 }
 
+.introjs-helperLayer.top .introjs-helperNumberLayer:after {
+    border-top-color: transparent;
+    border-bottom-color: #900;
+    top: -10px;
+    bottom: initial;
+}
+
 .introjs-helperLayer.right .introjs-helperNumberLayer {
     left: initial;
     right: -16px;
+}
+
+.introjs-helperLayer.top .introjs-helperNumberLayer:after {
+    border-right-color: transparent;
+    border-left-color: #900;
+    left: initial;
+    bottom: initial;
+    top: -10px;
+    right: -2px;
 }
 
 .introjs-disabled {
