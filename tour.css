@@ -304,7 +304,7 @@ tr.introjs-showElement > th {
     right: -16px;
 }
 
-.introjs-helperLayer.top .introjs-helperNumberLayer:after {
+.introjs-helperLayer.right .introjs-helperNumberLayer:after {
     border-right-color: transparent;
     border-left-color: #900;
     left: initial;
