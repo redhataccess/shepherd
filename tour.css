@@ -324,6 +324,7 @@ tr.introjs-showElement > th {
 
 .portal-tour .mega {
     transition: initial;
+    -moz-transition: initial;
     -webkit-transition: initial;
 }
 
