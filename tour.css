@@ -77,3 +77,8 @@
 .introjs-disabled {
     pointer-events: none;
 }
+
+.portal-tour .mega {
+    transition: initial;
+    -webkit-transition: initial;
+}
