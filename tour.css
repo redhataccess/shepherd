@@ -278,7 +278,7 @@ tr.introjs-showElement > th {
     background-color: rgba(255,255,255,.9);
 }
 
-.introjsFloatingElement + .introjs-overlay + .introjs-helperLayer .introjs-helperNumberLayer {
+.introjsFloatingElement.introjs-showElement + .introjs-overlay + .introjs-helperLayer .introjs-helperNumberLayer {
     margin-left: 10px;
 }
 
