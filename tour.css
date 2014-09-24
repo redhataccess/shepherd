@@ -322,7 +322,8 @@ tr.introjs-showElement > th {
     pointer-events: none;
 }
 
-.portal-tour .mega {
+.portal-tour .mega,
+.portal-tour .mega .mega-menu {
     transition: initial;
     -moz-transition: initial;
     -webkit-transition: initial;
