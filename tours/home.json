@@ -11,7 +11,7 @@
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
             "intro": "Products & Services is the single place to find everything you need about your product. Certification, Product documentation and content, and Support Policies can all be found from here.",
             "tooltipClass": "tooltip-md",
-            "before": "openProducts",
+            "on": "openProducts",
             "position": "left"
         }, {
             "element": ".tools-menu .col-sm-9.basic",
