@@ -1,3 +1,10 @@
+var utils = {
+    click: function(selector) {
+        var elem = document.querySelector(selector);
+        elem && elem.click && elem.click();
+    }
+};
+
 var actions = {
     resetMega: function() {
         jQuery('.mega-wrap .active, .primary-nav .active').removeClass('active');
@@ -5,16 +12,16 @@ var actions = {
         jQuery('.mega-wrap .mega-menu.right').removeClass('right');
     },
     openProducts: function() {
-        jQuery('#nav-products > a').trigger('click');
+        utils.click('#nav-products > a');
     },
     openTools: function() {
-        jQuery('#nav-tools > a').trigger('click');
+        utils.click('#nav-tools > a');
     },
     openSecurity: function() {
-        jQuery('#nav-security > a').trigger('click');
+        utils.click('#nav-security > a');
     },
     openCommunity: function() {
-        jQuery('#nav-community > a').trigger('click');
+        utils.click('#nav-community > a');
     },
     trySearch: function() {
         var searchQuery = 'Red Hat Satellite',
