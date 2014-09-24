@@ -83,6 +83,9 @@ PortalTour.prototype.buildTour = function() {
             }
         }
     };
+    var onFinish = function() {
+        jQuery('body').removeClass('portal-tour');
+    };
     this.intro.onbeforechange(function(element) {
         self.actions.resetMega();
         this.executeCurrentStepCb('before');
@@ -93,9 +96,12 @@ PortalTour.prototype.buildTour = function() {
     this.intro.onafterchange(function(element) {
         this.executeCurrentStepCb('after');
     });
+    this.intro.oncomplete(onFinish);
+    this.intro.onexit(onFinish);
 };
 
 PortalTour.prototype.startTour = function() {
+    jQuery('body').addClass('portal-tour');
     this.intro.start();
     this.hijackClicks();
 };
