@@ -101,6 +101,8 @@ PortalTour.prototype.buildTour = function() {
 };
 
 PortalTour.prototype.startTour = function() {
+    // Make sure we are at the top of the page
+    window.scrollTo(0, 0);
     jQuery('body').addClass('portal-tour');
     this.intro.start();
     this.hijackClicks();
