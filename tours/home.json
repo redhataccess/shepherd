@@ -29,13 +29,13 @@
             "tooltipClass": "tooltip-md",
             "before": "openCommunity"
         }, {
-            "element": ".top-nav",
+            "element": ".top-nav ul",
             "intro": "We've placed important utilities at the top of the Customer Portal. Now, you're only one click away any time from managing your subscriptions, downloads, or support cases.",
             "tooltipClass": "tooltip-md",
             "position": "right",
             "highlightClass": "light top"
         }, {
-            "element": ".utility-nav",
+            "element": ".utility-nav ul",
             "intro": "You can search, login, and change your language from this global bar at any time!",
             "tooltipClass": "tooltip-md",
             "position": "left",
