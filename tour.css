@@ -297,3 +297,9 @@ tr.introjs-showElement > th {
     transition: initial;
     -webkit-transition: initial;
 }
+
+.utility-wrap .introjs-fixParent.toolbar,
+.utility-wrap .introjs-fixParent.toolbar-container {
+    /* HACK */
+    position: relative !important;
+}
