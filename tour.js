@@ -9,9 +9,13 @@ var utils = {
 
 var actions = {
     resetMega: function() {
-        jQuery('.mega-wrap .active, .primary-nav .active').removeClass('active');
-        jQuery('.mega-wrap .mega-menu.left').removeClass('left');
-        jQuery('.mega-wrap .mega-menu.right').removeClass('right');
+        // Determine if it is active
+        var isActive = document.querySelector('.mega.active');
+        if(isActive){
+            // It is active... Find the menu that is open and then close it.
+            var activeMenu = document.querySelector('.primary-nav .active > a');
+            activeMenu && activeMenu.click && activeMenu.click();
+        }
     },
     openProducts: function() {
         utils.click('#nav-products > a');
