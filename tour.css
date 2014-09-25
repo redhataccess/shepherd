@@ -177,6 +177,23 @@ tr.introjs-showElement > th {
   color: #7a7a7a;
 }
 
+.introjs-nextbutton {
+    background: #c00;
+    border-color: #c00
+}
+
+.introjs-nextbutton,
+.introjs-nextbutton:link,
+.introjs-nextbutton:visited {
+    color: #fff
+}
+
+.introjs-nextbutton:hover,
+.introjs-nextbutton:focus {
+    color: #fff;
+    background: #b30000;
+    border-color: #b30000
+}
 
 .introjs-disabled {
   cursor: not-allowed;
