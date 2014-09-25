@@ -44,6 +44,10 @@
   margin: 15px;
 }
 
+.introjs-progress .progress-bar {
+  background-color: #08c0fc
+}
+
 .introjs-showElement,
 tr.introjs-showElement > td,
 tr.introjs-showElement > th {
