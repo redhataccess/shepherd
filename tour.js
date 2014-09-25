@@ -70,6 +70,7 @@ PortalTour.prototype.buildTour = function() {
         buttonClass: 'btn btn-sm',
         prevLabel: '&larr;',
         skipLabel: 'Exit',
+        doneLabel: 'Exit',
         showBullets: false,
         showProgress: true
     });
