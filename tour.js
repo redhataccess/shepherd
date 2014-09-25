@@ -36,6 +36,7 @@ PortalTour.prototype.buildTour = function() {
     this.intro.setOptions({
         steps: this.currentSteps,
         buttonClass: 'btn btn-sm',
+        prevLabel: '&larr;'
     });
     this.intro.executeCurrentStepCb = function(phase) {
         if (self.tourCallbacks[phase] && self.actions[self.tourCallbacks[phase]]) {

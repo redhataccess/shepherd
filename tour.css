@@ -177,6 +177,24 @@ tr.introjs-showElement > th {
   color: #7a7a7a;
 }
 
+.introjs-prevbutton {
+    background: #8d8d8d;
+    border-color: #8d8d8d
+}
+
+.introjs-prevbutton,
+.introjs-prevbutton:link,
+.introjs-prevbutton:visited {
+    color: #fff
+}
+
+.introjs-prevbutton:hover,
+.introjs-prevbutton:focus {
+    color: #fff;
+    background: gray;
+    border-color: gray
+}
+
 .introjs-nextbutton {
     background: #c00;
     border-color: #c00
