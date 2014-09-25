@@ -175,8 +175,44 @@ tr.introjs-showElement > th {
 .introjs-skipbutton {
   margin-right: 5px;
   color: #7a7a7a;
+  float: left;
 }
 
+.introjs-prevbutton {
+    background: #8d8d8d;
+    border-color: #8d8d8d
+}
+
+.introjs-prevbutton,
+.introjs-prevbutton:link,
+.introjs-prevbutton:visited {
+    color: #fff
+}
+
+.introjs-prevbutton:hover,
+.introjs-prevbutton:focus {
+    color: #fff;
+    background: gray;
+    border-color: gray
+}
+
+.introjs-nextbutton {
+    background: #c00;
+    border-color: #c00
+}
+
+.introjs-nextbutton,
+.introjs-nextbutton:link,
+.introjs-nextbutton:visited {
+    color: #fff
+}
+
+.introjs-nextbutton:hover,
+.introjs-nextbutton:focus {
+    color: #fff;
+    background: #b30000;
+    border-color: #b30000
+}
 
 .introjs-disabled {
   cursor: not-allowed;
@@ -320,6 +356,7 @@ tr.introjs-showElement > th {
 
 .introjs-disabled {
     pointer-events: none;
+    display: none;
 }
 
 .portal-tour .mega,
