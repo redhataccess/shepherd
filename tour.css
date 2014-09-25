@@ -329,8 +329,9 @@ tr.introjs-showElement > th {
     -webkit-transition: initial;
 }
 
+/* HACK */
+.mega.active.introjs-fixParent,
 .utility-wrap .introjs-fixParent.toolbar,
 .utility-wrap .introjs-fixParent.toolbar-container {
-    /* HACK */
     position: relative !important;
 }
