@@ -7,6 +7,7 @@ var PortalTour = function(introjs) {
 PortalTour.prototype.init = function(tours, actions) {
     this.tours = tours;
     this.actions = actions;
+    this.tourCallbacks = {};
 
     this.currentSteps = this.getCurrentSteps();
     this.buildTour();
@@ -23,7 +24,9 @@ PortalTour.prototype.getCurrentSteps = function() {
     var path = window.location.pathname;
     for (var tour in this.tours) {
         if (new RegExp(tour).test(path)) {
-            return this.tours[tour].steps;
+            var current = this.tours[tour];
+            this.tourCallbacks = current.callBacks || {};
+            return current.steps;
         }
     }
 };
@@ -35,6 +38,9 @@ PortalTour.prototype.buildTour = function() {
         buttonClass: 'btn btn-sm',
     });
     this.intro.executeCurrentStepCb = function(phase) {
+        if (self.tourCallbacks[phase] && self.actions[self.tourCallbacks[phase]]) {
+            self.actions[self.tourCallbacks[phase]]();
+        }
         if (this._options && this._options.steps && this._currentStep) {
             var step = this._options.steps[this._currentStep];
             if (step && step[phase] && self.actions[step[phase]]) {
@@ -46,7 +52,6 @@ PortalTour.prototype.buildTour = function() {
         jQuery('body').removeClass('portal-tour');
     };
     this.intro.onbeforechange(function(element) {
-        self.actions.resetMega();
         this.executeCurrentStepCb('before');
     });
     this.intro.onchange(function(element) {
