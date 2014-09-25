@@ -40,6 +40,10 @@
           transform: none !important;
 }
 
+.introjs-progress {
+  margin: 15px;
+}
+
 .introjs-showElement,
 tr.introjs-showElement > td,
 tr.introjs-showElement > th {
