@@ -180,7 +180,8 @@ tr.introjs-showElement > th {
 
 .introjs-prevbutton {
     background: #8d8d8d;
-    border-color: #8d8d8d
+    border-color: #8d8d8d;
+    margin-right: 5px;
 }
 
 .introjs-prevbutton,
