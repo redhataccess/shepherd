@@ -356,6 +356,7 @@ tr.introjs-showElement > th {
 
 .introjs-disabled {
     pointer-events: none;
+    display: none;
 }
 
 .portal-tour .mega,
