@@ -52,9 +52,9 @@
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
-        }]
-    },
-    "callBacks": {
-        "before": "resetMega"
+        }],
+        "callBacks": {
+            "before": "resetMega"
+        }
     }
 }
