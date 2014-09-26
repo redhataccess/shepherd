@@ -41,7 +41,11 @@
 }
 
 .introjs-progress {
-  margin: 15px;
+  padding-top: 14px;
+}
+
+.introjs-progress .progress {
+  height: 5px;
 }
 
 .introjs-progress .progress-bar {
