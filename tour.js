@@ -69,8 +69,8 @@ PortalTour.prototype.buildTour = function() {
         steps: this.currentSteps,
         buttonClass: 'btn btn-sm',
         prevLabel: '&larr;',
-        skipLabel: 'Exit',
-        doneLabel: 'Exit',
+        skipLabel: 'Close',
+        doneLabel: 'Close',
         showBullets: false,
         showProgress: true,
         showStepNumbers: false
