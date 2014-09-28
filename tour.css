@@ -67,8 +67,6 @@ tr.introjs-showElement > th {
 .introjs-helperLayer {
   position: absolute;
   z-index: 9999998;
-  background-color: #FFF;
-  background-color: rgba(255,255,255,.9);
   border: 1px solid #777;
   border: 1px solid rgba(0,0,0,.5);
   border-radius: 4px;
@@ -313,10 +311,8 @@ tr.introjs-showElement > th {
 }
 
 .nimbus .introjs-helperLayer {
-    border: 2px solid #08c0fc;
-    border: 2px solid rgba(8,192,252,.35);
-    background-color: #646464;
-    background-color: rgba(100,100,100,0.9);
+    border: 3px solid #08c0fc;
+    border: 3px solid rgba(8,192,252,.35);
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -325,6 +321,7 @@ tr.introjs-showElement > th {
 .nimbus .introjs-helperLayer.light {
     background-color: #FFF;
     background-color: rgba(255,255,255,.9);
+    border: none;
 }
 
 .introjsFloatingElement.introjs-showElement + .introjs-overlay + .introjs-helperLayer .introjs-helperNumberLayer {
