@@ -165,7 +165,7 @@ tr.introjs-showElement > th {
 
 .introjs-tooltip {
   position: absolute;
-  padding: 10px;
+  padding: 30px;
   background-color: white;
   min-width: 200px;
   max-width: 300px;
