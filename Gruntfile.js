@@ -43,16 +43,21 @@ module.exports = function(grunt) {
         }
       }
     },
-    copy: {
-      main: {
-        src: 'tour.css',
-        dest: 'dist/',
-      },
-    },
     uglify: {
       dist: {
         files: {
           'dist/tour.min.js': ['dist/tour.js']
+        }
+      }
+    },
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed',
+          sourcemap: 'none'
+        },
+        files: {
+          'dist/tour.css': 'tour.scss'
         }
       }
     }
@@ -61,9 +66,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-json-merge');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
-  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'copy', 'uglify']);
+  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'uglify', 'sass']);
 
 };
