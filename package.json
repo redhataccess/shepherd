@@ -5,16 +5,16 @@
   "main": "tour.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/connyay/access-tours.git"
+    "url": "https://github.com/redhataccess/shepherd.git"
   },
   "authors": [
     "Connor Hindley <conn.hindley@gmail.com>"
   ],
   "license": "Apache v2",
   "bugs": {
-    "url": "https://github.com/connyay/access-tours/issues"
+    "url": "https://github.com/redhataccess/shepherd/issues"
   },
-  "homepage": "https://github.com/connyay/access-tours",
+  "homepage": "https://github.com/redhataccess/shepherd",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.5",
