@@ -35,18 +35,11 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          banner: 'define([\'introjs\'], function (introjs) {',
+          banner: 'define([\'introjs\'], function (introjs) {\n',
           footer: '});',
         },
         files: {
           'dist/tour.js': ['actions.js', '.tmp/tours.js', 'tour.js']
-        }
-      }
-    },
-    uglify: {
-      dist: {
-        files: {
-          'dist/tour.min.js': ['dist/tour.js']
         }
       }
     },
@@ -71,10 +64,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-json-merge');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
 
-  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'uglify', 'sass', 'autoprefixer']);
+  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'sass', 'autoprefixer']);
 
 };

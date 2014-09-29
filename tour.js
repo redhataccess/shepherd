@@ -1,24 +1,36 @@
 'use strict';
 
-var hasClass = function (elem, className) {
+var hasClass = function(elem, className) {
     return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
-}
-
-var addClass = function (elem, className) {
+};
+var addClass = function(elem, className) {
     if (!hasClass(elem, className)) {
         elem.className += ' ' + className;
     }
-}
-
-var removeClass = function (elem, className) {
-    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+};
+var removeClass = function(elem, className) {
+    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
     if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+        while (newClass.indexOf(' ' + className + ' ') >= 0) {
             newClass = newClass.replace(' ' + className + ' ', ' ');
         }
         elem.className = newClass.replace(/^\s+|\s+$/g, '');
     }
-}
+};
+var searchToObject = function() {
+    if (!location.search) {
+        return {};
+    }
+    var result = {},
+        pairs = location.search.slice(1).split('&'),
+        length = pairs.length;
+    for (var i = 0; i < length; i++) {
+        var pair = pairs[i];
+        pair = pair.split('=');
+        result[pair[0]] = decodeURIComponent(pair[1] || '');
+    }
+    return result;
+};
 
 var PortalTour = function() {
     this.intro = introjs();
@@ -33,7 +45,7 @@ PortalTour.prototype.init = function(tours, actions) {
     this.currentSteps = this.getCurrentSteps();
     this.buildTour();
 
-    var searchObj = this.utils.searchToObject();
+    var searchObj = searchToObject();
     if (this.currentSteps && searchObj.tour) {
         this.startTour();
     }
@@ -95,23 +107,6 @@ PortalTour.prototype.startTour = function() {
     window.scrollTo(0, 0);
     addClass(document.body, 'portal-tour');
     this.intro.start();
-};
-
-PortalTour.prototype.utils = {};
-
-PortalTour.prototype.utils.searchToObject = function() {
-    if (!location.search) {
-        return {};
-    }
-    var result = {},
-        pairs = location.search.slice(1).split('&'),
-        length = pairs.length;
-    for (var i = 0; i < length; i++) {
-        var pair = pairs[i];
-        pair = pair.split('=');
-        result[pair[0]] = decodeURIComponent(pair[1] || '');
-    }
-    return result;
 };
 
 return PortalTour;
