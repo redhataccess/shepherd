@@ -1,5 +1,5 @@
 'use strict';
-var PortalTour = function(introjs) {
+var PortalTour = function() {
     this.intro = introjs();
     this.init(tours, actions);
 };
@@ -15,8 +15,6 @@ PortalTour.prototype.init = function(tours, actions) {
     var searchObj = this.utils.searchToObject();
     if (this.currentSteps && searchObj.tour) {
         this.startTour();
-    } else if (this.currentSteps) {
-        this.buildTourButton();
     }
 };
 
@@ -86,13 +84,6 @@ PortalTour.prototype.hijackClicks = function() {
     });
 };
 
-PortalTour.prototype.buildTourButton = function() {
-    var tourBtn = document.createElement('a');
-    tourBtn.className = 'btn _btn tour-btn';
-    tourBtn.onclick = this.startTour.bind(this);
-    document.body.appendChild(tourBtn);
-};
-
 PortalTour.prototype.utils = {};
 
 PortalTour.prototype.utils.searchToObject = function() {
@@ -110,16 +101,4 @@ PortalTour.prototype.utils.searchToObject = function() {
     return result;
 };
 
-// Export
-window.PortalTour = PortalTour;
-
-var introJsSrc = 'https://rawgit.com/connyay/intro.js/master/intro.js';
-if (typeof require === 'undefined') {
-    jQuery.getScript(introJsSrc, function() {
-        window.portal_tour = new PortalTour(window.introJs);
-    });
-} else {
-    require([introJsSrc], function(introJs) {
-        window.portal_tour = new PortalTour(introJs);
-    });
-}
+return PortalTour;

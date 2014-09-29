@@ -35,8 +35,8 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          banner: '(function(){',
-          footer: '}());',
+          banner: 'define([\'jquery\', \'introjs\'], function (jQuery, introjs) {',
+          footer: '});',
         },
         files: {
           'dist/tour.js': ['actions.js', '.tmp/tours.js', 'tour.js']
@@ -49,13 +49,21 @@ module.exports = function(grunt) {
         dest: 'dist/',
       },
     },
+    uglify: {
+      dist: {
+        files: {
+          'dist/tour.min.js': ['dist/tour.js']
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-json-merge');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'copy']);
+  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'copy', 'uglify']);
 
 };
