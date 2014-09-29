@@ -1,14 +1,6 @@
 .introjs-helperLayer * {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -ms-box-sizing: content-box;
-  -o-box-sizing: content-box;
   box-sizing: content-box;
   &:before, &:after {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -ms-box-sizing: content-box;
-    -o-box-sizing: content-box;
     box-sizing: content-box;
   }
 }
@@ -27,10 +19,6 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66000000',endColorstr='#e6000000',GradientType=1);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity = 50);
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
@@ -38,10 +26,6 @@
   z-index: auto !important;
   opacity: 1.0 !important;
   position: absolute;
-  -webkit-transform: none !important;
-  -moz-transform: none !important;
-  -ms-transform: none !important;
-  -o-transform: none !important;
   transform: none !important;
 }
 
@@ -82,10 +66,6 @@ tr.introjs-showElement > {
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 4px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
@@ -185,10 +165,6 @@ tr.introjs-showElement > {
   max-width: 300px;
   border-radius: 0;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
-  -webkit-transition: opacity 0.1s ease-out;
-  -moz-transition: opacity 0.1s ease-out;
-  -ms-transition: opacity 0.1s ease-out;
-  -o-transition: opacity 0.1s ease-out;
   transition: opacity 0.1s ease-out;
 }
 
@@ -236,7 +212,6 @@ tr.introjs-showElement > {
   pointer-events: none;
   opacity: 0.65;
   filter: alpha(opacity = 65);
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -257,8 +232,6 @@ tr.introjs-showElement > {
         height: 6px;
         background: #ccc;
         border-radius: 10px;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
         text-decoration: none;
         &:hover, &.active {
           background: #999;
@@ -304,8 +277,6 @@ tr.introjs-showElement > {
 .nimbus .introjs-helperLayer {
   border: 3px solid #08c0fc;
   border: 3px solid rgba(8, 192, 252, 0.55);
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
   border-radius: 0;
   &.light {
     background-color: #FFF;
@@ -323,8 +294,6 @@ tr.introjs-showElement > {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
   border-radius: 0;
 }
 
@@ -360,12 +329,8 @@ tr.introjs-showElement > {
 
 .portal-tour .mega {
   transition: initial;
-  -moz-transition: initial;
-  -webkit-transition: initial;
   .mega-menu {
     transition: initial;
-    -moz-transition: initial;
-    -webkit-transition: initial;
   }
 }
 

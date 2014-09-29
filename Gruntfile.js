@@ -60,6 +60,12 @@ module.exports = function(grunt) {
           'dist/tour.css': 'tour.scss'
         }
       }
+    },
+    autoprefixer: {
+      single_file: {
+        src: 'dist/tour.css',
+        dest: 'dist/tour.css'
+      },
     }
   });
 
@@ -68,7 +74,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
-  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'uglify', 'sass']);
+  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'uglify', 'sass', 'autoprefixer']);
 
 };
