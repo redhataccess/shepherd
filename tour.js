@@ -73,7 +73,8 @@ PortalTour.prototype.buildTour = function() {
         doneLabel: 'Close',
         showBullets: false,
         showProgress: true,
-        showStepNumbers: false
+        showStepNumbers: false,
+        overlayOpacity: 0.45
     });
     this.intro.executeCurrentStepCb = function(phase) {
         if (self.tourCallbacks[phase] && self.actions[self.tourCallbacks[phase]]) {
