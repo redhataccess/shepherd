@@ -1,4 +1,25 @@
 'use strict';
+
+var hasClass = function (elem, className) {
+    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+}
+
+var addClass = function (elem, className) {
+    if (!hasClass(elem, className)) {
+        elem.className += ' ' + className;
+    }
+}
+
+var removeClass = function (elem, className) {
+    var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+    if (hasClass(elem, className)) {
+        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+            newClass = newClass.replace(' ' + className + ' ', ' ');
+        }
+        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+    }
+}
+
 var PortalTour = function() {
     this.intro = introjs();
     this.init(tours, actions);
@@ -54,7 +75,7 @@ PortalTour.prototype.buildTour = function() {
         }
     };
     var onFinish = function() {
-        jQuery('body').removeClass('portal-tour');
+        removeClass(document.body, 'portal-tour');
     };
     this.intro.onbeforechange(function(element) {
         this.executeCurrentStepCb('before');
@@ -72,16 +93,8 @@ PortalTour.prototype.buildTour = function() {
 PortalTour.prototype.startTour = function() {
     // Make sure we are at the top of the page
     window.scrollTo(0, 0);
-    jQuery('body').addClass('portal-tour');
+    addClass(document.body, 'portal-tour');
     this.intro.start();
-    this.hijackClicks();
-};
-
-PortalTour.prototype.hijackClicks = function() {
-    jQuery('.introjs-tooltip').click(function(event) {
-        // Clicks inside introjs tooltip should not bubble
-        event.stopPropagation();
-    });
 };
 
 PortalTour.prototype.utils = {};

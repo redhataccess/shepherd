@@ -35,7 +35,7 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          banner: 'define([\'jquery\', \'introjs\'], function (jQuery, introjs) {',
+          banner: 'define([\'introjs\'], function (introjs) {',
           footer: '});',
         },
         files: {
@@ -63,8 +63,7 @@ module.exports = function(grunt) {
     },
     autoprefixer: {
       single_file: {
-        src: 'dist/tour.css',
-        dest: 'dist/tour.css'
+        src: 'dist/tour.css'
       },
     }
   });
