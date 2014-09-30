@@ -189,7 +189,6 @@ tr.introjs-showElement > {
 .introjs-prevbutton {
   background: #8d8d8d;
   border-color: #8d8d8d;
-  margin-right: 5px;
   color: white;
   &:link, &:visited {
     color: white;
@@ -205,6 +204,7 @@ tr.introjs-showElement > {
   background: #c00;
   border-color: #cc0000;
   color: white;
+  margin-left: 5px;
   &:link, &:visited {
     color: white;
   }
