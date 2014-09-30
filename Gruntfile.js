@@ -13,6 +13,11 @@ module.exports = function(grunt) {
           '.tmp/tours.json': ['tours/**/*.json']
         },
       },
+      messages: {
+        files: {
+          '.tmp/messages.json': ['messages/**/*.json']
+        },
+      }
     },
     clean: {
       dist: {
@@ -25,12 +30,20 @@ module.exports = function(grunt) {
     concat: {
       tours: {
         options: {
-          // Hack.
           banner: 'var tours = ',
           footer: ';',
         },
         files: {
           '.tmp/tours.js': ['.tmp/tours.json'],
+        },
+      },
+      messages: {
+        options: {
+          banner: 'var messages = ',
+          footer: ';',
+        },
+        files: {
+          '.tmp/messages.js': ['.tmp/messages.json'],
         },
       },
       dist: {
@@ -39,7 +52,7 @@ module.exports = function(grunt) {
           footer: '});',
         },
         files: {
-          'dist/tour.js': ['actions.js', '.tmp/tours.js', 'tour.js']
+          'dist/tour.js': ['actions.js', '.tmp/messages.js', '.tmp/tours.js', 'tour.js']
         }
       }
     },

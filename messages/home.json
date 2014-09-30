@@ -1,0 +1,24 @@
+{
+    "home": {
+        "en": {
+            "welcome-nav": "<h3>Welcome to the newly redesigned Customer Portal</h3><h4>We've refined our navigation to make it easier to find things in the Portal</h4>",
+            "products": "<strong>Products & Services</strong> is the single place to find everything you need about your product. Certification, Product documentation and content, and Support Policies can all be found from here.",
+            "tools": "<strong>Tools</strong> is a new place for everything Red Hat Support develops to make your life easier. Red Hat Access Labs and Plug-in, and additional tools can now all be found here.",
+            "security": "Everything <strong>Security</strong> related can be found here including the CVE database, information on the Red Hat Product Security team, and relevant policy information.",
+            "community": "<strong>Community</strong> is now the place for our two-way interactions! Discussions, Blogs, Events, and feedback are now available from here.",
+            "top-nav": "We've placed important utilities at the top of the Customer Portal. Now, you're only one click away any time from managing your subscriptions, downloads, or support cases.",
+            "utility-nav": "You can search, login, and change your language from this global bar at any time!",
+            "quick-links": "We've also provided some key tasks from here to jump right into the tasks that matter the most to you.",
+            "whats-new": "See what's new in the Customer Portal including important announcements, new labs, product releases, and more."
+        },
+        "_es": {},
+        "_de": {},
+        "_it": {},
+        "_ko": {},
+        "_fr": {},
+        "_ja": {},
+        "_pt": {},
+        "_zn_CH": {},
+        "_ru": {}
+    }
+}

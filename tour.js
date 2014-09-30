@@ -77,6 +77,7 @@ PortalTour.prototype.getCurrentTour = function() {
 };
 
 PortalTour.prototype.buildTour = function() {
+    this.translateTour();
     var self = this;
     this.intro.setOptions({
         steps: this.currentTour.steps,
@@ -122,6 +123,20 @@ PortalTour.prototype.shouldAutoStart = function() {
         return false;
     }
     return (this._hasMemento(this.current.memento) === false);
+};
+
+PortalTour.prototype.translateTour = function() {
+    var lang = 'en';
+    if (portal && portal.lang) {
+        lang = portal.lang;
+    }
+    var messageObj = messages[this.currentTour.messages],
+        // Fall back to english
+        langObj = messageObj[lang] || messageObj.en;
+
+    for (var i = 0; i < this.currentTour.steps; i++) {
+        this.currentTour.steps[i].intro = langObj[this.currentTour.steps[i].intro];
+    }
 };
 
 PortalTour.prototype.startTour = function() {

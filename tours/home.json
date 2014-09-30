@@ -2,50 +2,50 @@
     "/home/?$": {
         "steps": [{
             "element": ".primary-nav",
-            "intro": "<h3>Welcome to the newly redesigned Customer Portal</h3><h4>We've refined our navigation to make it easier to find things in the Portal</h4>",
+            "intro": "welcome-nav",
             "tooltipClass": "tooltip-lg"
         }, {
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
-            "intro": "<strong>Products & Services</strong> is the single place to find everything you need about your product. Certification, Product documentation and content, and Support Policies can all be found from here.",
+            "intro": "products",
             "tooltipClass": "tooltip-md",
             "on": "openProducts",
             "position": "left"
         }, {
             "element": ".tools-menu .col-sm-9.basic",
-            "intro": "<strong>Tools</strong> is a new place for everything Red Hat Support develops to make your life easier. Red Hat Access Labs and Plug-in, and additional tools can now all be found here.",
+            "intro": "tools",
             "tooltipClass": "tooltip-md",
             "before": "openTools"
         }, {
             "element": ".security-menu .col-sm-12.basic",
-            "intro": "Everything <strong>Security</strong> related can be found here including the CVE database, information on the Red Hat Product Security team, and relevant policy information.",
+            "intro": "security",
             "tooltipClass": "tooltip-md",
             "before": "openSecurity"
         }, {
             "element": ".community-menu .col-sm-12.basic",
-            "intro": "<strong>Community</strong> is now the place for our two-way interactions! Discussions, Blogs, Events, and feedback are now available from here.",
+            "intro": "community",
             "tooltipClass": "tooltip-md",
             "before": "openCommunity"
         }, {
             "element": ".top-nav ul",
-            "intro": "We've placed important utilities at the top of the Customer Portal. Now, you're only one click away any time from managing your subscriptions, downloads, or support cases.",
+            "intro": "top-nav",
             "tooltipClass": "tooltip-md",
             "position": "right",
             "highlightClass": "light top"
         }, {
             "element": ".utility-nav ul",
-            "intro": "You can search, login, and change your language from this global bar at any time!",
+            "intro": "utility-nav",
             "tooltipClass": "tooltip-md",
             "position": "left",
             "highlightClass": "light top right"
         }, {
             "element": ".home-quick-links",
-            "intro": "We've also provided some key tasks from here to jump right into the tasks that matter the most to you.",
+            "intro": "quick-links",
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
         }, {
             "element": ".home-bottom .row",
-            "intro": "See what's new in the Customer Portal including important announcements, new labs, product releases, and more.",
+            "intro": "whats-new",
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
@@ -53,6 +53,7 @@
         "callBacks": {
             "before": "resetMega"
         },
+        "messages": "home",
         "memento": "1014-nimbus-home"
     }
 }
