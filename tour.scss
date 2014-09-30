@@ -5,6 +5,12 @@
   }
 }
 
+.introjs-tooltipReferenceLayer {
+  position: absolute;
+  z-index: 10000000;
+  background-color: transparent;
+}
+
 .introjs-overlay {
   position: absolute;
   z-index: 999999;
@@ -30,13 +36,15 @@
 }
 
 .introjs-progress {
-  padding-top: 14px;
-  .progress {
-    height: 5px;
-  }
-  .progress-bar {
-    background-color: #08c0fc;
-  }
+  overflow: hidden;
+  height: 5px;
+  padding: 15px 0 20px 0;
+}
+.introjs-progressbar {
+  float: left;
+  width: 0%;
+  height: 6px;
+  background-color: #08c0fc;
 }
 
 .introjs-showElement {
