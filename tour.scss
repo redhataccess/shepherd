@@ -277,8 +277,12 @@ tr.introjs-showElement > {
     max-width: 400px;
   }
   &.tooltip-lg {
+    width: 450px;
+    max-width: 450px;
+  }
+  &.tooltip-xl {
     width: 550px;
-    max-width: 500px;
+    max-width: 550px;
   }
 }
 

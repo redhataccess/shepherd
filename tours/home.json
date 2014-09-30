@@ -1,12 +1,9 @@
 {
     "/home/?$": {
         "steps": [{
-            "intro": "<h1>Welcome to the newly redesigned Customer Portal</h1><h2>Tour the new layout to see what's changed</h2>",
-            "tooltipClass": "tooltip-lg"
-        }, {
             "element": ".primary-nav",
-            "intro": "We've refined our navigation to make it easier to find things in the Portal",
-            "tooltipClass": "tooltip-md"
+            "intro": "<h3>Welcome to the newly redesigned Customer Portal</h3><h4>We've refined our navigation to make it easier to find things in the Portal</h4>",
+            "tooltipClass": "tooltip-lg"
         }, {
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
             "intro": "<strong>Products & Services</strong> is the single place to find everything you need about your product. Certification, Product documentation and content, and Support Policies can all be found from here.",
