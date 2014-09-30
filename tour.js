@@ -169,7 +169,7 @@ PortalTour.prototype.translateTour = function() {
         // Fall back to english
         langObj = messageObj[lang] || messageObj.en;
 
-    for (var i = 0; i < this.currentTour.steps; i++) {
+    for (var i = 0; i < this.currentTour.steps.length; i++) {
         this.currentTour.steps[i].intro = langObj[this.currentTour.steps[i].intro];
     }
 };
