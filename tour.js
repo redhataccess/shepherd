@@ -1,5 +1,5 @@
 define(['introjs'], function (introjs) {
-var actions = {
+var __actions = {
     _: {
         click: function(selector) {
             var elem = document.querySelector(selector);
@@ -29,8 +29,8 @@ var actions = {
     }
 };
 
-var messages = {"home":{"en":{"welcome-nav":"<h3>Welcome to the newly redesigned Customer Portal</h3><h4>We've refined our navigation to make it easier to find things in the Portal</h4>","products-one":"<strong>Products & Services</strong> is the single place to find everything you need for your Red Hat products and services.  The product pages are still your definitive source of Red Hat product knowledge with getting started guides, product documentation, discussions, and more.","products-two":"Also in <strong>Products & Services</strong> you’ll find the Red Hat Certification ecosystem and general information about knowledge, support policies, and more.","tools":"<strong>Tools</strong> is a new place for everything Red Hat develops to ensure your success with your Red Hat products. Red Hat Access Labs, Plug-ins, and additional tools can now be found here.","security":"All Red Hat <strong>Security</strong> resources can be found here including the CVE database, information on the Red Hat Product Security team, and relevant policy information.","community":"<strong>Community</strong> is now the place for Red Hat associates and customers to collaborate. Discussions, blogs, events, and more are now available here.","top-nav":"We placed important utilities at the top of the Customer Portal. Now, you're only one click away from managing your subscriptions, downloads, or support cases.","utility-nav":"You can search, log in, and change your language from this global bar.","quick-links":"We added a common tasks bar so you can quickly find frequently needed links.","whats-new":"See what's new with Red Hat and the Customer Portal including important announcements, new Red Hat Access Labs, product releases, and more."},"_es":{},"_de":{},"_it":{},"_ko":{},"_fr":{},"_ja":{},"_pt":{},"_zn_CH":{},"_ru":{}}};
-var tours = {"/home/?$":{"steps":[{"element":".primary-nav","intro":"welcome-nav","tooltipClass":"tooltip-lg"},{"element":".products-menu .col-md-6.col-sm-8","intro":"products-one","tooltipClass":"tooltip-md","on":"openProducts","position":"right"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","intro":"products-two","tooltipClass":"tooltip-md","on":"openProducts"},{"element":".tools-menu .col-sm-9.basic","intro":"tools","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","intro":"security","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","intro":"community","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".top-nav ul","intro":"top-nav","tooltipClass":"tooltip-md","position":"right","highlightClass":"light top"},{"element":".utility-nav ul","intro":"utility-nav","tooltipClass":"tooltip-md","position":"left","highlightClass":"light top right"},{"element":".home-quick-links","intro":"quick-links","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"element":".home-bottom .row","intro":"whats-new","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"}],"callBacks":{"before":"resetMega"},"messages":"home","memento":"1014-nimbus-home"}};
+var __messages = {"home":{"en":{"welcome-nav":"<h3>Welcome to the newly redesigned Customer Portal</h3><h4>We've refined our navigation to make it easier to find things in the Portal</h4>","products-one":"<strong>Products & Services</strong> is the single place to find everything you need for your Red Hat products and services.  The product pages are still your definitive source of Red Hat product knowledge with getting started guides, product documentation, discussions, and more.","products-two":"Also in <strong>Products & Services</strong> you’ll find the Red Hat Certification ecosystem and general information about knowledge, support policies, and more.","tools":"<strong>Tools</strong> is a new place for everything Red Hat develops to ensure your success with your Red Hat products. Red Hat Access Labs, Plug-ins, and additional tools can now be found here.","security":"All Red Hat <strong>Security</strong> resources can be found here including the CVE database, information on the Red Hat Product Security team, and relevant policy information.","community":"<strong>Community</strong> is now the place for Red Hat associates and customers to collaborate. Discussions, blogs, events, and more are now available here.","top-nav":"We placed important utilities at the top of the Customer Portal. Now, you're only one click away from managing your subscriptions, downloads, or support cases.","utility-nav":"You can search, log in, and change your language from this global bar.","quick-links":"We added a common tasks bar so you can quickly find frequently needed links.","whats-new":"See what's new with Red Hat and the Customer Portal including important announcements, new Red Hat Access Labs, product releases, and more."},"_es":{},"_de":{},"_it":{},"_ko":{},"_fr":{},"_ja":{},"_pt":{},"_zn_CH":{},"_ru":{}}};
+var __tours = {"/home/?$":{"steps":[{"element":".primary-nav","intro":"welcome-nav","tooltipClass":"tooltip-lg"},{"element":".products-menu .col-md-6.col-sm-8","intro":"products-one","tooltipClass":"tooltip-md","on":"openProducts","position":"right"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","intro":"products-two","tooltipClass":"tooltip-md","on":"openProducts"},{"element":".tools-menu .col-sm-9.basic","intro":"tools","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","intro":"security","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","intro":"community","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".top-nav ul","intro":"top-nav","tooltipClass":"tooltip-md","position":"right","highlightClass":"light top"},{"element":".utility-nav ul","intro":"utility-nav","tooltipClass":"tooltip-md","position":"left","highlightClass":"light top right"},{"element":".home-quick-links","intro":"quick-links","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"element":".home-bottom .row","intro":"whats-new","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"}],"callBacks":{"before":"resetMega"},"messages":"home","memento":"1014-nimbus-home"}};
 'use strict';
 var hasStorage = ('localStorage' in window && window.localStorage !== null),
     TOUR_STORAGE_KEY = 'RHCP-TOUR';
@@ -80,12 +80,13 @@ var safeStore = function(key, value) {
 
 var PortalTour = function() {
     this.intro = introjs();
-    this._init(tours, actions);
+    this._init(__tours, __actions, __messages);
 };
 
-PortalTour.prototype._init = function(tours, actions) {
+PortalTour.prototype._init = function(tours, actions, messages) {
     this.tours = tours;
     this.actions = actions;
+    this.messages = messages;
 
     this.currentTour = this.getCurrentTour();
     this.buildTour();
@@ -153,10 +154,10 @@ PortalTour.prototype.buildTour = function() {
 };
 
 PortalTour.prototype.shouldAutoStart = function() {
-    if (!this.current.memento) {
+    if (!this.currentTour.memento) {
         return false;
     }
-    return (this._hasMemento(this.current.memento) === false);
+    return (this._hasMemento(this.currentTour.memento) === false);
 };
 
 PortalTour.prototype.translateTour = function() {
@@ -164,7 +165,7 @@ PortalTour.prototype.translateTour = function() {
     if (portal && portal.lang) {
         lang = portal.lang;
     }
-    var messageObj = messages[this.currentTour.messages],
+    var messageObj = this.messages[this.currentTour.messages],
         // Fall back to english
         langObj = messageObj[lang] || messageObj.en;
 
@@ -178,8 +179,8 @@ PortalTour.prototype.startTour = function() {
     window.scrollTo(0, 0);
     addClass(document.body, 'portal-tour');
     this.intro.start();
-    if (this.current.memento) {
-        this.saveMemento(this.current.memento);
+    if (this.currentTour.memento) {
+        this.saveMemento(this.currentTour.memento);
     }
 };
 
