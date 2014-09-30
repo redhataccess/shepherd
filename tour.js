@@ -40,32 +40,31 @@ var PortalTour = function() {
 PortalTour.prototype.init = function(tours, actions) {
     this.tours = tours;
     this.actions = actions;
-    this.tourCallbacks = {};
 
-    this.currentSteps = this.getCurrentSteps();
+    this.currentTour = this.getCurrentTour();
     this.buildTour();
 
     var searchObj = searchToObject();
-    if (this.currentSteps && searchObj.tour) {
+    if (this.currentTour.steps && searchObj.tour) {
         this.startTour();
     }
 };
 
-PortalTour.prototype.getCurrentSteps = function() {
+PortalTour.prototype.getCurrentTour = function() {
     var path = window.location.pathname;
     for (var tour in this.tours) {
         if (new RegExp(tour).test(path)) {
-            var current = this.tours[tour];
-            this.tourCallbacks = current.callBacks || {};
-            return current.steps;
+            return this.tours[tour];
         }
     }
+    // No tour :[
+    return {};
 };
 
 PortalTour.prototype.buildTour = function() {
     var self = this;
     this.intro.setOptions({
-        steps: this.currentSteps,
+        steps: this.currentTour.steps,
         buttonClass: 'btn btn-sm',
         prevLabel: '&larr;',
         skipLabel: 'Close',
@@ -76,8 +75,9 @@ PortalTour.prototype.buildTour = function() {
         overlayOpacity: 0.45
     });
     this.intro.executeCurrentStepCb = function(phase) {
-        if (self.tourCallbacks[phase] && self.actions[self.tourCallbacks[phase]]) {
-            self.actions[self.tourCallbacks[phase]]();
+        if (self.currentTour.callBacks && self.currentTour.callBacks[phase] &&
+            self.actions[self.currentTour.callBacks[phase]]) {
+            self.actions[self.currentTour.callBacks[phase]]();
         }
         if (this._options && this._options.steps && this._currentStep) {
             var step = this._options.steps[this._currentStep];
