@@ -1,4 +1,6 @@
 'use strict';
+var hasStorage = ('localStorage' in window && window.localStorage !== null),
+    TOUR_STORAGE_KEY = 'RHCP-TOUR';
 
 var hasClass = function(elem, className) {
     return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
@@ -32,12 +34,23 @@ var searchToObject = function() {
     return result;
 };
 
-var PortalTour = function() {
-    this.intro = introjs();
-    this.init(tours, actions);
+var safeStore = function(key, value) {
+    if (!hasStorage) {
+        return false;
+    }
+    if (typeof value === 'undefined') {
+        return window.localStorage.getItem(key);
+    }
+    return window.localStorage.setItem(key, value);
 };
 
-PortalTour.prototype.init = function(tours, actions) {
+
+var PortalTour = function() {
+    this.intro = introjs();
+    this._init(tours, actions);
+};
+
+PortalTour.prototype._init = function(tours, actions) {
     this.tours = tours;
     this.actions = actions;
 
@@ -46,6 +59,8 @@ PortalTour.prototype.init = function(tours, actions) {
 
     var searchObj = searchToObject();
     if (this.currentTour.steps && searchObj.tour) {
+        this.startTour();
+    } else if (this.currentTour.steps && this.shouldAutoStart()) {
         this.startTour();
     }
 };
@@ -102,11 +117,45 @@ PortalTour.prototype.buildTour = function() {
     this.intro.onexit(onFinish);
 };
 
+PortalTour.prototype.shouldAutoStart = function() {
+    if (!this.current.memento) {
+        return false;
+    }
+    return (this._hasMemento(this.current.memento) === false);
+};
+
 PortalTour.prototype.startTour = function() {
     // Make sure we are at the top of the page
     window.scrollTo(0, 0);
     addClass(document.body, 'portal-tour');
     this.intro.start();
+    if (this.current.memento) {
+        this.saveMemento(this.current.memento);
+    }
+};
+
+PortalTour.prototype._hasMemento = function(memento) {
+    var hasMemento = false,
+        mementos = safeStore(TOUR_STORAGE_KEY),
+        b64Memento = btoa(memento);
+
+    if (!mementos) {
+        return false;
+    }
+    mementos = mementos.split(',');
+    for (var i = 0; i < mementos.length; i++) {
+        if (mementos[i] === b64Memento) {
+            hasMemento = true;
+            break;
+        }
+    }
+    return hasMemento;
+};
+
+PortalTour.prototype.saveMemento = function(memento) {
+    var mementos = safeStore(TOUR_STORAGE_KEY) || '';
+    mementos += (btoa(memento) + ',');
+    safeStore(TOUR_STORAGE_KEY, mementos);
 };
 
 return PortalTour;

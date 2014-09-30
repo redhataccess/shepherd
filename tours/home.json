@@ -55,6 +55,7 @@
         }],
         "callBacks": {
             "before": "resetMega"
-        }
+        },
+        "memento": "1014-nimbus-home"
     }
 }
