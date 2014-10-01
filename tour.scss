@@ -38,7 +38,8 @@
 .introjs-progress {
   overflow: hidden;
   height: 5px;
-  padding: 15px 0 20px 0;
+  margin: 15px 0 20px 0;
+  background-color: #f5f5f5;
 }
 .introjs-progressbar {
   float: left;
@@ -112,19 +113,21 @@ tr.introjs-showElement > {
   }
 }
 
+$arrow-size: 14;
+
 .introjs-arrow {
-  border: 5px solid white;
+  border: #{$arrow-size}px solid white;
   content: '';
   position: absolute;
   &.top {
-    top: -10px;
+    top: -#{$arrow-size * 2}px;
     border-top-color: transparent;
     border-right-color: transparent;
     border-bottom-color: white;
     border-left-color: transparent;
   }
   &.top-right {
-    top: -10px;
+    top: -#{$arrow-size * 2}px;
     right: 10px;
     border-top-color: transparent;
     border-right-color: transparent;
@@ -132,7 +135,7 @@ tr.introjs-showElement > {
     border-left-color: transparent;
   }
   &.top-middle {
-    top: -10px;
+    top: -#{$arrow-size * 2}px;
     left: 50%;
     margin-left: -5px;
     border-top-color: transparent;
@@ -141,7 +144,7 @@ tr.introjs-showElement > {
     border-left-color: transparent;
   }
   &.right {
-    right: -10px;
+    right: -#{$arrow-size * 2}px;
     top: 10px;
     border-top-color: transparent;
     border-right-color: transparent;
@@ -149,14 +152,14 @@ tr.introjs-showElement > {
     border-left-color: white;
   }
   &.bottom {
-    bottom: -10px;
+    bottom: -#{$arrow-size * 2}px;
     border-top-color: white;
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
   }
   &.left {
-    left: -10px;
+    left: -#{$arrow-size * 2}px;
     top: 10px;
     border-top-color: transparent;
     border-right-color: white;
@@ -347,13 +350,12 @@ tr.introjs-showElement > {
 }
 
 /* HACK */
-
 .mega.active.introjs-fixParent {
   position: relative !important;
 }
 
 .utility-wrap .introjs-fixParent {
-  &.toolbar, &.toolbar-container {
+  &.utility-bar, &.utility-container {
     position: relative !important;
   }
 }

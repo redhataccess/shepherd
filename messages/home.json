@@ -1,15 +1,16 @@
 {
     "home": {
         "en": {
-            "welcome-nav": "<h3>Welcome to the newly redesigned Customer Portal</h3><h4>We've refined our navigation to make it easier to find things in the Portal</h4>",
-            "products": "<strong>Products & Services</strong> is the single place to find everything you need about your product. Certification, Product documentation and content, and Support Policies can all be found from here.",
-            "tools": "<strong>Tools</strong> is a new place for everything Red Hat Support develops to make your life easier. Red Hat Access Labs and Plug-in, and additional tools can now all be found here.",
-            "security": "Everything <strong>Security</strong> related can be found here including the CVE database, information on the Red Hat Product Security team, and relevant policy information.",
-            "community": "<strong>Community</strong> is now the place for our two-way interactions! Discussions, Blogs, Events, and feedback are now available from here.",
-            "top-nav": "We've placed important utilities at the top of the Customer Portal. Now, you're only one click away any time from managing your subscriptions, downloads, or support cases.",
-            "utility-nav": "You can search, login, and change your language from this global bar at any time!",
-            "quick-links": "We've also provided some key tasks from here to jump right into the tasks that matter the most to you.",
-            "whats-new": "See what's new in the Customer Portal including important announcements, new labs, product releases, and more."
+            "welcome-nav": "<h3>Welcome to the newly redesigned Customer Portal</h3><h4>We've improved our navigation to make it easier to find what you're looking for in the Customer Portal.</h4>",
+            "products-one": "<strong>Products & Services</strong> is the single place to find everything you need for your Red Hat products and services. <br><br>The product pages are still your definitive source of Red Hat product knowledge with getting started guides, product documentation, discussions, and more.",
+            "products-two": "Also in <strong>Products & Services</strong> you’ll find the Red Hat Certification ecosystem and general information about knowledge, support policies, and more.",
+            "tools": "<strong>Tools</strong> is a new place for everything Red Hat develops to ensure your success with your Red Hat products. Red Hat Access Labs, Plug-ins, and additional tools can now be found here.",
+            "security": "All Red Hat <strong>Security</strong> resources can be found here including the CVE database, information on the Red Hat Product Security team, and relevant policy information.",
+            "community": "<strong>Community</strong> is now the place for Red Hat associates and customers to collaborate. Discussions, blogs, events, and more are now available here.",
+            "top-nav": "We placed important utilities at the top of the Customer Portal. Now, you're only one click away from managing your subscriptions, downloads, or support cases.",
+            "utility-nav": "You can search, log in, and change your language from this global bar.",
+            "quick-links": "We added a common tasks bar so you can quickly find frequently needed links.",
+            "whats-new": "See what's new with Red Hat and the Customer Portal including important announcements, new Red Hat Access Labs, product releases, and more."
         },
         "_es": {},
         "_de": {},

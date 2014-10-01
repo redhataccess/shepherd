@@ -1,4 +1,4 @@
-var actions = {
+var __actions = {
     _: {
         click: function(selector) {
             var elem = document.querySelector(selector);

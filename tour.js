@@ -47,12 +47,13 @@ var safeStore = function(key, value) {
 
 var PortalTour = function() {
     this.intro = introjs();
-    this._init(tours, actions);
+    this._init(__tours, __actions, __messages);
 };
 
-PortalTour.prototype._init = function(tours, actions) {
+PortalTour.prototype._init = function(tours, actions, messages) {
     this.tours = tours;
     this.actions = actions;
+    this.messages = messages;
 
     this.currentTour = this.getCurrentTour();
     this.buildTour();
@@ -88,7 +89,8 @@ PortalTour.prototype.buildTour = function() {
         showBullets: false,
         showProgress: true,
         showStepNumbers: false,
-        overlayOpacity: 0.45
+        overlayOpacity: 0.45,
+        arrowPadding: 8
     });
     this.intro.executeCurrentStepCb = function(phase) {
         if (self.currentTour.callBacks && self.currentTour.callBacks[phase] &&
@@ -119,10 +121,10 @@ PortalTour.prototype.buildTour = function() {
 };
 
 PortalTour.prototype.shouldAutoStart = function() {
-    if (!this.current.memento) {
+    if (!this.currentTour.memento) {
         return false;
     }
-    return (this._hasMemento(this.current.memento) === false);
+    return (this._hasMemento(this.currentTour.memento) === false);
 };
 
 PortalTour.prototype.translateTour = function() {
@@ -130,12 +132,12 @@ PortalTour.prototype.translateTour = function() {
     if (portal && portal.lang) {
         lang = portal.lang;
     }
-    var messageObj = messages[this.currentTour.messages],
+    var messageObj = this.messages[this.currentTour.messages],
         // Fall back to english
         langObj = messageObj[lang] || messageObj.en;
 
-    for (var i = 0; i < this.currentTour.steps; i++) {
-        this.currentTour.steps[i].intro = langObj[this.currentTour.steps[i].intro];
+    for (var i = 0; i < this.currentTour.steps.length; i++) {
+        this.currentTour.steps[i].intro = langObj[this.currentTour.steps[i].key];
     }
 };
 
@@ -144,8 +146,8 @@ PortalTour.prototype.startTour = function() {
     window.scrollTo(0, 0);
     addClass(document.body, 'portal-tour');
     this.intro.start();
-    if (this.current.memento) {
-        this.saveMemento(this.current.memento);
+    if (this.currentTour.memento) {
+        this.saveMemento(this.currentTour.memento);
     }
 };
 
@@ -168,6 +170,10 @@ PortalTour.prototype._hasMemento = function(memento) {
 };
 
 PortalTour.prototype.saveMemento = function(memento) {
+    if(this._hasMemento(memento)) {
+        // Don't save it twice
+        return;
+    }
     var mementos = safeStore(TOUR_STORAGE_KEY) || '';
     mementos += (btoa(memento) + ',');
     safeStore(TOUR_STORAGE_KEY, mementos);

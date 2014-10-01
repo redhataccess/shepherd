@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     concat: {
       tours: {
         options: {
-          banner: 'var tours = ',
+          banner: 'var __tours = ',
           footer: ';',
         },
         files: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       },
       messages: {
         options: {
-          banner: 'var messages = ',
+          banner: 'var __messages = ',
           footer: ';',
         },
         files: {
