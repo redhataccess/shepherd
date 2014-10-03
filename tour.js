@@ -144,13 +144,6 @@ PortalTour.prototype.shouldAutoStart = function() {
     if (!this.currentTour.memento) {
         return false;
     }
-    if (this.currentTour.hideMobile) {
-        // Check current innerWidth of window and compare it to the tours
-        // Hide on mobile dimension
-        if (window.innerWidth <= +this.currentTour.hideMobile) {
-            return false;
-        }
-    }
     return (this._hasMemento(this.currentTour.memento) === false);
 };
 
@@ -169,6 +162,10 @@ PortalTour.prototype.translateTour = function() {
 };
 
 PortalTour.prototype.startTour = function() {
+    // Don't start the tour if we can't display it.
+    if (!this._canDisplay()) {
+        return false;
+    }
     // Make sure we are at the top of the page
     $('html, body').animate({
         scrollTop: '0px'
@@ -199,6 +196,17 @@ PortalTour.prototype._hasMemento = function(memento) {
     return hasMemento;
 };
 
+PortalTour.prototype._canDisplay = function() {
+    // For now just a mobile check, but I could see other things going in here.
+    if (this.currentTour.hideMobile) {
+        // Check current innerWidth of window and compare it to the tours
+        // Hide on mobile dimension
+        if (window.innerWidth <= +this.currentTour.hideMobile) {
+            return false;
+        }
+    }
+    return true;
+};
 PortalTour.prototype._isTourCurrent = function() {
     var now = moment().utc();
     if (this.currentTour.startsOn) {
