@@ -2,23 +2,6 @@
 var hasStorage = ('localStorage' in window && window.localStorage !== null),
     TOUR_STORAGE_KEY = 'RHCP-TOUR';
 
-var hasClass = function(elem, className) {
-    return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
-};
-var addClass = function(elem, className) {
-    if (!hasClass(elem, className)) {
-        elem.className += ' ' + className;
-    }
-};
-var removeClass = function(elem, className) {
-    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
-    if (hasClass(elem, className)) {
-        while (newClass.indexOf(' ' + className + ' ') >= 0) {
-            newClass = newClass.replace(' ' + className + ' ', ' ');
-        }
-        elem.className = newClass.replace(/^\s+|\s+$/g, '');
-    }
-};
 var searchToObject = function() {
     if (!location.search) {
         return {};
@@ -105,7 +88,7 @@ PortalTour.prototype.buildTour = function() {
         }
     };
     var onFinish = function() {
-        removeClass(document.body, 'portal-tour');
+        $('body').removeClass('portal-tour');
     };
     this.intro.onbeforechange(function(element) {
         this.executeCurrentStepCb('before');
@@ -121,8 +104,19 @@ PortalTour.prototype.buildTour = function() {
 };
 
 PortalTour.prototype.shouldAutoStart = function() {
+    // Check if we are within the tour dates
+    if (!this._isTourCurrent()) {
+        return false;
+    }
     if (!this.currentTour.memento) {
         return false;
+    }
+    if (this.currentTour.hideMobile) {
+        // Check current innerWidth of window and compare it to the tours
+        // Hide on mobile dimension
+        if (window.innerWidth <= +this.currentTour.hideMobile) {
+            return false;
+        }
     }
     return (this._hasMemento(this.currentTour.memento) === false);
 };
@@ -143,12 +137,15 @@ PortalTour.prototype.translateTour = function() {
 
 PortalTour.prototype.startTour = function() {
     // Make sure we are at the top of the page
-    window.scrollTo(0, 0);
-    addClass(document.body, 'portal-tour');
-    this.intro.start();
-    if (this.currentTour.memento) {
-        this.saveMemento(this.currentTour.memento);
-    }
+    $('html, body').animate({
+        scrollTop: '0px'
+    }, 200, 'swing', _.bind(_.once(function() {
+        this.intro.start();
+        $('body').addClass('portal-tour');
+        if (this.currentTour.memento) {
+            this.saveMemento(this.currentTour.memento);
+        }
+    }), this));
 };
 
 PortalTour.prototype._hasMemento = function(memento) {
@@ -169,8 +166,24 @@ PortalTour.prototype._hasMemento = function(memento) {
     return hasMemento;
 };
 
+PortalTour.prototype._isTourCurrent = function() {
+    var now = moment().utc();
+    if (this.currentTour.startsOn) {
+        if (now.isBefore(moment(this.currentTour.startsOn, 'YYYYMMDD').utc())) {
+            return false;
+        }
+    }
+    if (this.currentTour.expiresOn) {
+        if (now.isAfter(moment(this.currentTour.expiresOn, 'YYYYMMDD').utc())) {
+            return false;
+        }
+    }
+
+    return true;
+};
+
 PortalTour.prototype.saveMemento = function(memento) {
-    if(this._hasMemento(memento)) {
+    if (this._hasMemento(memento)) {
         // Don't save it twice
         return;
     }

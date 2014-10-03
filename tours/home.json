@@ -59,6 +59,9 @@
             "before": "resetMega"
         },
         "messages": "home",
-        "memento": "1014-nimbus-home"
+        "memento": "1014-nimbus-home",
+        "startsOn": "20141001",
+        "expiresOn": "20141115",
+        "hideMobile": "767"
     }
 }

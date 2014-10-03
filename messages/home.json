@@ -1,7 +1,7 @@
 {
     "home": {
         "en": {
-            "welcome-nav": "<h3>Welcome to the Newly Redesigned Customer Portal!</h3><h4>We've improved our navigation to make it easier to find what you're looking for in the Customer Portal.</h4>",
+            "welcome-nav": "<h3 class=\"lead-in\">Welcome to the Newly Redesigned Customer Portal!</h3><p>We've improved our navigation to make it easier to find what you're looking for in the Customer Portal.</p>",
             "products-one": "<strong>Products & Services</strong> is the single place to find everything you need for your Red Hat products and services. <br><br>The product pages are still your definitive source of Red Hat product knowledge with getting-started guides, product documentation, discussions, and more.",
             "products-two": "Also in <strong>Products & Services</strong>, you’ll find the Red Hat Certification ecosystem and general information about knowledge, support policies, and more.",
             "tools": "<strong>Tools</strong> is a new place for everything Red Hat develops to ensure your success with your Red Hat products. Red Hat Access Labs, plug-ins, and additional tools can now be found here.",
