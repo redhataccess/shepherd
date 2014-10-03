@@ -1,9 +1,20 @@
 {
     "/home/?$": {
         "steps": [{
-            "element": ".primary-nav",
             "key": "welcome-nav",
             "tooltipClass": "tooltip-lg"
+        }, {
+            "element": ".top-nav ul",
+            "key": "top-nav",
+            "tooltipClass": "tooltip-md",
+            "position": "right",
+            "highlightClass": "light top"
+        }, {
+            "element": ".utility-nav ul",
+            "key": "utility-nav",
+            "tooltipClass": "tooltip-md",
+            "position": "left",
+            "highlightClass": "light top right"
         }, {
             "element": ".products-menu .col-md-6.col-sm-8 .root",
             "key": "products-one",
@@ -30,18 +41,6 @@
             "key": "community",
             "tooltipClass": "tooltip-md",
             "before": "openCommunity"
-        }, {
-            "element": ".top-nav ul",
-            "key": "top-nav",
-            "tooltipClass": "tooltip-md",
-            "position": "right",
-            "highlightClass": "light top"
-        }, {
-            "element": ".utility-nav ul",
-            "key": "utility-nav",
-            "tooltipClass": "tooltip-md",
-            "position": "left",
-            "highlightClass": "light top right"
         }, {
             "element": ".home-quick-links",
             "key": "quick-links",
