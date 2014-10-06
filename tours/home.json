@@ -5,25 +5,25 @@
             "tooltipClass": "tooltip-lg"
         }, {
             "element": ".top-nav ul",
-            "key": "tour.nimbus.home.top-nav",
+            "key": "tour.nimbus.home.topNav",
             "tooltipClass": "tooltip-md",
             "position": "right",
             "highlightClass": "light top"
         }, {
             "element": ".utility-nav ul",
-            "key": "tour.nimbus.home.utility-nav",
+            "key": "tour.nimbus.home.utilityNav",
             "tooltipClass": "tooltip-md",
             "position": "left",
             "highlightClass": "light top right"
         }, {
             "element": ".products-menu .col-md-6.col-sm-8 .root",
-            "key": "tour.nimbus.home.products-one",
+            "key": "tour.nimbus.home.products1",
             "tooltipClass": "tooltip-md",
             "on": "openProducts",
             "position": "right"
         }, {
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
-            "key": "tour.nimbus.home.products-two",
+            "key": "tour.nimbus.home.products2",
             "tooltipClass": "tooltip-md",
             "on": "openProducts"
         }, {
@@ -43,13 +43,13 @@
             "before": "openCommunity"
         }, {
             "element": ".home-quick-links",
-            "key": "tour.nimbus.home.quick-links",
+            "key": "tour.nimbus.home.quickLinks",
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
         }, {
             "element": ".home-bottom .row",
-            "key": "tour.nimbus.home.whats-new",
+            "key": "tour.nimbus.home.whatsNew",
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
