@@ -29,7 +29,7 @@ var __actions = {
     }
 };
 
-var __tours = {"/home/?$":{"steps":[{"key":"tour.nimbus.home.welcome","tooltipClass":"tooltip-lg"},{"element":".top-nav ul","key":"tour.nimbus.home.top-nav","tooltipClass":"tooltip-md","position":"right","highlightClass":"light top"},{"element":".utility-nav ul","key":"tour.nimbus.home.utility-nav","tooltipClass":"tooltip-md","position":"left","highlightClass":"light top right"},{"element":".products-menu .col-md-6.col-sm-8 .root","key":"tour.nimbus.home.products-one","tooltipClass":"tooltip-md","on":"openProducts","position":"right"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","key":"tour.nimbus.home.products-two","tooltipClass":"tooltip-md","on":"openProducts"},{"element":".tools-menu .col-sm-9.basic","key":"tour.nimbus.home.tools","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","key":"tour.nimbus.home.security","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","key":"tour.nimbus.home.community","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".home-quick-links","key":"tour.nimbus.home.quick-links","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"element":".home-bottom .row","key":"tour.nimbus.home.whats-new","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"}],"callBacks":{"before":"resetMega"},"messages":"home","memento":"1014-nimbus-home","startsOn":"20141001","expiresOn":"20141115","hideMobile":"767"}};
+var __tours = {"/home/?$":{"steps":[{"key":"tour.nimbus.home.welcome","tooltipClass":"tooltip-lg"},{"element":".top-nav ul","key":"tour.nimbus.home.top-nav","tooltipClass":"tooltip-md","position":"right","highlightClass":"light top"},{"element":".utility-nav ul","key":"tour.nimbus.home.utility-nav","tooltipClass":"tooltip-md","position":"left","highlightClass":"light top right"},{"element":".products-menu .col-md-6.col-sm-8 .root","key":"tour.nimbus.home.products-one","tooltipClass":"tooltip-md","on":"openProducts","position":"right"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","key":"tour.nimbus.home.products-two","tooltipClass":"tooltip-md","on":"openProducts"},{"element":".tools-menu .col-sm-9.basic","key":"tour.nimbus.home.tools","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","key":"tour.nimbus.home.security","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","key":"tour.nimbus.home.community","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".home-quick-links","key":"tour.nimbus.home.quick-links","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"element":".home-bottom .row","key":"tour.nimbus.home.whats-new","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"}],"callBacks":{"before":"resetMega"},"messagesNS":"tour.nimbus.home","memento":"1014-nimbus-home","startsOn":"20141001","expiresOn":"20141115","hideMobile":"767"}};
 'use strict';
 var hasStorage = ('localStorage' in window && window.localStorage !== null),
     TOUR_STORAGE_KEY = 'RHCP-TOUR';
@@ -175,17 +175,28 @@ PortalTour.prototype.translateTour = function() {
     if (window.portal && window.portal.version) {
         version = window.portal.version;
     }
-    var keyStr = '';
-    for (var i = 0; i < this.currentTour.steps.length; i++) {
-        if (keyStr !== '') {
-            keyStr += ',';
-        }
-        keyStr += this.currentTour.steps[i].key;
+    var keyStr = 'tour.common.*',
+        closeLabelKey = 'tour.common.closeLabel',
+        nextLabelKey = 'tour.common.nextLabel';
+
+    if (this.currentTour.messagesNS) {
+        keyStr += (',' + this.currentTour.messagesNS + '.*');
     }
     P.t(keyStr, lang, version).then(function(values) {
         var langObj = values[lang];
         for (var i = 0; i < self.currentTour.steps.length; i++) {
-            self.currentTour.steps[i].intro = langObj[self.currentTour.steps[i].key];
+            var key = self.currentTour.steps[i].key;
+            self.currentTour.steps[i].intro = langObj[key] || key;
+        }
+        if (langObj[closeLabelKey]) {
+            var closeLabel = langObj[closeLabelKey];
+            self.intro.setOptions({
+                skipLabel: closeLabel,
+                doneLabel: closeLabel
+            });
+        }
+        if (langObj[nextLabelKey]) {
+            self.intro.setOption('nextLabel', langObj[nextLabelKey]);
         }
         dfd.resolve();
     });
