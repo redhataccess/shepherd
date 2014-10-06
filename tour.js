@@ -1,4 +1,4 @@
-define(['introjs', 'jquery', 'underscore', 'moment', 'Polyglot'], function (introjs, $, _, moment, P) {
+define(['introjs', 'jquery', 'underscore', 'moment', 'polyglot'], function (introjs, $, _, moment, P) {
 var __actions = {
     _: {
         click: function(selector) {
