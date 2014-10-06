@@ -183,8 +183,9 @@ PortalTour.prototype.translateTour = function() {
         keyStr += this.currentTour.steps[i].key;
     }
     P.t(keyStr, lang, version).then(function(values) {
+        var langObj = values[lang];
         for (var i = 0; i < self.currentTour.steps.length; i++) {
-            self.currentTour.steps[i].intro = values[self.currentTour.steps[i].key];
+            self.currentTour.steps[i].intro = langObj[self.currentTour.steps[i].key];
         }
         dfd.resolve();
     });
