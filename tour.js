@@ -143,17 +143,28 @@ PortalTour.prototype.translateTour = function() {
     if (window.portal && window.portal.version) {
         version = window.portal.version;
     }
-    var keyStr = '';
-    for (var i = 0; i < this.currentTour.steps.length; i++) {
-        if (keyStr !== '') {
-            keyStr += ',';
-        }
-        keyStr += this.currentTour.steps[i].key;
+    var keyStr = 'tour.common.*',
+        closeLabelKey = 'tour.common.closeLabel',
+        nextLabelKey = 'tour.common.nextLabel';
+
+    if (this.currentTour.messagesNS) {
+        keyStr += (',' + this.currentTour.messagesNS + '.*');
     }
     P.t(keyStr, lang, version).then(function(values) {
         var langObj = values[lang];
         for (var i = 0; i < self.currentTour.steps.length; i++) {
-            self.currentTour.steps[i].intro = langObj[self.currentTour.steps[i].key];
+            var key = self.currentTour.steps[i].key;
+            self.currentTour.steps[i].intro = langObj[key] || key;
+        }
+        if (langObj[closeLabelKey]) {
+            var closeLabel = langObj[closeLabelKey];
+            self.intro.setOptions({
+                skipLabel: closeLabel,
+                doneLabel: closeLabel
+            });
+        }
+        if (langObj[nextLabelKey]) {
+            self.intro.setOption('nextLabel', langObj[nextLabelKey]);
         }
         dfd.resolve();
     });

@@ -57,7 +57,7 @@
         "callBacks": {
             "before": "resetMega"
         },
-        "messages": "home",
+        "messagesNS": "tour.nimbus.home",
         "memento": "1014-nimbus-home",
         "startsOn": "20141001",
         "expiresOn": "20141115",
