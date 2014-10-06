@@ -27,16 +27,33 @@ var safeStore = function(key, value) {
     return window.localStorage.setItem(key, value);
 };
 
+var hashFn = function(str) {
+    if (window.btoa) {
+        return window.btoa(str);
+    }
+    // Fall back hash function for IE8&9
+    var hash = 0;
+    if (str.length === 0) {
+        return hash;
+    }
+    for (var i = 0; i < str.length; i++) {
+        var character = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + character;
+        hash = hash & hash;
+    }
+    return hash;
+};
+
 
 var PortalTour = function() {
     this.intro = introjs();
-    this._init(__tours, __actions, __messages);
+    this._init(__tours, __actions);
 };
 
-PortalTour.prototype._init = function(tours, actions, messages) {
+PortalTour.prototype._init = function(tours, actions) {
     this.tours = tours;
     this.actions = actions;
-    this.messages = messages;
+    this.translateDfd = null;
 
     this.currentTour = this.getCurrentTour();
     this.buildTour();
@@ -61,7 +78,7 @@ PortalTour.prototype.getCurrentTour = function() {
 };
 
 PortalTour.prototype.buildTour = function() {
-    this.translateTour();
+    this.translateDfd = this.translateTour();
     var self = this;
     this.intro.setOptions({
         steps: this.currentTour.steps,
@@ -115,17 +132,32 @@ PortalTour.prototype.shouldAutoStart = function() {
 };
 
 PortalTour.prototype.translateTour = function() {
-    var lang = 'en';
-    if (portal && portal.lang) {
-        lang = portal.lang;
-    }
-    var messageObj = this.messages[this.currentTour.messages],
-        // Fall back to english
-        langObj = messageObj[lang] || messageObj.en;
+    var dfd = new $.Deferred(),
+        self = this;
 
-    for (var i = 0; i < this.currentTour.steps.length; i++) {
-        this.currentTour.steps[i].intro = langObj[this.currentTour.steps[i].key];
+    var lang = 'en',
+        version = null;
+    if (window.portal && window.portal.lang) {
+        lang = window.portal.lang;
     }
+    if (window.portal && window.portal.version) {
+        version = window.portal.version;
+    }
+    var keyStr = '';
+    for (var i = 0; i < this.currentTour.steps.length; i++) {
+        if (keyStr !== '') {
+            keyStr += ',';
+        }
+        keyStr += this.currentTour.steps[i].key;
+    }
+    P.t(keyStr, lang, version).then(function(values) {
+        for (var i = 0; i < self.currentTour.steps.length; i++) {
+            self.currentTour.steps[i].intro = values[self.currentTour.steps[i].key];
+        }
+        dfd.resolve();
+    });
+
+    return dfd.promise();
 };
 
 PortalTour.prototype.startTour = function() {
@@ -133,22 +165,32 @@ PortalTour.prototype.startTour = function() {
     if (!this._canDisplay()) {
         return false;
     }
-    // Make sure we are at the top of the page
-    $('html, body').animate({
-        scrollTop: '0px'
-    }, 200, 'swing', _.bind(_.once(function() {
-        this.intro.start();
-        $('body').addClass('portal-tour');
-        if (this.currentTour.memento) {
-            this.saveMemento(this.currentTour.memento);
-        }
-    }), this));
+    var self = this;
+
+    function _start() {
+        // Make sure we are at the top of the page
+        $('html, body').animate({
+            scrollTop: '0px'
+        }, 200, 'swing', _.once(function() {
+            self.intro.start();
+            $('body').addClass('portal-tour');
+            if (self.currentTour.memento) {
+                self.saveMemento(self.currentTour.memento);
+            }
+        }));
+    }
+    if (this.translateDfd) {
+        this.translateDfd.then(_start);
+    } else {
+        _start();
+    }
+
 };
 
 PortalTour.prototype._hasMemento = function(memento) {
     var hasMemento = false,
         mementos = safeStore(TOUR_STORAGE_KEY),
-        b64Memento = btoa(memento);
+        b64Memento = hashFn(memento);
 
     if (!mementos) {
         return false;
@@ -196,7 +238,7 @@ PortalTour.prototype.saveMemento = function(memento) {
         return;
     }
     var mementos = safeStore(TOUR_STORAGE_KEY) || '';
-    mementos += (btoa(memento) + ',');
+    mementos += (hashFn(memento) + ',');
     safeStore(TOUR_STORAGE_KEY, mementos);
 };
 

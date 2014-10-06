@@ -12,11 +12,6 @@ module.exports = function(grunt) {
         files: {
           '.tmp/tours.json': ['tours/**/*.json']
         },
-      },
-      messages: {
-        files: {
-          '.tmp/messages.json': ['messages/**/*.json']
-        },
       }
     },
     clean: {
@@ -37,22 +32,13 @@ module.exports = function(grunt) {
           '.tmp/tours.js': ['.tmp/tours.json'],
         },
       },
-      messages: {
-        options: {
-          banner: 'var __messages = ',
-          footer: ';',
-        },
-        files: {
-          '.tmp/messages.js': ['.tmp/messages.json'],
-        },
-      },
       dist: {
         options: {
-          banner: 'define([\'introjs\', \'jquery\', \'underscore\', \'moment\'], function (introjs, $, _, moment) {\n',
+          banner: 'define([\'introjs\', \'jquery\', \'underscore\', \'moment\', \'Polyglot\'], function (introjs, $, _, moment, P) {\n',
           footer: '});',
         },
         files: {
-          'dist/tour.js': ['actions.js', '.tmp/messages.js', '.tmp/tours.js', 'tour.js']
+          'dist/tour.js': ['actions.js', '.tmp/tours.js', 'tour.js']
         }
       }
     },
