@@ -73,7 +73,9 @@ var hashFn = function(str) {
         hash = ((hash << 5) - hash) + character;
         hash = hash & hash;
     }
-    return hash;
+    // Casting this hash to a string to
+    // allow strict checking in _hasMemento
+    return hash + '';
 };
 
 
