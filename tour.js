@@ -153,21 +153,30 @@ PortalTour.prototype.translateTour = function() {
         keyStr += (',' + this.currentTour.messagesNS + '.*');
     }
     P.t(keyStr, lang, version).then(function(values) {
-        var langObj = values[lang];
+        var langObj = values && values[lang];
+        var getString = function(key) {
+            if (langObj && langObj[key]) {
+                // We have the language object, and the key
+                // return the translated string
+                return langObj[key];
+            }
+            // We don't have the language object
+            // return the key so we
+            // 1) Know the service failed
+            // 2) Don't fall on our face
+            return key;
+        };
         for (var i = 0; i < self.currentTour.steps.length; i++) {
             var key = self.currentTour.steps[i].key;
-            self.currentTour.steps[i].intro = langObj[key] || key;
+            self.currentTour.steps[i].intro = getString(key);
         }
-        if (langObj[closeLabelKey]) {
-            var closeLabel = langObj[closeLabelKey];
-            self.intro.setOptions({
-                skipLabel: closeLabel,
-                doneLabel: closeLabel
-            });
-        }
-        if (langObj[nextLabelKey]) {
-            self.intro.setOption('nextLabel', langObj[nextLabelKey]);
-        }
+        var closeLabel = getString(closeLabelKey),
+            nextLabel = getString(nextLabelKey);
+        self.intro.setOptions({
+            skipLabel: closeLabel,
+            doneLabel: closeLabel
+        });
+        self.intro.setOption('nextLabel', nextLabel);
         dfd.resolve();
     });
 
