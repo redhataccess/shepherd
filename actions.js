@@ -25,5 +25,8 @@ var __actions = {
     },
     openCommunity: function() {
         this._.click('#nav-community > a');
+    },
+    scrollTop: function() {
+        window.scrollTo(0, 0);
     }
 };

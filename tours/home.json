@@ -53,6 +53,10 @@
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
+        }, {
+            "key": "tour.nimbus.home.feedback",
+            "before": "scrollTop",
+            "tooltipClass": "tooltip-lg final"
         }],
         "callBacks": {
             "before": "resetMega"
