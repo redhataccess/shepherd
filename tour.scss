@@ -355,6 +355,7 @@ $arrow-size: 14;
 }
 
 /* HACK */
+.page-wrap.introjs-fixParent,
 .mega.active.introjs-fixParent {
   position: relative !important;
 }
