@@ -27,7 +27,7 @@
             "tooltipClass": "tooltip-md",
             "on": "openProducts"
         }, {
-            "element": "'.tools-menu > .row'",
+            "element": ".tools-menu > .row",
             "key": "tour.nimbus.home.tools",
             "tooltipClass": "tooltip-md",
             "before": "openTools"
