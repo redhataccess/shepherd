@@ -8,7 +8,7 @@ var __actions = {
     },
     resetMega: function() {
         // Determine if it is active
-        var isActive = document.querySelector('.mega.active');
+        var isActive = document.querySelector('.mega-menu.active');
         if (isActive) {
             // It is active... Find the menu that is open and then close it.
             var activeMenu = document.querySelector('.primary-nav .active > a');
@@ -32,7 +32,7 @@ var __actions = {
     }
 };
 
-var __tours = {"/home/?$":{"steps":[{"key":"tour.nimbus.home.welcome","tooltipClass":"tooltip-lg"},{"element":".top-nav ul","key":"tour.nimbus.home.topNav","tooltipClass":"tooltip-md","position":"right","highlightClass":"light top"},{"element":".utility-nav ul","key":"tour.nimbus.home.utilityNav","tooltipClass":"tooltip-md","position":"left","highlightClass":"light top right"},{"element":".products-menu .col-md-6.col-sm-8 .root","key":"tour.nimbus.home.products1","tooltipClass":"tooltip-md","on":"openProducts","position":"right"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","key":"tour.nimbus.home.products2","tooltipClass":"tooltip-md","on":"openProducts"},{"element":".tools-menu .col-sm-9.basic","key":"tour.nimbus.home.tools","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","key":"tour.nimbus.home.security","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","key":"tour.nimbus.home.community","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".home-quick-links","key":"tour.nimbus.home.quickLinks","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"element":".home-bottom .row","key":"tour.nimbus.home.whatsNew","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"key":"tour.nimbus.home.feedback","before":"scrollTop","tooltipClass":"tooltip-lg final"}],"callBacks":{"before":"resetMega"},"messagesNS":"tour.nimbus.home","memento":"1014-nimbus-home","startsOn":"20141001","expiresOn":"20141115","hideMobile":"767"}};
+var __tours = {"/home/?$":{"steps":[{"key":"tour.nimbus.home.welcome","tooltipClass":"tooltip-lg"},{"element":".top-nav ul","key":"tour.nimbus.home.topNav","tooltipClass":"tooltip-md","position":"right","highlightClass":"light top"},{"element":".utility-nav ul","key":"tour.nimbus.home.utilityNav","tooltipClass":"tooltip-md","position":"left","highlightClass":"light top right"},{"element":".products-menu .col-md-6.col-sm-8 .root","key":"tour.nimbus.home.products1","tooltipClass":"tooltip-md","on":"openProducts","position":"right"},{"element":".products-menu .col-md-6.col-sm-4.pull-right","key":"tour.nimbus.home.products2","tooltipClass":"tooltip-md","on":"openProducts"},{"element":"'.tools-menu > .row'","key":"tour.nimbus.home.tools","tooltipClass":"tooltip-md","before":"openTools"},{"element":".security-menu .col-sm-12.basic","key":"tour.nimbus.home.security","tooltipClass":"tooltip-md","before":"openSecurity"},{"element":".community-menu .col-sm-12.basic","key":"tour.nimbus.home.community","tooltipClass":"tooltip-md","before":"openCommunity"},{"element":".home-quick-links","key":"tour.nimbus.home.quickLinks","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"element":".home-bottom .row","key":"tour.nimbus.home.whatsNew","tooltipClass":"tooltip-md","position":"top","highlightClass":"light"},{"key":"tour.nimbus.home.feedback","before":"scrollTop","tooltipClass":"tooltip-lg final"}],"callBacks":{"before":"resetMega"},"messagesNS":"tour.nimbus.home","memento":"1014-nimbus-home","startsOn":"20141001","expiresOn":"20141115","hideMobile":"767"}};
 'use strict';
 var hasStorage = ('localStorage' in window && window.localStorage !== null),
     TOUR_STORAGE_KEY = 'RHCP-TOUR';
@@ -96,6 +96,10 @@ PortalTour.prototype._init = function(tours, actions) {
     this.buildTour();
 
     var searchObj = searchToObject();
+    if (searchObj.tour && searchObj.tour === 'false') {
+        // Disable tour with tour=false query param
+        return;
+    }
     if (this.currentTour.steps && searchObj.tour) {
         this.startTour();
     } else if (this.currentTour.steps && this.shouldAutoStart()) {
