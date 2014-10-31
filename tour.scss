@@ -365,3 +365,7 @@ $arrow-size: 14;
     position: relative !important;
   }
 }
+
+.le-ie9 .introjs-fixParent {
+  position: relative !important;
+}

@@ -61,6 +61,10 @@ PortalTour.prototype._init = function(tours, actions) {
     this.buildTour();
 
     var searchObj = searchToObject();
+    if (searchObj.tour && searchObj.tour === 'false') {
+        // Disable tour with tour=false query param
+        return;
+    }
     if (this.currentTour.steps && searchObj.tour) {
         this.startTour();
     } else if (this.currentTour.steps && this.shouldAutoStart()) {

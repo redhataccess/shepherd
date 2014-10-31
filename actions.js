@@ -7,7 +7,7 @@ var __actions = {
     },
     resetMega: function() {
         // Determine if it is active
-        var isActive = document.querySelector('.mega.active');
+        var isActive = document.querySelector('.mega-menu.active');
         if (isActive) {
             // It is active... Find the menu that is open and then close it.
             var activeMenu = document.querySelector('.primary-nav .active > a');
