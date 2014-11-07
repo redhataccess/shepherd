@@ -1,4 +1,4 @@
 shepherd
 ============
 
-/home?tour=true
+[/home?tour=true](https://access.redhat.com/home?tour=true)
