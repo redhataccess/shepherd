@@ -63,8 +63,8 @@
         },
         "messagesNS": "tour.nimbus.home",
         "memento": "1014-nimbus-home",
-        "startsOn": "20141001",
-        "expiresOn": "20141115",
+        "startsOn": "20141105",
+        "expiresOn": "20141207",
         "hideMobile": "767"
     }
 }
