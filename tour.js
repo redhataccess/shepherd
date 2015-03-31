@@ -2,7 +2,7 @@
 var hasStorage = ('localStorage' in window && window.localStorage !== null),
     TOUR_STORAGE_KEY = 'RHCP-TOUR';
 
-var searchToObject = function() {
+var searchToObject = function () {
     if (!location.search) {
         return {};
     }
@@ -17,7 +17,7 @@ var searchToObject = function() {
     return result;
 };
 
-var safeStore = function(key, value) {
+var safeStore = function (key, value) {
     if (!hasStorage) {
         return false;
     }
@@ -27,7 +27,7 @@ var safeStore = function(key, value) {
     return window.localStorage.setItem(key, value);
 };
 
-var hashFn = function(str) {
+var hashFn = function (str) {
     if (window.btoa) {
         return window.btoa(str);
     }
@@ -47,12 +47,12 @@ var hashFn = function(str) {
 };
 
 
-var PortalTour = function() {
+var PortalTour = function () {
     this.intro = introjs();
     this._init(__tours, __actions);
 };
 
-PortalTour.prototype._init = function(tours, actions) {
+PortalTour.prototype._init = function (tours, actions) {
     this.tours = tours;
     this.actions = actions;
     this.translateDfd = null;
@@ -72,7 +72,7 @@ PortalTour.prototype._init = function(tours, actions) {
     }
 };
 
-PortalTour.prototype.getCurrentTour = function() {
+PortalTour.prototype.getCurrentTour = function () {
     var path = window.location.pathname;
     for (var tour in this.tours) {
         if (new RegExp(tour).test(path)) {
@@ -83,22 +83,23 @@ PortalTour.prototype.getCurrentTour = function() {
     return {};
 };
 
-PortalTour.prototype.buildTour = function() {
+PortalTour.prototype.buildTour = function () {
     this.translateDfd = this.translateTour();
     var self = this;
-    this.intro.setOptions({
-        steps: this.currentTour.steps,
+    var defaults = {
         buttonClass: 'btn btn-sm',
         prevLabel: '&larr;',
         skipLabel: 'Close',
         doneLabel: 'Close',
+        dock: false,
         showBullets: false,
         showProgress: true,
         showStepNumbers: false,
         overlayOpacity: 0.45,
         arrowPadding: 8
-    });
-    this.intro.executeCurrentStepCb = function(phase) {
+    };
+    this.intro.setOptions($.extend(defaults, this.currentTour));
+    this.intro.executeCurrentStepCb = function (phase) {
         if (self.currentTour.callBacks && self.currentTour.callBacks[phase] &&
             self.actions[self.currentTour.callBacks[phase]]) {
             self.actions[self.currentTour.callBacks[phase]]();
@@ -110,23 +111,23 @@ PortalTour.prototype.buildTour = function() {
             }
         }
     };
-    var onFinish = function() {
+    var onFinish = function () {
         $('body').removeClass('portal-tour');
     };
-    this.intro.onbeforechange(function(element) {
+    this.intro.onbeforechange(function (element) {
         this.executeCurrentStepCb('before');
     });
-    this.intro.onchange(function(element) {
+    this.intro.onchange(function (element) {
         this.executeCurrentStepCb('on');
     });
-    this.intro.onafterchange(function(element) {
+    this.intro.onafterchange(function (element) {
         this.executeCurrentStepCb('after');
     });
     this.intro.oncomplete(onFinish);
     this.intro.onexit(onFinish);
 };
 
-PortalTour.prototype.shouldAutoStart = function() {
+PortalTour.prototype.shouldAutoStart = function () {
     // Check if we are within the tour dates
     if (!this._isTourCurrent()) {
         return false;
@@ -137,7 +138,7 @@ PortalTour.prototype.shouldAutoStart = function() {
     return (this._hasMemento(this.currentTour.memento) === false);
 };
 
-PortalTour.prototype.translateTour = function() {
+PortalTour.prototype.translateTour = function () {
     var dfd = new $.Deferred(),
         self = this;
 
@@ -156,9 +157,9 @@ PortalTour.prototype.translateTour = function() {
     if (this.currentTour.messagesNS) {
         keyStr += (',' + this.currentTour.messagesNS + '.*');
     }
-    P.t(keyStr, lang, version).then(function(values) {
+    P.t(keyStr, lang, version).then(function (values) {
         var langObj = values && values[lang];
-        var getString = function(key) {
+        var getString = function (key) {
             if (langObj && langObj[key]) {
                 // We have the language object, and the key
                 // return the translated string
@@ -187,7 +188,7 @@ PortalTour.prototype.translateTour = function() {
     return dfd.promise();
 };
 
-PortalTour.prototype.startTour = function() {
+PortalTour.prototype.startTour = function () {
     // Don't start the tour if we can't display it.
     if (!this._canDisplay()) {
         return false;
@@ -198,7 +199,7 @@ PortalTour.prototype.startTour = function() {
         // Make sure we are at the top of the page
         $('html, body').animate({
             scrollTop: '0px'
-        }, 200, 'swing', _.once(function() {
+        }, 200, 'swing', _.once(function () {
             self.intro.start();
             $('body').addClass('portal-tour');
             if (self.currentTour.memento) {
@@ -214,7 +215,7 @@ PortalTour.prototype.startTour = function() {
 
 };
 
-PortalTour.prototype._hasMemento = function(memento) {
+PortalTour.prototype._hasMemento = function (memento) {
     var hasMemento = false,
         mementos = safeStore(TOUR_STORAGE_KEY),
         b64Memento = hashFn(memento);
@@ -232,7 +233,7 @@ PortalTour.prototype._hasMemento = function(memento) {
     return hasMemento;
 };
 
-PortalTour.prototype._canDisplay = function() {
+PortalTour.prototype._canDisplay = function () {
     // For now just a mobile check, but I could see other things going in here.
     if (this.currentTour.hideMobile) {
         // Check current innerWidth of window and compare it to the tours
@@ -243,7 +244,7 @@ PortalTour.prototype._canDisplay = function() {
     }
     return true;
 };
-PortalTour.prototype._isTourCurrent = function() {
+PortalTour.prototype._isTourCurrent = function () {
     var now = moment().utc();
     if (this.currentTour.startsOn) {
         if (now.isBefore(moment(this.currentTour.startsOn, 'YYYYMMDD').utc())) {
@@ -259,7 +260,7 @@ PortalTour.prototype._isTourCurrent = function() {
     return true;
 };
 
-PortalTour.prototype.saveMemento = function(memento) {
+PortalTour.prototype.saveMemento = function (memento) {
     if (this._hasMemento(memento)) {
         // Don't save it twice
         return;
