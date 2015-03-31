@@ -41,19 +41,14 @@ module.exports = function(grunt) {
           'dist/tour.js': ['actions.js', '.tmp/tours.js', 'tour.js']
         }
       }
-    },
-    autoprefixer: {
-      single_file: {
-        src: 'dist/tour.css'
-      },
+    }
     }
   });
 
   grunt.loadNpmTasks('grunt-json-merge');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-autoprefixer');
 
-  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat', 'autoprefixer']);
+  grunt.registerTask('default', ['clean:dist', 'json_merge', 'concat']);
 
 };
