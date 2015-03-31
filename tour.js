@@ -84,7 +84,9 @@ PortalTour.prototype.getCurrentTour = function () {
 };
 
 PortalTour.prototype.buildTour = function () {
-    this.translateDfd = this.translateTour();
+    if (this.currentTour && this.currentTour.translate) {
+        this.translateDfd = this.translateTour();
+    }
     var self = this;
     var defaults = {
         buttonClass: 'btn btn-sm',
