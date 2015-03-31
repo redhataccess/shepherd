@@ -1,5 +1,6 @@
 {
     "(/home/?$)|(/$)": {
+        "dock": true,
         "steps": [{
             "key": "tour.nimbus.home.welcome",
             "tooltipClass": "tooltip-lg"

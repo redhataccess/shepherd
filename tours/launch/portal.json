@@ -1,0 +1,24 @@
+{
+    "/404/?$": {
+        "title": "Tour the Customer Portal",
+        "dock": true,
+        "multipage": true,
+        "launchTour": true,
+        "allowMinimize": true,
+        "skipLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
+        "doneLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
+        "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
+        "steps": [{
+            "title": "Subscriptions",
+            "intro": "Subscriptions is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account."
+        }, {
+            "title": "Manage subscriptions",
+            "intro": "If you use portal-based subscription management, this is the place to view and manage your registered systems and Subscription Management Applications like Red Hat Satellite."
+        }, {
+            "title": "Downloads",
+            "intro": "Download all of your Red Hat products, find RPM packages, and browse our library of Linux container images. If you are interested in trying a product, you will also find our available product evaluations on this page."
+        }],
+        "memento": "launch-portal",
+        "hideMobile": "767"
+    }
+}
