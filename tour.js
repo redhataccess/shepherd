@@ -203,7 +203,11 @@ PortalTour.prototype.startTour = function () {
             scrollTop: '0px'
         }, 200, 'swing', _.once(function () {
             self.intro.start();
-            $('body').addClass('portal-tour');
+            var bodyClassName = 'portal-tour';
+            if (self.currentTour.launchTour) {
+                bodyClassName += ' launch-tour';
+            }
+            $('body').addClass(bodyClassName);
             if (self.currentTour.memento) {
                 self.saveMemento(self.currentTour.memento);
             }
