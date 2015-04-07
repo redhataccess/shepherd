@@ -1,0 +1,51 @@
+{
+    "3": {
+        "title": "User Management",
+        "dock": true,
+        "multipage": true,
+        "launchTour": true,
+        "allowMinimize": true,
+        "overlayOpacity": 0.05,
+        "skipLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
+        "doneLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
+        "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
+        "steps": [{
+            "intro": "To ensure the security of your organization's account and that users may access only to what you want them to, you or any other Organization Administrator must create a user account for each member of your organization.<br><br>Tip: User accounts not created by an Organization Administrator cannot be retroactively associated with your organization account by Customer Service or Technical Support. ",
+            "path": "https://access.redhat.com/home"
+        }, {
+            "element": "#account-info .row.account-settings .col-md-6:first-child li:nth-child(3)",
+            "intro": "When logged in, you can access User Management from any page on the Red Hat Customer Portal by clicking your name in the global user bar, and then User Management in the Red Hat Account menu. ",
+            "path": "https://access.redhat.com/home",
+            "after": "stripFixParents",
+            "before": "openProfile"
+        }, {
+            "title": "User Management",
+            "element": ".admin-actions .add-user",
+            "intro": "The User List page lists all users on your account. This page is also where you go to add new users.<br><br>To add a small number of users one at a time, click Add New User.",
+            "path": "/wapps/ugc/protected/usermgt/userList.html"
+        }, {
+            "title": "Add User",
+            "element": "#generalForm .fieldsetform:nth-child(6)",
+            "intro": "On the Create New User page, complete all *required fields. Be sure to set the permissions you'd like for the user. Checking the Organization Administrator box under Account Roles will give the user all the permissions in the Customer Portal Access Permissions section.<br><br>Repeat for each user you want to add.",
+            "path": "https://www.redhat.com/wapps/ugc/protected/usermgt/createNewUser.html"
+        }, {
+            "title": "User Management",
+            "element": ".admin-actions .add-bulk",
+            "intro": "To add a larger number of users at once, click Upload new users on the User List page. ",
+            "path": "https://www.redhat.com/wapps/ugc/protected/usermgt/userList.html"
+        }, {
+            "title": "User Upload",
+            "element": ".download-template",
+            "intro": "Here, you can upload users via a .csv file.<br><br>It's a good idea to download the.csv template to use when creating your file so that the data is properly structured.<br><br>You can't set users as Organization Administrators via .csv upload. However, you can do this in bulk once the users are created. Just select users from the list, click Edit and check Organization Administrator. For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
+            "path": "https://www.redhat.com/wapps/ugc/protected/usermgt/createNewUsersCSV.html"
+        }, {
+            "intro": "Consider adding new users when your organization starts a new project, adds a new Red Hat product or any other time when there is a change in your organization.<br><br>So that we can communicate with your organization's team members efficiently, it's a good idea to perform user management maintenance once a quarter.",
+            "path": "https://www.redhat.com/wapps/ugc/protected/usermgt/userList.html"
+        }],
+        "callBacks": {
+            "on": "ensurePath",
+            "exit": "returnToLaunch"
+        },
+        "hideMobile": "767"
+    }
+}

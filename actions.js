@@ -46,7 +46,7 @@ var __actions = {
     stripFixParents: function () {
         $('.introjs-fixParent').removeClass('introjs-fixParent')
     },
-    returnToLaunch: function() {
+    returnToLaunch: function () {
         window.location = '/labs/launch/'
     },
     ensurePath: function (step, index) {
