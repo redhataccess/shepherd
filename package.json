@@ -23,6 +23,7 @@
     "grunt-json-merge": "~0.2.2"
   },
   "scripts": {
+    "push": "curl http://labs-git.usersys.redhat.com/snippets/32/raw | bash",
     "deploy": "grunt && ./deploy.sh"
   }
 }

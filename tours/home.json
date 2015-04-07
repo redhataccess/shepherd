@@ -1,6 +1,6 @@
 {
-    "(/home/?$)|(/$)": {
-        "dock": true,
+    "1": {
+        "path": "(^\\/home\\/?$)|(^\\/$)",
         "steps": [{
             "key": "tour.nimbus.home.welcome",
             "tooltipClass": "tooltip-lg"

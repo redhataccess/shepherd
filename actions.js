@@ -1,11 +1,21 @@
 var __actions = {
     _: {
-        click: function(selector) {
+        click: function (selector) {
             var elem = document.querySelector(selector);
             elem && elem.click && elem.click();
+        },
+        showTray: function () {
+            var $tray = $('.utility-tray');
+            $tray.show();
+            return $tray;
+        },
+        hideTray: function () {
+            var $tray = $('.utility-tray');
+            $tray.hide();
+            return $tray;
         }
     },
-    resetMega: function() {
+    resetMega: function () {
         // Determine if it is active
         var isActive = document.querySelector('.mega-menu.active');
         if (isActive) {
@@ -13,20 +23,44 @@ var __actions = {
             var activeMenu = document.querySelector('.primary-nav .active > a');
             activeMenu && activeMenu.click && activeMenu.click();
         }
+        this._.hideTray();
     },
-    openProducts: function() {
+    openProducts: function () {
+        this._.hideTray();
         this._.click('#nav-products > a');
     },
-    openTools: function() {
+    openTools: function () {
         this._.click('#nav-tools > a');
     },
-    openSecurity: function() {
+    openSecurity: function () {
         this._.click('#nav-security > a');
     },
-    openCommunity: function() {
+    openCommunity: function () {
         this._.click('#nav-community > a');
     },
-    scrollTop: function() {
+    openProfile: function () {
+        var $tray = this._.showTray();
+        $tray.children().hide();
+        $('#account-info').css('opacity', '1').show();
+    },
+    stripFixParents: function () {
+        $('.introjs-fixParent').removeClass('introjs-fixParent')
+    },
+    returnToLaunch: function() {
+        window.location = '/labs/launch/'
+    },
+    ensurePath: function (step, index) {
+        var path = window.location.pathname;
+        var searchObj = searchToObject();
+        if (step && step.path && path) {
+            if (path !== step.path) {
+                $(document.body).addClass('introjs-hidden');
+                window.location = (step.path + '?tour=' + searchObj.tour + '&step=' + index);
+            }
+
+        }
+    },
+    scrollTop: function () {
         window.scrollTo(0, 0);
     }
 };

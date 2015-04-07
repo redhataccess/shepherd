@@ -1,24 +1,82 @@
 {
-    "/404/?$": {
+    "2": {
         "title": "Tour the Customer Portal",
         "dock": true,
         "multipage": true,
         "launchTour": true,
         "allowMinimize": true,
+        "overlayOpacity": 0.05,
         "skipLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
         "doneLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
         "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
         "steps": [{
+            "element": "#nav-subscription",
             "title": "Subscriptions",
-            "intro": "Subscriptions is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account."
+            "intro": "Subscriptions is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account.",
+            "path": "/management/"
         }, {
+            "element": ".band.band-alt.band-narrow > .container .row.push-top",
             "title": "Manage subscriptions",
-            "intro": "If you use portal-based subscription management, this is the place to view and manage your registered systems and Subscription Management Applications like Red Hat Satellite."
+            "intro": "If you use portal-based subscription management, this is the place to view and manage your registered systems and Subscription Management Applications like Red Hat Satellite.",
+            "path": "/management/"
         }, {
+            "element": "#nav-downloads",
             "title": "Downloads",
-            "intro": "Download all of your Red Hat products, find RPM packages, and browse our library of Linux container images. If you are interested in trying a product, you will also find our available product evaluations on this page."
+            "intro": "Download all of your Red Hat products, find RPM packages, and browse our library of Linux container images. If you are interested in trying a product, you will also find our available product evaluations on this page.",
+            "path": "/downloads/"
+        }, {
+            "element": "#nav-support",
+            "title": "Support Cases",
+            "intro": "Create, track, and manage your support cases here. Our intelligent recommendation engine can often find the resolution to your problem before you finish filing a new case.<br /><br />Note: Support Cases are available only to authorized users on your account.",
+            "path": "/support/cases/"
+        }, {
+            "element": "#account-info .row.account-settings .col-md-6:first-child",
+            "title": "Account and Profile",
+            "intro": "Manage your account details, newsletter preferences, and more. With User Management you have fine- grained control to share your Customer Portal account access with unlimited users from your organization.",
+            "after": "stripFixParents",
+            "before": "openProfile"
+        }, {
+            "element": "#account-info .row.account-settings .col-md-6:last-child",
+            "title": "Account and Profile",
+            "intro": "Along with your personal profile, The Customer Portal also includes a notification service that will send you email when content you are interested in is updated. Look for the ‘Follow’ button to stay informed about your favorite Articles, Solutions, Discussions, contributors, and more.",
+            "after": "stripFixParents",
+            "before": "openProfile"
+        }, {
+            "element": ".products-menu .col-md-6.col-sm-8 .root",
+            "title": "Products &amp; Services",
+            "intro": "Products &amp; Services is the single place to find everything you need for your Red Hat products and services. <br><br>The product pages are still your definitive source of Red Hat product knowledge with getting-started guides, product documentation, discussions, and more.",
+            "tooltipClass": "tooltip-md",
+            "on": "openProducts"
+        }, {
+            "element": ".products-menu .col-md-6.col-sm-4.pull-right",
+            "title": "Products &amp; Services",
+            "intro": "Also in Products &amp; Services, you’ll find the Red Hat Certification ecosystem and general information about knowledge, support policies, and more.",
+            "tooltipClass": "tooltip-md",
+            "on": "openProducts"
+        }, {
+            "element": "#nav-tools",
+            "title": "Labs",
+            "intro": "Red Hat Access Labs is a rapidly growing set of tools developed by Red Hat engineers to help you improve performance, quickly troubleshoot issues, identify security problems, and more.",
+            "path": "/labs/",
+            "after": "stripFixParents"
+        }, {
+            "element": "#nav-security",
+            "title": "Security",
+            "intro": "Security is a top priority for us all. This is the place to engage with our Red Hat Product Security team, access security updates, and ensure your environments are not exposed to any known security vulnerabilities.",
+            "path": "/security/",
+            "after": "stripFixParents"
+        }, {
+            "element": "#nav-community",
+            "title": "Community",
+            "intro": "Community Discussions is the place for Red Hat associates and customers to collaborate. Join 3,500 Red Hat experts, customers, and partners who engage in discussions each year. In Community, you will also find blogs, events, and more.",
+            "path": "/community/",
+            "after": "stripFixParents"
         }],
-        "memento": "launch-portal",
+        "callBacks": {
+            "before": "resetMega",
+            "on": "ensurePath",
+            "exit": "returnToLaunch"
+        },
         "hideMobile": "767"
     }
 }

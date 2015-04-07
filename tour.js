@@ -56,11 +56,9 @@ PortalTour.prototype._init = function (tours, actions) {
     this.tours = tours;
     this.actions = actions;
     this.translateDfd = null;
-
-    this.currentTour = this.getCurrentTour();
-    this.buildTour();
-
     var searchObj = searchToObject();
+    this.currentTour = this.getCurrentTour(searchObj);
+    this.buildTour();
     if (searchObj.tour && searchObj.tour === 'false') {
         // Disable tour with tour=false query param
         return;
@@ -72,11 +70,15 @@ PortalTour.prototype._init = function (tours, actions) {
     }
 };
 
-PortalTour.prototype.getCurrentTour = function () {
+PortalTour.prototype.getCurrentTour = function (searchObj) {
     var path = window.location.pathname;
+    if (searchObj.tour && this.tours[searchObj.tour]) {
+        return this.tours[searchObj.tour];
+    }
     for (var tour in this.tours) {
-        if (new RegExp(tour).test(path)) {
-            return this.tours[tour];
+        var _tour = this.tours[tour];
+        if (_tour.path && new RegExp(_tour.path).test(path)) {
+            return _tour;
         }
     }
     // No tour :[
@@ -102,19 +104,21 @@ PortalTour.prototype.buildTour = function () {
     };
     this.intro.setOptions($.extend(defaults, this.currentTour));
     this.intro.executeCurrentStepCb = function (phase) {
+        var index = this._currentStep;
+        var step = (this._options && this._options.steps && this._options.steps[index]);
         if (self.currentTour.callBacks && self.currentTour.callBacks[phase] &&
             self.actions[self.currentTour.callBacks[phase]]) {
-            self.actions[self.currentTour.callBacks[phase]]();
+            self.actions[self.currentTour.callBacks[phase]](step, index);
         }
-        if (this._options && this._options.steps && this._currentStep) {
-            var step = this._options.steps[this._currentStep];
+        if (step) {
             if (step && step[phase] && self.actions[step[phase]]) {
-                self.actions[step[phase]]();
+                self.actions[step[phase]](step, index);
             }
         }
     };
     var onFinish = function () {
         $('body').removeClass('portal-tour');
+        this.executeCurrentStepCb('exit');
     };
     this.intro.onbeforechange(function (element) {
         this.executeCurrentStepCb('before');
@@ -202,7 +206,11 @@ PortalTour.prototype.startTour = function () {
         $('html, body').animate({
             scrollTop: '0px'
         }, 200, 'swing', _.once(function () {
-            self.intro.start();
+            var intro = self.intro;
+            window.__test = intro;
+            if (intro._targetElement === null) {
+                intro._targetElement = document.body;
+            }
             var bodyClassName = 'portal-tour';
             if (self.currentTour.launchTour) {
                 bodyClassName += ' launch-tour';
@@ -210,6 +218,19 @@ PortalTour.prototype.startTour = function () {
             $('body').addClass(bodyClassName);
             if (self.currentTour.memento) {
                 self.saveMemento(self.currentTour.memento);
+            }
+            var initialStep = searchToObject().step;
+            if (initialStep) {
+                intro.goToStep(parseInt(initialStep, 10) + 1);
+            }
+            if (window.chrometwo_ready) {
+                window.chrometwo_ready(function () {
+                    intro.start();
+                });
+            } else {
+                $(function () {
+                    intro.start();
+                });
             }
         }));
     }
