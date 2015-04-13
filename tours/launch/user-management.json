@@ -22,7 +22,7 @@
             "title": "User Management",
             "element": ".admin-actions .add-user",
             "intro": "The User List page lists all users on your account. This page is also where you go to add new users.<br><br>To add a small number of users one at a time, click Add New User.",
-            "path": "/wapps/ugc/protected/usermgt/userList.html"
+            "path": "https://www.redhat.com/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "title": "Add User",
             "element": "#generalForm .fieldsetform:nth-child(6)",
