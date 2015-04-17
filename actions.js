@@ -55,7 +55,11 @@ var __actions = {
         if (step && step.path && path) {
             if (path !== step.path) {
                 $(document.body).addClass('introjs-hidden');
-                window.location = (step.path + '?tour=' + searchObj.tour + '&step=' + index);
+                var newPath = (step.path + '?tour=' + searchObj.tour + '&step=' + index);
+                if (step.hostname) {
+                    return window.location = (window.location.protocol + step.hostname + newPath);
+                }
+                window.location = newPath;
             }
 
         }
