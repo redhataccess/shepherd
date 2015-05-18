@@ -10,42 +10,42 @@
         "doneLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
         "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
         "steps": [{
-            "intro": "To ensure the security of your organization's account and that users may access only to what you want them to, you or any other Organization Administrator must create a user account for each member of your organization.<br><br>Tip: User accounts not created by an Organization Administrator cannot be retroactively associated with your organization account by Customer Service or Technical Support. ",
+            "intro": "To ensure the security of your organization's account and regulate user access to portal features, you or any other Organization Administrator must create a user login for each member of your organization.<br><br>Tip: Customer Portal user logins not already associated  with your organization's account cannot be retroactively linked to your account by the Organization Administrator or by Red Hat Customer Service or Technical Support.",
             "hostname": "access.redhat.com",
             "path": "/home"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child li:nth-child(3)",
-            "intro": "When logged in, you can access User Management from any page on the Red Hat Customer Portal by clicking your name in the global user bar, and then User Management in the Red Hat Account menu. ",
+            "intro": "When logged in, you can access User Management from any page on the Red Hat Customer Portal by clicking your name in the global user bar at the top of the page, and then User Management in the Red Hat Account Menu.",
             "hostname": "access.redhat.com",
             "path": "/home",
             "after": "stripFixParents",
             "before": "openProfile"
         }, {
-            "title": "User Management",
+            "title": "User List",
             "element": ".admin-actions .add-user",
-            "intro": "The User List page lists all users on your account. This page is also where you go to add new users.<br><br>To add a small number of users one at a time, click Add New User.",
+            "intro": "The User List page lists all users associated with your account and is the starting place from which you can create new user logins.<br><br>To add individual users one at a time, click Add New User.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "title": "Add User",
             "element": "#generalForm .fieldsetform:nth-child(6)",
-            "intro": "On the Create New User page, complete all *required fields. Be sure to set the permissions you'd like for the user. Checking the Organization Administrator box under Account Roles will give the user all the permissions in the Customer Portal Access Permissions section.<br><br>Repeat for each user you want to add.",
+            "intro": "On the Create New User page, complete all *required fields. Be sure to assign the appropriate permissions for the user under the \"Customer Portal Access Permissions\" section. Checking the Organization Administrator box under \"Account Roles\" will give the user all the permissions listed in the Customer Portal Access Permissions section.<br><br>Repeat this process for each user you want to add.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUser.html"
         }, {
-            "title": "User Management",
+            "title": "Bulk User Creation",
             "element": ".admin-actions .add-bulk",
             "intro": "To add a larger number of users at once, click Upload new users on the User List page. ",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
-            "title": "User Upload",
+            "title": "Bulk User Upload",
             "element": ".download-template",
-            "intro": "Here, you can upload users via a .csv file.<br><br>It's a good idea to download the.csv template to use when creating your file so that the data is properly structured.<br><br>You can't set users as Organization Administrators via .csv upload. However, you can do this in bulk once the users are created. Just select users from the list, click Edit and check Organization Administrator. For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
+            "intro": "Here, you can upload users via a .csv file.<br><br>Download and complete the .csv template to so that the data is properly structured, and then upload the file.<br><br>Tip: You cannot set users as Organization Administrators via .csv upload. However, to assign the OA role in bulk once the users are created, go back to the \"User List\" page, select the appropriate users from the list, click \"Edit\" and check \"Organization Administrator.\" For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUsersCSV.html"
         }, {
-            "intro": "Consider adding new users when your organization starts a new project, adds a new Red Hat product or any other time when there is a change in your organization.<br><br>So that we can communicate with your organization's team members efficiently, it's a good idea to perform user management maintenance once a quarter.",
+            "intro": "Red Hat recommends that you create a unique user login for every individual within your organization involved the Red Hat product lifecycle - from planning and design all the way through production maintenance and support. For more information on the benefits of assigning individual user logins, reference <a href='https://access.redhat.com/articles/1326373' target='_blank'>this knowledge article</a>.<br><br>Tip: In order to effectively and efficiently communicate with each member of your organization, a good best practice is to perform user management maintenance once every quarter.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }],

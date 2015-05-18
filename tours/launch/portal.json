@@ -12,12 +12,12 @@
         "steps": [{
             "element": "#nav-subscription",
             "title": "Subscriptions",
-            "intro": "Subscriptions is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account.",
+            "intro": "Subscriptions, located in the Global User Bar in the top left corner of the page, is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account.",
             "path": "/management/"
         }, {
             "element": ".band.band-alt.band-narrow > .container .row.push-top",
             "title": "Manage subscriptions",
-            "intro": "If you use portal-based subscription management, this is the place to view and manage your registered systems and Subscription Management Applications like Red Hat Satellite.",
+            "intro": "If you use portal-based subscription management, this is where you can view and manage your registered systems and Subscription Management Applications like Red Hat Satellite.<br /><br />Tip: Read the knowledge article <a href='https://access.redhat.com/articles/143253' target='_blank'>Overview of Red Hat Subscription Management</a> for additional information on managing subscriptions.",
             "path": "/management/"
         }, {
             "element": "#nav-downloads",
@@ -27,36 +27,36 @@
         }, {
             "element": "#nav-support",
             "title": "Support Cases",
-            "intro": "Create, track, and manage your support cases here. Our intelligent recommendation engine can often find the resolution to your problem before you finish filing a new case.<br /><br />Note: Support Cases are available only to authorized users on your account.",
+            "intro": "Create, track, and manage your support cases here. During the case creation process, our intelligent  recommendation engine can often find the resolution to your problem  before you finish filing a new case.<br /><br />Note: Support Cases are available only to authorized users on your account.",
             "path": "/support/cases/"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child",
-            "title": "Account and Profile",
+            "title": "Your User Account",
             "intro": "Manage your account details, newsletter preferences, and more. With User Management you have fine- grained control to share your Customer Portal account access with unlimited users from your organization.",
             "after": "stripFixParents",
             "before": "openProfile"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:last-child",
-            "title": "Account and Profile",
+            "title": "Your User Account",
             "intro": "Along with your personal profile, The Customer Portal also includes a notification service that will send you email when content you are interested in is updated. Look for the ‘Follow’ button to stay informed about your favorite Articles, Solutions, Discussions, contributors, and more.",
             "after": "stripFixParents",
             "before": "openProfile"
         }, {
             "element": ".products-menu .col-md-6.col-sm-8 .root",
             "title": "Products &amp; Services",
-            "intro": "Products &amp; Services is the single place to find everything you need for your Red Hat products and services. <br><br>The product pages are still your definitive source of Red Hat product knowledge with getting-started guides, product documentation, discussions, and more.",
+            "intro": "The Products &amp; Services menu is your gateway to product-specific information like evaluations, features, software downloads, documentation and step-by-step details to get you started.",
             "tooltipClass": "tooltip-md",
             "on": "openProducts"
         }, {
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
-            "title": "Products &amp; Services",
-            "intro": "Also in Products &amp; Services, you’ll find the Red Hat Certification ecosystem and general information about knowledge, support policies, and more.",
+            "title": "Products &amp; Services...continued",
+            "intro": "Also in the Products & Services menu, you’ll find the Red Hat Certification ecosystem as well as direct links to the Red Hat knowledgebase and product documentation. The Support Policies section includes important information to know such as Scope of Coverage, SLAs and the Management Escalation process.",
             "tooltipClass": "tooltip-md",
             "on": "openProducts"
         }, {
             "element": "#nav-tools",
-            "title": "Labs",
-            "intro": "Red Hat Access Labs is a rapidly growing set of tools developed by Red Hat engineers to help you improve performance, quickly troubleshoot issues, identify security problems, and more.",
+            "title": "Red Hat Access Labs",
+            "intro": "Accessible via the Tools menu in the navigation bar, Red Hat Access Labs is a rapidly growing set of tools developed by Red Hat engineers to help you improve performance, quickly troubleshoot issues, identify security problems, and more.",
             "path": "/labs/",
             "after": "stripFixParents"
         }, {
