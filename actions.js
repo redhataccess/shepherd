@@ -101,8 +101,9 @@ var __actions = {
     },
     waitThenRefresh: function (step, index, tour) {
         this._.hideTour();
+        var show = this._.showTour;
         this._.waitForElement(step.element, function () {
-            this._.showTour();
+            show();
             tour.intro.refresh();
         });
     },
