@@ -42,7 +42,8 @@
             "element": "#rha-case-more-options",
             "intro": "Select Support Level, Severity and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.<br><br>Tip: PREMIUM Severity 1 cases default to 24x7 support; Severity 2 are entitled to 24x7 by request.",
             "path": "/support/cases/",
-            "hash": "#/case/new"
+            "hash": "#/case/new",
+            "before": "waitThenRefresh"
         }, {
             "intro": "That's it. Red Hat strives for support excellence. Always fill out the customer satisfaction survey you receive after your case is resolved and let us know how we did!",
             "path": "/support/cases/",

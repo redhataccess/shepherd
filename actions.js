@@ -100,10 +100,9 @@ var __actions = {
         }
     },
     waitThenRefresh: function (step, index, tour) {
-        this._.hideTour();
-        var show = _.bind(this._.showTour, this._);
-        this._.waitForElement(step.element, function () {
-            show();
+        this._.waitForElement(step.element, function (element) {
+            var currentStep = tour.intro._introItems[tour.intro._currentStep];
+            currentStep.element = element;
             tour.intro.refresh();
         });
     },
@@ -111,7 +110,8 @@ var __actions = {
         function _loadRecommendations() {
             try {
                 var $scope = angular.element('#rha-product-select').scope();
-                $scope.CaseService.kase.product = $scope.ProductsService.products[0].value;
+                var rhel = $scope.ProductsService.products[0];
+                $scope.CaseService.kase.product = rhel.value || rhel.code;
                 $scope.CaseService.onProductSelectChange();
                 $scope.RecommendationsService.getRecommendations();
             } catch (e) {}
