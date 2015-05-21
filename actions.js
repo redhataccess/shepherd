@@ -18,10 +18,10 @@ var __actions = {
             return $('.introjs-overlay, .introjs-helperLayer, .introjs-tooltipReferenceLayer');
         },
         hideTour: function () {
-            this._.getTourElements().hide();
+            this.getTourElements().hide();
         },
         showTour: function () {
-            this._.getTourElements().show();
+            this.getTourElements().show();
         },
         waitForElement: function (selector, cb, max) {
             if (max === 0) {
@@ -35,7 +35,7 @@ var __actions = {
             if (found) {
                 cb(document.querySelector(selector));
             } else {
-                setTimeout($.proxy(this._.waitForElement, this, selector, cb, max--), 250);
+                setTimeout($.proxy(this.waitForElement, this, selector, cb, max--), 250);
             }
         }
     },
@@ -74,18 +74,29 @@ var __actions = {
         window.location = '/start/';
     },
     ensurePath: function (step, index) {
+        function _bounce() {
+            var searchObj = searchToObject();
+            $(document.body).addClass('introjs-hidden');
+            var newPath = (step.path + '?tour=' + searchObj.tour + '&step=' + index);
+            if (step.hash) {
+                newPath += step.hash;
+            }
+            if (step.hostname) {
+                return window.location = (window.location.protocol + '//' + step.hostname + newPath);
+            }
+            window.location = newPath;
+        }
         var path = window.location.pathname;
-        var searchObj = searchToObject();
+        var hash = window.location.hash;
         if (step && step.path && path) {
             if (path !== step.path) {
-                $(document.body).addClass('introjs-hidden');
-                var newPath = (step.path + '?tour=' + searchObj.tour + '&step=' + index);
-                if (step.hostname) {
-                    return window.location = (window.location.protocol + '//' + step.hostname + newPath);
-                }
-                window.location = newPath;
+                _bounce();
             }
-
+        }
+        if (step && step.hash && hash) {
+            if (hash !== step.hash) {
+                _bounce();
+            }
         }
     },
     waitThenRefresh: function (step, index, tour) {
