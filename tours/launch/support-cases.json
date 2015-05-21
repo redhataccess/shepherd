@@ -1,0 +1,58 @@
+{
+    "4": {
+        "title": "Case Management",
+        "dock": true,
+        "multipage": true,
+        "launchTour": true,
+        "allowMinimize": true,
+        "overlayOpacity": 0.05,
+        "skipLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
+        "doneLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
+        "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
+        "steps": [{
+            "title": "Support Cases",
+            "element": "#nav-support",
+            "intro": "Click Support Cases in the global user bar.",
+            "path": "/support/cases/",
+            "hash": "#/case/list"
+        }, {
+            "title": "Viewing Cases",
+            "element": "#redhat-access-cases .actions .btn-app",
+            "intro": "If you have previous cases they will be displayed here. You can search for a case, filter by case group, open, closed or all cases.",
+            "path": "/support/cases/",
+            "hash": "#/case/list",
+            "before": "waitThenRefresh"
+        }, {
+            "title": "Creating Cases",
+            "element": "#rha-newBase .case-new",
+            "intro": "Select product, version and give the case a name and a detailed description. Attaching logs, an sos report or other diagnostics files is highly recommended and results in faster average resolution times.",
+            "path": "/support/cases/",
+            "hash": "#/case/new",
+            "before": "waitThenRefresh",
+            "on": "loadRecommendations"
+        }, {
+            "title": "Recommendations",
+            "element": "#recommendations_section",
+            "intro": "As you type your case name and description, you will see solution recommendations dynamically update directing you to content which may address your concern.",
+            "path": "/support/cases/",
+            "hash": "#/case/new",
+            "before": "waitThenRefresh"
+        }, {
+            "title": "Case Options",
+            "element": "#rha_supportLevel_select_chosen",
+            "intro": "Select Support Level, Severity and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.<br><br>Tip: PREMIUM Severity 1 cases default to 24x7 support; Severity 2 are entitled to 24x7 by request.",
+            "path": "/support/cases/",
+            "hash": "#/case/new"
+        }, {
+            "intro": "That's it. Red Hat strives for support excellence. Always fill out the customer satisfaction survey you receive after your case is resolved and let us know how we did!",
+            "path": "/support/cases/",
+            "hash": "#/case/new"
+        }],
+        "callBacks": {
+            "before": "resetMega",
+            "on": "ensurePath",
+            "exit": "returnToLaunch"
+        },
+        "hideMobile": "767"
+    }
+}
