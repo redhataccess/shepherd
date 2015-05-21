@@ -108,11 +108,11 @@ PortalTour.prototype.buildTour = function () {
         var step = (this._options && this._options.steps && this._options.steps[index]);
         if (self.currentTour.callBacks && self.currentTour.callBacks[phase] &&
             self.actions[self.currentTour.callBacks[phase]]) {
-            self.actions[self.currentTour.callBacks[phase]](step, index);
+            self.actions[self.currentTour.callBacks[phase]](step, index, self);
         }
         if (step) {
             if (step && step[phase] && self.actions[step[phase]]) {
-                self.actions[step[phase]](step, index);
+                self.actions[step[phase]](step, index, self);
             }
         }
     };

@@ -13,6 +13,30 @@ var __actions = {
             var $tray = $('.utility-tray');
             $tray.hide();
             return $tray;
+        },
+        getTourElements: function () {
+            return $('.introjs-overlay, .introjs-helperLayer, .introjs-tooltipReferenceLayer');
+        },
+        hideTour: function () {
+            this._.getTourElements().hide();
+        },
+        showTour: function () {
+            this._.getTourElements().show();
+        },
+        waitForElement: function (selector, cb, max) {
+            if (max === 0) {
+                // We tried our best :(
+                return;
+            }
+            if (typeof max === 'undefined') {
+                max = 40;
+            }
+            var found = $(selector).is(':visible');
+            if (found) {
+                cb(document.querySelector(selector));
+            } else {
+                setTimeout($.proxy(this._.waitForElement, this, selector, cb, max--), 250);
+            }
         }
     },
     resetMega: function () {
@@ -44,10 +68,10 @@ var __actions = {
         $('#account-info').css('opacity', '1').show();
     },
     stripFixParents: function () {
-        $('.introjs-fixParent').removeClass('introjs-fixParent')
+        $('.introjs-fixParent').removeClass('introjs-fixParent');
     },
     returnToLaunch: function () {
-        window.location = '/labs/launch/'
+        window.location = '/start/';
     },
     ensurePath: function (step, index) {
         var path = window.location.pathname;
@@ -63,6 +87,24 @@ var __actions = {
             }
 
         }
+    },
+    waitThenRefresh: function (step, index, tour) {
+        this._.hideTour();
+        this._.waitForElement(step.element, function () {
+            this._.showTour();
+            tour.intro.refresh();
+        });
+    },
+    loadRecommendations: function (step) {
+        function _loadRecommendations() {
+            try {
+                var $scope = angular.element('#rha-product-select').scope();
+                $scope.CaseService.kase.product = $scope.ProductsService.products[0].value;
+                $scope.CaseService.onProductSelectChange();
+                $scope.RecommendationsService.getRecommendations();
+            } catch (e) {}
+        }
+        this._.waitForElement(step.element, _loadRecommendations);
     },
     scrollTop: function () {
         window.scrollTo(0, 0);
