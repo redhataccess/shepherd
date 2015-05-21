@@ -35,7 +35,7 @@ var __actions = {
             if (found) {
                 cb(document.querySelector(selector));
             } else {
-                setTimeout($.proxy(this.waitForElement, this, selector, cb, max--), 250);
+                setTimeout(_.bind(this.waitForElement, this, selector, cb, max--), 250);
             }
         }
     },
@@ -101,7 +101,7 @@ var __actions = {
     },
     waitThenRefresh: function (step, index, tour) {
         this._.hideTour();
-        var show = this._.showTour;
+        var show = _.bind(this._.showTour, this._);
         this._.waitForElement(step.element, function () {
             show();
             tour.intro.refresh();
