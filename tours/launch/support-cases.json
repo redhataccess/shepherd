@@ -17,14 +17,16 @@
             "hash": "#/case/list"
         }, {
             "title": "Viewing Cases",
-            "element": "#rha-new-case-btn",
+            "element": "#nav-support",
+            "_element": "#rha-new-case-btn",
             "intro": "If you have previous cases they will be displayed here. You can search for a case, filter by case group, open, closed or all cases.",
             "path": "/support/cases/",
             "hash": "#/case/list",
             "before": "waitThenRefresh"
         }, {
             "title": "Creating Cases",
-            "element": "#rha-case-main-options",
+            "element": "#nav-support",
+            "_element": "#rha-case-main-options",
             "intro": "Select product, version and give the case a name and a detailed description. Attaching logs, an sos report or other diagnostics files is highly recommended and results in faster average resolution times.",
             "path": "/support/cases/",
             "hash": "#/case/new",
@@ -32,14 +34,17 @@
             "on": "loadRecommendations"
         }, {
             "title": "Recommendations",
-            "element": "#recommendations_section",
+            "element": "#page-wrap",
+            "_element": "#recommendations_section",
             "intro": "As you type your case name and description, you will see solution recommendations dynamically update directing you to content which may address your concern.",
             "path": "/support/cases/",
             "hash": "#/case/new",
-            "before": "waitThenRefresh"
+            "before": "loadRecommendations",
+            "on": "waitThenRefresh"
         }, {
             "title": "Case Options",
-            "element": "#rha-case-more-options",
+            "element": "#page-wrap",
+            "_element": "#rha-case-more-options",
             "intro": "Select Support Level, Severity and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.<br><br>Tip: PREMIUM Severity 1 cases default to 24x7 support; Severity 2 are entitled to 24x7 by request.",
             "path": "/support/cases/",
             "hash": "#/case/new",

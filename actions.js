@@ -29,13 +29,13 @@ var __actions = {
                 return;
             }
             if (typeof max === 'undefined') {
-                max = 40;
+                max = 100;
             }
             var found = $(selector).is(':visible');
             if (found) {
                 cb(document.querySelector(selector));
             } else {
-                setTimeout(_.bind(this.waitForElement, this, selector, cb, max--), 250);
+                setTimeout(_.bind(this.waitForElement, this, selector, cb, max--), 300);
             }
         }
     },
@@ -100,13 +100,13 @@ var __actions = {
         }
     },
     waitThenRefresh: function (step, index, tour) {
-        this._.waitForElement(step.element, function (element) {
+        this._.waitForElement(step._element, function (element) {
             var currentStep = tour.intro._introItems[tour.intro._currentStep];
             currentStep.element = element;
             tour.intro.refresh();
         });
     },
-    loadRecommendations: function (step) {
+    loadRecommendations: function (step, index, tour) {
         function _loadRecommendations() {
             try {
                 var $scope = angular.element('#rha-product-select').scope();
@@ -114,9 +114,12 @@ var __actions = {
                 $scope.CaseService.kase.product = rhel.value || rhel.code;
                 $scope.CaseService.onProductSelectChange();
                 $scope.RecommendationsService.getRecommendations();
+                this._.waitForElement('#sticky-ricky-static', function () {
+                    tour.intro.refresh();
+                })
             } catch (e) {}
         }
-        this._.waitForElement(step.element, _loadRecommendations);
+        this._.waitForElement(step.element, _.bind(_loadRecommendations, this));
     },
     scrollTop: function () {
         window.scrollTo(0, 0);
