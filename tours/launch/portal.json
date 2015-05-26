@@ -32,12 +32,12 @@
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child",
             "title": "Your User Account",
-            "intro": "Manage your account details, newsletter preferences, and more. With User Management you have fine- grained control to share your Customer Portal account access with unlimited users from your organization.",
+            "intro": "Manage your account details, newsletter preferences, and more. If you are an  Organization Administrator, User Management allows you to add an unlimited number of users and control access permissions.<br /><br />Note: Each individual should have their own unique Customer Portal login account.",
             "after": "stripFixParents",
             "before": "openProfile"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:last-child",
-            "title": "Your User Account",
+            "title": "Your User Account (continued)",
             "intro": "Along with your personal profile, The Customer Portal also includes a notification service that will send you email when content you are interested in is updated. Look for the ‘Follow’ button to stay informed about your favorite Articles, Solutions, Discussions, contributors, and more.",
             "after": "stripFixParents",
             "before": "openProfile"
@@ -49,8 +49,8 @@
             "on": "openProducts"
         }, {
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
-            "title": "Products &amp; Services...continued",
-            "intro": "Also in the Products & Services menu, you’ll find the Red Hat Certification ecosystem as well as direct links to the Red Hat knowledgebase and product documentation. The Support Policies section includes important information to know such as Scope of Coverage, SLAs and the Management Escalation process.",
+            "title": "Products &amp; Services (continued)",
+            "intro": "Also in the Products & Services menu, you’ll find the Red Hat Certification ecosystem as well as direct links to the Red Hat knowledgebase and product documentation. Under Support Policies you will find important information such as Scope of Coverage, SLAs and the Management Escalation process.",
             "tooltipClass": "tooltip-md",
             "on": "openProducts"
         }, {
@@ -69,7 +69,7 @@
             "element": "#nav-community",
             "title": "Community",
             "intro": "Community Discussions is the place for Red Hat associates and customers to collaborate. Join 3,500 Red Hat experts, customers, and partners who engage in discussions each year. In Community, you will also find blogs, events, and more.",
-            "path": "/community/",
+            "path": "/discussions/",
             "after": "stripFixParents"
         }],
         "callBacks": {

@@ -11,15 +11,15 @@
         "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
         "steps": [{
             "intro": "To ensure the security of your organization's account and regulate user access to portal features, you or any other Organization Administrator must create a user login for each member of your organization.<br><br>Tip: Customer Portal user logins not already associated  with your organization's account cannot be retroactively linked to your account by the Organization Administrator or by Red Hat Customer Service or Technical Support.",
-            "hostname": "access.redhat.com",
-            "path": "/home"
+            "hostname": "www.redhat.com",
+            "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child li:nth-child(3)",
             "intro": "When logged in, you can access User Management from any page on the Red Hat Customer Portal by clicking your name in the global user bar at the top of the page, and then User Management in the Red Hat Account Menu.",
-            "hostname": "access.redhat.com",
-            "path": "/home",
             "after": "stripFixParents",
-            "before": "openProfile"
+            "before": "openProfile",
+            "hostname": "www.redhat.com",
+            "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "title": "User List",
             "element": ".admin-actions .add-user",
@@ -29,7 +29,7 @@
         }, {
             "title": "Add User",
             "element": "#generalForm .fieldsetform:nth-child(6)",
-            "intro": "On the Create New User page, complete all *required fields. Be sure to assign the appropriate permissions for the user under the \"Customer Portal Access Permissions\" section. Checking the Organization Administrator box under \"Account Roles\" will give the user all the permissions listed in the Customer Portal Access Permissions section.<br><br>Repeat this process for each user you want to add.",
+            "intro": "Be sure to assign the appropriate permissions for the user under the \"Customer Portal Access Permissions\" section. Checking the Organization Administrator box under \"Account Roles\" will give the user all the permissions listed in the Customer Portal Access Permissions section.<br><br>Repeat this process for each user you want to add.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUser.html"
         }, {
@@ -50,6 +50,7 @@
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }],
         "callBacks": {
+            "before": "resetMega",
             "on": "ensurePath",
             "exit": "returnToLaunch"
         },
