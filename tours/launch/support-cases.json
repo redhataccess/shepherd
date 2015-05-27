@@ -12,17 +12,9 @@
         "steps": [{
             "title": "Support Cases",
             "element": "#nav-support",
-            "intro": "Click Support Cases in the global user bar.",
+            "intro": "The support case management system is accessible from the Support Cases link in the Global User Bar. If you have previous cases they will be displayed here. You can search for a case, filter by case group, open, closed or all cases.<br><br>Use the Create a New Support Case button to initiate the case creation process.",
             "path": "/support/cases/",
             "hash": "#/case/list"
-        }, {
-            "title": "Viewing Cases",
-            "element": "#nav-support",
-            "_element": "#rha-new-case-btn",
-            "intro": "If you have previous cases they will be displayed here. You can search for a case, filter by case group, open, closed or all cases.",
-            "path": "/support/cases/",
-            "hash": "#/case/list",
-            "before": "waitThenRefresh"
         }, {
             "title": "Creating Cases",
             "element": "#nav-support",
@@ -45,14 +37,18 @@
             "title": "Case Options",
             "element": "#page-wrap",
             "_element": "#rha-case-more-options",
-            "intro": "Select Support Level, Severity and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.<br><br>Tip: PREMIUM Severity 1 cases default to 24x7 support; Severity 2 are entitled to 24x7 by request.",
+            "intro": "Select Support Level, Severity and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.",
             "path": "/support/cases/",
             "hash": "#/case/new",
             "before": "waitThenRefresh"
         }, {
-            "intro": "That's it. Red Hat strives for support excellence. Always fill out the customer satisfaction survey you receive after your case is resolved and let us know how we did!",
-            "path": "/support/cases/",
-            "hash": "#/case/new"
+            "title": "Production SLAs",
+            "intro": "Understanding the Support Hours of Coverage and Support Level Agreements are crucial to knowing what to expect from Red Hat Support in the way of engagement and response times, based on the level of support defined by your subscriptions.",
+            "path": "/support/offerings/production/sla"
+        }, {
+            "title": "Escalations",
+            "intro": "If circumstances dictate that you need to raise awareness by means of an escalation, the information on this page will direct you through the process of notifying Red Hat Support management.",
+            "path": "/support/policy/mgt_escalation/"
         }],
         "callBacks": {
             "before": "resetMega",
