@@ -7,7 +7,8 @@
         "steps": [{
             "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced interactive tour will guide you, the Organization Administrator, through the process of creating new Customer Portal user accounts as well as assigning appropriate permissions for each.</p>",
             "hostname": "www.redhat.com",
-            "path": "/wapps/ugc/protected/usermgt/userList.html"
+            "path": "/wapps/ugc/protected/usermgt/userList.html",
+            "tooltipClass": "tooltip-md"
         },{
             "intro": "To ensure the security of your organization's account and regulate user access to portal features, you or any other Organization Administrator must create a user login for each member of your organization.<br><br>Tip: Customer Portal user logins not already associated  with your organization's account cannot be retroactively linked to your account by the Organization Administrator or by Red Hat Customer Service or Technical Support.",
             "hostname": "www.redhat.com",
