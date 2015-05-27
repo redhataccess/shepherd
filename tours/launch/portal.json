@@ -6,6 +6,9 @@
         "launchTour": true,
         "overlayOpacity": 0.1,
         "steps": [{
+            "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced interactive tour will guide you through the major features of the Customer Portal.</p>",
+            "path": "/management/"
+        }, {
             "element": "#nav-subscription",
             "title": "Subscriptions",
             "intro": "Subscriptions, located in the Global User Bar in the top left corner of the page, is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account.",
