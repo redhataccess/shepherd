@@ -4,11 +4,7 @@
         "dock": true,
         "multipage": true,
         "launchTour": true,
-        "allowMinimize": true,
-        "overlayOpacity": 0.05,
-        "skipLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
-        "doneLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
-        "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
+        "overlayOpacity": 0.1,
         "steps": [{
             "element": "#nav-subscription",
             "title": "Subscriptions",
@@ -77,6 +73,9 @@
             "on": "ensurePath",
             "exit": "returnToLaunch"
         },
-        "hideMobile": "767"
+        "hideMobile": "767",
+        "disableInteraction": true,
+        "exitOnOverlayClick": false,
+        "exitOnEsc": false
     }
 }

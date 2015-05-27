@@ -1,14 +1,9 @@
 {
     "3": {
         "title": "User Management",
-        "dock": true,
         "multipage": true,
         "launchTour": true,
-        "allowMinimize": true,
-        "overlayOpacity": 0.05,
-        "skipLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
-        "doneLabel": "<span class='introjs-close'><span class='icon-remove'></span></span>",
-        "minimizeLabel": "<span class='introjs-minimize'><span class='icon-caret-down'></span></span>",
+        "overlayOpacity": 0.1,
         "steps": [{
             "intro": "To ensure the security of your organization's account and regulate user access to portal features, you or any other Organization Administrator must create a user login for each member of your organization.<br><br>Tip: Customer Portal user logins not already associated  with your organization's account cannot be retroactively linked to your account by the Organization Administrator or by Red Hat Customer Service or Technical Support.",
             "hostname": "www.redhat.com",
