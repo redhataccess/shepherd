@@ -54,6 +54,9 @@
             "on": "ensurePath",
             "exit": "returnToLaunch"
         },
-        "hideMobile": "767"
+        "hideMobile": "767",
+        "disableInteraction": true,
+        "exitOnOverlayClick": false,
+        "exitOnEsc": false
     }
 }
