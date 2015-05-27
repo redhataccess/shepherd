@@ -1,7 +1,6 @@
 {
     "2": {
         "title": "Tour the Customer Portal",
-        "dock": true,
         "multipage": true,
         "launchTour": true,
         "overlayOpacity": 0.1,
