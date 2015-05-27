@@ -23,25 +23,25 @@
         }, {
             "title": "User List",
             "element": ".admin-actions .add-user",
-            "intro": "The User List page lists all users associated with your account and is the starting place from which you can create new user logins.<br><br>To add individual users one at a time, click Add New User.",
+            "intro": "The User List page lists all users associated with your account and is the starting place from which you can create new user logins.<br><br>Use the Add new user button to add individual users one at a time.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "title": "Add User",
             "element": "#generalForm .fieldsetform:nth-child(6)",
-            "intro": "Be sure to assign the appropriate permissions for the user under the \"Customer Portal Access Permissions\" section. Checking the Organization Administrator box under \"Account Roles\" will give the user all the permissions listed in the Customer Portal Access Permissions section.<br><br>Repeat this process for each user you want to add.",
+            "intro": "Be sure to assign the appropriate permissions for the user under the \"Customer Portal Access Permissions\" section. Checking the Organization Administrator box under \"Account Roles\" will give the user all the permissions listed in the Customer Portal Access Permissions section.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUser.html"
         }, {
             "title": "Bulk User Creation",
             "element": ".admin-actions .add-bulk",
-            "intro": "To add a larger number of users at once, click Upload new users on the User List page. ",
+            "intro": "Use the Upload new users button to add a large number of users at once.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "title": "Bulk User Upload",
             "element": ".download-template",
-            "intro": "Here, you can upload users via a .csv file.<br><br>Download and complete the .csv template to so that the data is properly structured, and then upload the file.<br><br>Tip: You cannot set users as Organization Administrators via .csv upload. However, to assign the OA role in bulk once the users are created, go back to the \"User List\" page, select the appropriate users from the list, click \"Edit\" and check \"Organization Administrator.\" For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
+            "intro": "Download and complete the .csv template (according to instructions included in the template) and then upload the file to have multiple users created at once.<br><br>Tip: To assign the Organization Admin role to several users at once, go back to the \"User List\" page, select the appropriate users from the list,  click \"Edit\" and check \"Organization Administrator.\" For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUsersCSV.html"
         }, {
