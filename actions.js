@@ -49,6 +49,15 @@ var __actions = {
         }
         this._.hideTray();
     },
+    reset: function (step, index, self) {
+        this.resetMega(step, index, self);
+        $body = $(document.body);
+        if (step && step.docked) {
+            $body.addClass('introjs-docked');
+        } else {
+            $body.removeClass('introjs-docked');
+        }
+    },
     openProducts: function () {
         this._.hideTray();
         this._.click('#nav-products > a');

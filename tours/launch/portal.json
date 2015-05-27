@@ -12,67 +12,78 @@
             "element": "#nav-subscription",
             "title": "Subscriptions",
             "intro": "Subscriptions, located in the Global User Bar in the top left corner of the page, is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account.",
-            "path": "/management/"
+            "path": "/management/",
+            "docked": true
         }, {
             "element": ".band.band-alt.band-narrow > .container .row.push-top",
             "title": "Manage subscriptions",
             "intro": "If you use portal-based subscription management, this is where you can view and manage your registered systems and Subscription Management Applications like Red Hat Satellite.<br /><br />Tip: Read the knowledge article <a href='https://access.redhat.com/articles/143253' target='_blank'>Overview of Red Hat Subscription Management</a> for additional information on managing subscriptions.",
-            "path": "/management/"
+            "path": "/management/",
+            "docked": true
         }, {
             "element": "#nav-downloads",
             "title": "Downloads",
             "intro": "Download all of your Red Hat products, find RPM packages, and browse our library of Linux container images. If you are interested in trying a product, you will also find our available product evaluations on this page.",
-            "path": "/downloads/"
+            "path": "/downloads/",
+            "docked": true
         }, {
             "element": "#nav-support",
             "title": "Support Cases",
             "intro": "Create, track, and manage your support cases here. During the case creation process, our intelligent  recommendation engine can often find the resolution to your problem  before you finish filing a new case.<br /><br />Note: Support Cases are available only to authorized users on your account.",
-            "path": "/support/cases/"
+            "path": "/support/cases/",
+            "docked": true
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child",
             "title": "Your User Account",
             "intro": "Manage your account details, newsletter preferences, and more. If you are an  Organization Administrator, User Management allows you to add an unlimited number of users and control access permissions.<br /><br />Note: Each individual should have their own unique Customer Portal login account.",
             "after": "stripFixParents",
-            "before": "openProfile"
+            "before": "openProfile",
+            "docked": true
         }, {
             "element": "#account-info .row.account-settings .col-md-6:last-child",
             "title": "Your User Account (continued)",
             "intro": "Along with your personal profile, The Customer Portal also includes a notification service that will send you email when content you are interested in is updated. Look for the ‘Follow’ button to stay informed about your favorite Articles, Solutions, Discussions, contributors, and more.",
             "after": "stripFixParents",
-            "before": "openProfile"
+            "before": "openProfile",
+            "docked": true
         }, {
             "element": ".products-menu .col-md-6.col-sm-8 .root",
             "title": "Products &amp; Services",
             "intro": "The Products &amp; Services menu is your gateway to product-specific information like evaluations, features, software downloads, documentation and step-by-step details to get you started.",
             "tooltipClass": "tooltip-md",
-            "on": "openProducts"
+            "on": "openProducts",
+            "docked": true
         }, {
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
             "title": "Products &amp; Services (continued)",
             "intro": "Also in the Products & Services menu, you’ll find the Red Hat Certification ecosystem as well as direct links to the Red Hat knowledgebase and product documentation. Under Support Policies you will find important information such as Scope of Coverage, SLAs and the Management Escalation process.",
             "tooltipClass": "tooltip-md",
-            "on": "openProducts"
+            "on": "openProducts",
+            "docked": true
         }, {
             "element": "#nav-tools",
             "title": "Red Hat Access Labs",
             "intro": "Accessible via the Tools menu in the navigation bar, Red Hat Access Labs is a rapidly growing set of tools developed by Red Hat engineers to help you improve performance, quickly troubleshoot issues, identify security problems, and more.",
             "path": "/labs/",
-            "after": "stripFixParents"
+            "after": "stripFixParents",
+            "docked": true
         }, {
             "element": "#nav-security",
             "title": "Security",
             "intro": "Security is a top priority for us all. This is the place to engage with our Red Hat Product Security team, access security updates, and ensure your environments are not exposed to any known security vulnerabilities.",
             "path": "/security/",
-            "after": "stripFixParents"
+            "after": "stripFixParents",
+            "docked": true
         }, {
             "element": "#nav-community",
             "title": "Community",
             "intro": "Community Discussions is the place for Red Hat associates and customers to collaborate. Join 3,500 Red Hat experts, customers, and partners who engage in discussions each year. In Community, you will also find blogs, events, and more.",
             "path": "/discussions/",
-            "after": "stripFixParents"
+            "after": "stripFixParents",
+            "docked": true
         }],
         "callBacks": {
-            "before": "resetMega",
+            "before": "reset",
             "on": "ensurePath",
             "exit": "returnToLaunch"
         },

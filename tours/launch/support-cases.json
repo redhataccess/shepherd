@@ -46,7 +46,7 @@
             "path": "/support/policy/mgt_escalation/"
         }],
         "callBacks": {
-            "before": "resetMega",
+            "before": "reset",
             "on": "ensurePath",
             "exit": "returnToLaunch"
         },

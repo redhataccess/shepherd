@@ -50,7 +50,7 @@
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }],
         "callBacks": {
-            "before": "resetMega",
+            "before": "reset",
             "on": "ensurePath",
             "exit": "returnToLaunch"
         },
