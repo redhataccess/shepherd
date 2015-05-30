@@ -35,7 +35,7 @@
         }, {
             "title": "Bulk User Creation",
             "element": ".admin-actions .add-bulk",
-            "intro": "Use the Upload new users button to add a large number of users at once.",
+            "intro": "Use the Upload new users button to add multiple users users at once.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
