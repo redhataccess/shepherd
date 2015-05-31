@@ -73,7 +73,7 @@
             "element": "#nav-security",
             "title": "Security",
             "intro": "Security is a top priority for us all. This is the place to engage with our Red Hat Product Security team, access security updates, and ensure your environments are not exposed to any known security vulnerabilities.",
-            "path": "/security/",
+            "path": "/security",
             "after": "stripFixParents",
             "docked": true
         }, {
