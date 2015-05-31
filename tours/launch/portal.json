@@ -36,6 +36,7 @@
             "element": "#account-info .row.account-settings .col-md-6:first-child",
             "title": "Your User Account",
             "intro": "Manage your account details, newsletter preferences, and more. If you are an  Organization Administrator, User Management allows you to add an unlimited number of users and control access permissions.<br /><br />Note: Each individual should have their own unique Customer Portal login account.",
+            "stepClass": "user-account-highlight",
             "after": "stripFixParents",
             "before": "openProfile",
             "docked": true
@@ -43,6 +44,7 @@
             "element": "#account-info .row.account-settings .col-md-6:last-child",
             "title": "Your User Account (continued)",
             "intro": "Along with your personal profile, The Customer Portal also includes a notification service that will send you email when content you are interested in is updated. Look for the ‘Follow’ button to stay informed about your favorite Articles, Solutions, Discussions, contributors, and more.",
+            "stepClass": "user-account-highlight",
             "after": "stripFixParents",
             "before": "openProfile",
             "docked": true
@@ -89,7 +91,6 @@
         },
         "hideMobile": "767",
         "disableInteraction": true,
-        "exitOnOverlayClick": false,
-        "exitOnEsc": false
+        "exitOnOverlayClick": false
     }
 }

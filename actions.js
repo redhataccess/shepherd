@@ -51,11 +51,21 @@ var __actions = {
     },
     reset: function (step, index, self) {
         this.resetMega(step, index, self);
-        $body = $(document.body);
+        var $body = $(document.body);
         if (step && step.docked) {
             $body.addClass('introjs-docked');
         } else {
             $body.removeClass('introjs-docked');
+        }
+        // Look for and remove last class
+        var previousStepClass = $body.data('introjs-step-class');
+        if (previousStepClass) {
+            $body.removeClass(previousStepClass);
+        }
+        if (step && step.stepClass) {
+            // Save a ref to class we are adding for this step.
+            $body.data('introjs-step-class', step.stepClass);
+            $body.addClass(step.stepClass);
         }
     },
     openProducts: function () {
