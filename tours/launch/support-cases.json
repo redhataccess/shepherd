@@ -4,6 +4,7 @@
         "multipage": true,
         "launchTour": true,
         "overlayOpacity": 0.1,
+        "doneLabel": "Finish",
         "steps": [{
             "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced interactive tour will guide you through the process and policies associated with engaging Red Hat Support using the Customer Portal case management system.</p>",
             "tooltipClass": "tooltip-md",

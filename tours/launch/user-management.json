@@ -4,6 +4,7 @@
         "multipage": true,
         "launchTour": true,
         "overlayOpacity": 0.1,
+        "doneLabel": "Finish",
         "steps": [{
             "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced interactive tour will guide you, the Organization Administrator, through the process of creating new Customer Portal user accounts as well as assigning appropriate permissions for each.</p>",
             "hostname": "www.redhat.com",
