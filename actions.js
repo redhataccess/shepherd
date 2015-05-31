@@ -90,7 +90,11 @@ var __actions = {
         $('.introjs-fixParent').removeClass('introjs-fixParent');
     },
     returnToLaunch: function () {
-        window.location = '/start/';
+        if (window.location.host === 'redhat.com') {
+            window.location = 'https://access.redhat.com/start/';
+        } else {
+            window.location = '/start/';
+        }
     },
     ensurePath: function (step, index) {
         function _bounce() {
