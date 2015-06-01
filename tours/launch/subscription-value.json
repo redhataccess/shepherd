@@ -13,6 +13,7 @@
             "docked": true
         }],
         "callBacks": {
+            "before": "reset",
             "on": "ensurePath"
         },
         "hideMobile": "767",
