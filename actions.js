@@ -123,10 +123,13 @@ var __actions = {
         }
     },
     waitThenRefresh: function (step, index, tour) {
+        var $body = $(document.body);
+        $body.addClass('introjs-loading');
         this._.waitForElement(step._element, function (element) {
             var currentStep = tour.intro._introItems[tour.intro._currentStep];
             currentStep.element = element;
             tour.intro.refresh();
+            $body.removeClass('introjs-loading');
         });
     },
     loadRecommendations: function (step, index, tour) {
