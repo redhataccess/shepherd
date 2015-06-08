@@ -47,7 +47,7 @@
             "docked": true
         }, {
             "title": "Production SLAs",
-            "intro": "Understanding the Support Hours of Coverage and Support Level Agreements are crucial to knowing what to expect from Red Hat Support in the way of engagement and response times, based on the level of support defined by your subscriptions.",
+            "intro": "Understanding the Support Hours of Coverage and Support Level Agreements is crucial to knowing what to expect from Red Hat Support in the way of engagement and response times, based on the level of support defined by your subscriptions.",
             "path": "/support/offerings/production/sla",
             "docked": true
         }, {
