@@ -6,7 +6,7 @@
         "overlayOpacity": 0.1,
         "doneLabel": "Finish",
         "steps": [{
-            "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced interactive tour will guide you, the Organization Administrator, through the process of creating new Customer Portal user accounts as well as assigning appropriate permissions for each.</p>",
+            "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced tour will guide you, an Organization Administrator, through the process of creating new Customer Portal user accounts as well as assigning appropriate permissions for each.</p>",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html",
             "tooltipClass": "tooltip-md"
@@ -16,7 +16,7 @@
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child li:nth-child(3)",
-            "intro": "When logged in, you can access User Management from any page on the Red Hat Customer Portal by clicking your name in the global user bar at the top of the page, and then User Management in the Red Hat Account Menu.",
+            "intro": "When logged in, you can access User Management from any page on the Red Hat Customer Portal by clicking your name then User Management in the Red Hat Account menu.",
             "stepClass": "user-account-highlight",
             "after": "stripFixParents",
             "before": "openProfile",
@@ -25,7 +25,7 @@
         }, {
             "title": "User List",
             "element": ".admin-actions .add-user",
-            "intro": "The User List page lists all users associated with your account and is the starting place from which you can create new user logins.<br><br>Use the Add new user button to add individual users one at a time.",
+            "intro": "The User List page lists all users associated with your account. From here you can add new users to your account individually using the Add new user button or add multiple users using the Upload new users button.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
@@ -43,7 +43,7 @@
         }, {
             "title": "Bulk User Upload",
             "element": ".download-template",
-            "intro": "Download and complete the .csv template (according to instructions included in the template) and then upload the file to have multiple users created at once.<br><br>Tip: To assign the Organization Admin role to several users at once, go back to the \"User List\" page, select the appropriate users from the list,  click \"Edit\" and check \"Organization Administrator.\" For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
+            "intro": "Download and complete the .csv template (according to instructions included in the template) and then upload the file to have multiple users created at once.<br><br>Tip: To edit options for several users at once, select the appropriate users from the \"User List\" page and click \"Edit.\" For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUsersCSV.html"
         }, {
