@@ -6,13 +6,13 @@
         "overlayOpacity": 0.1,
         "doneLabel": "Finish",
         "steps": [{
-            "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced interactive tour will guide you through the major features of the Customer Portal.</p>",
+            "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced tour will guide you through the major features of the Customer Portal.</p>",
             "path": "/management/",
             "tooltipClass": "tooltip-md"
         }, {
             "element": "#nav-subscription",
             "title": "Subscriptions",
-            "intro": "Subscriptions, located in the Global User Bar in the top left corner of the page, is the place to view, renew and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account.",
+            "intro": "Subscriptions is the place to view, renew, and manage how you use your subscriptions.<br /><br />Note: Subscription Management is available only to authorized users on your account.",
             "path": "/management/",
             "docked": true
         }, {
@@ -36,7 +36,7 @@
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child",
             "title": "Your User Account",
-            "intro": "Manage your account details, newsletter preferences, and more. If you are an  Organization Administrator, User Management allows you to add an unlimited number of users and control access permissions.<br /><br />Note: Each individual should have their own unique Customer Portal login account.",
+            "intro": "Manage your account details, newsletter preferences, and more. If you are an  Organization Administrator, User Management allows you to add an unlimited number of users and control access permissions.<br /><br />Note: Each individual should have their own unique user account.",
             "stepClass": "user-account-highlight",
             "after": "stripFixParents",
             "before": "openProfile",
