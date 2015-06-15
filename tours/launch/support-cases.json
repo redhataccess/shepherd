@@ -6,21 +6,21 @@
         "overlayOpacity": 0.1,
         "doneLabel": "Finish",
         "steps": [{
-            "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced interactive tour will guide you through the process and policies associated with engaging Red Hat Support using the Customer Portal case management system.</p>",
+            "intro": "<h3 class='lead-in'>Welcome!</h3><p>This self-paced tour will guide you through the process and policies associated with engaging Red Hat Support using the Customer Portal case management system.</p>",
             "tooltipClass": "tooltip-md",
             "path": "/support/cases/",
             "hash": "#/case/list"
         }, {
             "title": "Support Cases",
             "element": "#nav-support",
-            "intro": "The support case management system is accessible from the Support Cases link in the Global User Bar. If you have previous cases they will be displayed here. You can search for a case, filter by case group, open, closed or all cases.<br><br>Use the Create a New Support Case button to initiate the case creation process.",
+            "intro": "The support case management system is accessible from the Support Cases link. If you have previous cases they will be displayed here. You can search for a case, filter by case group, open, closed or all cases.<br><br>Use the Create a New Support Case button to initiate the case creation process.",
             "path": "/support/cases/",
             "hash": "#/case/list"
         }, {
             "title": "Creating Cases",
             "element": "#nav-support",
             "_element": "#rha-case-main-options",
-            "intro": "Select product, version and give the case a name and a detailed description. Attaching logs, an sos report or other diagnostics files is highly recommended and results in faster average resolution times.",
+            "intro": "Select product, version, and give the case a name and a detailed description. Attaching logs, an sos report, or other diagnostics files is highly recommended and results in faster average resolution times.",
             "path": "/support/cases/",
             "hash": "#/case/new",
             "before": "waitThenRefresh",
@@ -40,7 +40,7 @@
             "title": "Case Options",
             "element": "#page-wrap",
             "_element": "#rha-case-more-options",
-            "intro": "Select Support Level, Severity and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.",
+            "intro": "Select Support Level, Severity, and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.",
             "path": "/support/cases/",
             "hash": "#/case/new",
             "before": "waitThenRefresh",
