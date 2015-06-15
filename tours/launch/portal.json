@@ -17,7 +17,7 @@
             "docked": true
         }, {
             "element": ".band.band-alt.band-narrow > .container .row.push-top",
-            "title": "Manage subscriptions",
+            "title": "Manage Subscriptions",
             "intro": "If you use portal-based subscription management, this is where you can view and manage your registered systems and Subscription Management Applications like Red Hat Satellite.<br /><br />Tip: Read the knowledge article <a href='https://access.redhat.com/articles/143253' target='_blank'>Overview of Red Hat Subscription Management</a> for additional information on managing subscriptions.",
             "path": "/management/",
             "docked": true
