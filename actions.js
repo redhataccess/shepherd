@@ -133,6 +133,15 @@ var __actions = {
             $body.removeClass(loadingClass);
         });
     },
+    refreshPosition: function (step, index, tour) {
+        // refresh the tour on the next tick
+        setTimeout(function () {
+            // paranoid
+            if (tour && tour.intro) {
+                tour.intro.refresh();
+            }
+        }, 0);
+    },
     loadRecommendations: function (step, index, tour) {
         function _loadRecommendations() {
             try {

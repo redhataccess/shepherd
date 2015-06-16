@@ -33,6 +33,7 @@
             "element": "#generalForm .fieldsetform:nth-child(6)",
             "intro": "Be sure to assign the appropriate permissions for the user under the \"Customer Portal Access Permissions\" section. Checking the Organization Administrator box under \"Account Roles\" will give the user all the permissions listed in the Customer Portal Access Permissions section.",
             "position": "bottom-right-aligned",
+            "after": "refreshPosition",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUser.html"
         }, {
