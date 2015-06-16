@@ -47,12 +47,12 @@
             "docked": true
         }, {
             "title": "Production SLAs",
-            "intro": "Understanding the Support Hours of Coverage and Support Level Agreements is crucial to knowing what to expect from Red Hat Support in the way of engagement and response times, based on the level of support defined by your subscriptions.",
+            "intro": "Understanding the Support Hours of Coverage and Support Level Agreements is crucial to knowing what to expect from Red Hat Support in the way of engagement and response times, based on the level of support defined by your subscriptions.<br><br>The Production SLAs are found under Products & Services, Support Policies.",
             "path": "/support/offerings/production/sla",
             "docked": true
         }, {
             "title": "Escalations",
-            "intro": "If circumstances dictate that you need to raise awareness by means of an escalation, the information on this page will direct you through the process of notifying Red Hat Support management.",
+            "intro": "If circumstances dictate that you need to raise awareness by means of an escalation, the information on this page will direct you through the process of notifying Red Hat Support management.<br><br>The Escalation Process is found under Products & Services, Support Policies.",
             "path": "/support/policy/mgt_escalation/",
             "docked": true
         }],
