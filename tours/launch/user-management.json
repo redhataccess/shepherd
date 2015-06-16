@@ -51,7 +51,7 @@
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUsersCSV.html"
         }, {
-            "intro": "Red Hat recommends that you create a unique user login for every individual within your organization involved the Red Hat product lifecycle - from planning and design all the way through production maintenance and support. For more information on the benefits of assigning individual user logins, reference <a href='https://access.redhat.com/articles/1326373' target='_blank'>this knowledge article</a>.<br><br>Tip: In order to effectively and efficiently communicate with each member of your organization, a good best practice is to perform user management maintenance once every quarter.",
+            "intro": "Every individual within your organization should have his or her own unique user user account. For more information on the benefits of assigning individual user logins, reference <a href='https://access.redhat.com/articles/1326373' target='_blank'>this knowledge article</a>.<br><br>Tip: In order to effectively and efficiently communicate with each member of your organization, a good best practice is to perform user management maintenance once every quarter.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }],
