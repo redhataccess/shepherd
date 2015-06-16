@@ -11,7 +11,7 @@
             "path": "/wapps/ugc/protected/usermgt/userList.html",
             "tooltipClass": "tooltip-md"
         },{
-            "intro": "To ensure the security of your organization's account and regulate user access to portal features, you or any other Organization Administrator must create a user login for each member of your organization.<br><br>Tip: Customer Portal user logins not already associated  with your organization's account cannot be retroactively linked to your account by the Organization Administrator or by Red Hat Customer Service or Technical Support.",
+            "intro": "To ensure the security of your organization's account and regulate user access to portal features, you or any other Organization Administrator must create a user login for each member of your organization.<br><br>Tip: A user account can only be associated with one organization. Users with existing accounts will need to be added as a new user to this account.",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
