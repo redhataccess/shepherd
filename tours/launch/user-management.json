@@ -38,12 +38,14 @@
             "title": "Bulk User Creation",
             "element": ".admin-actions .add-bulk",
             "intro": "Use the Upload new users button to add multiple users at once.",
+            "position": "left",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/userList.html"
         }, {
             "title": "Bulk User Upload",
             "element": ".download-template",
             "intro": "Download and complete the .csv template (according to instructions included in the template) and then upload the file to have multiple users created at once.<br><br>Tip: To edit options for several users at once, select the appropriate users from the \"User List\" page and click \"Edit.\" For more info on bulk editing see this <a href='https://access.redhat.com/videos/314013' target='_blank'>instructional video.</a>",
+            "position": "left",
             "hostname": "www.redhat.com",
             "path": "/wapps/ugc/protected/usermgt/createNewUsersCSV.html"
         }, {
