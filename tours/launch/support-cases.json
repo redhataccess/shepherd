@@ -40,7 +40,7 @@
             "title": "Case Options",
             "element": "#page-wrap",
             "_element": "#rha-case-more-options",
-            "intro": "Select Support Level, Severity, and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as reference.",
+            "intro": "Select Support Level, Severity, and then add any other users you'd like to receive notifications on the case. If your account has case groups set up, you can also select a group and the case will only be visible to the users in that Case Group. Once you click Submit, the case will be created and assigned a case number you may use as a reference.",
             "path": "/support/cases/",
             "hash": "#/case/new",
             "before": "waitThenRefresh",
