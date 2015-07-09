@@ -29,13 +29,13 @@
         }, {
             "title": "Recommendations",
             "element": "#page-wrap",
-            "_element": "#recommendations_section",
+            "_element": "#rha-recommendation-section",
             "intro": "As you type your case name and description, you will see solution recommendations dynamically update directing you to content which may address your concern.",
             "path": "/support/cases/",
             "hash": "#/case/new",
             "before": "loadRecommendations",
-            "on": "waitThenRefresh",
-            "docked": true
+            "position": "left",
+            "on": "waitThenRefresh"
         }, {
             "title": "Case Options",
             "element": "#page-wrap",
