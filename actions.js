@@ -54,6 +54,7 @@ var __actions = {
         var $body = $(document.body);
         var dockedClass = 'introjs-docked';
         var dockedPosition = 'introjs-docked-position';
+        $body.removeAttr(dockedPosition);
         if (step && step.docked) {
             $body.addClass(dockedClass);
             if (step.dockposition) {
@@ -61,7 +62,6 @@ var __actions = {
             }
         } else {
             $body.removeClass(dockedClass);
-            $body.removeAttr(dockedPosition);
         }
         // Look for and remove last class
         var previousStepClass = $body.data('introjs-step-class');
@@ -130,12 +130,13 @@ var __actions = {
     },
     waitThenRefresh: function (step, index, tour) {
         var loadingClass = 'introjs-loading';
+        var refresh = this.refreshPosition;
         var $body = $(document.body);
         $body.addClass(loadingClass);
         this._.waitForElement(step._element, function (element) {
             var currentStep = tour.intro._introItems[tour.intro._currentStep];
             currentStep.element = element;
-            tour.intro.refresh();
+            refresh(step, index, tour);
             $body.removeClass(loadingClass);
         });
     },
