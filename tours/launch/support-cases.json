@@ -35,7 +35,8 @@
             "hash": "#/case/new",
             "before": "loadRecommendations",
             "position": "left",
-            "on": "waitThenRefresh"
+            "on": "waitThenRefresh",
+            "docked": true
         }, {
             "title": "Case Options",
             "element": "#page-wrap",
