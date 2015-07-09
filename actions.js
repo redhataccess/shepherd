@@ -56,8 +56,8 @@ var __actions = {
         var dockedPosition = 'introjs-docked-position';
         if (step && step.docked) {
             $body.addClass(dockedClass);
-            if (step.position) {
-                $body.attr(dockedPosition, step.position);
+            if (step.dockposition) {
+                $body.attr(dockedPosition, step.dockposition);
             }
         } else {
             $body.removeClass(dockedClass);
