@@ -52,10 +52,16 @@ var __actions = {
     reset: function (step, index, self) {
         this.resetMega(step, index, self);
         var $body = $(document.body);
+        var dockedClass = 'introjs-docked';
+        var dockedPosition = 'introjs-docked-position';
         if (step && step.docked) {
-            $body.addClass('introjs-docked');
+            $body.addClass(dockedClass);
+            if (step.position) {
+                $body.attr(dockedPosition, step.position);
+            }
         } else {
-            $body.removeClass('introjs-docked');
+            $body.removeClass(dockedClass);
+            $body.removeAttr(dockedPosition);
         }
         // Look for and remove last class
         var previousStepClass = $body.data('introjs-step-class');
