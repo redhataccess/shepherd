@@ -157,9 +157,10 @@ var __actions = {
                 $scope.CaseService.kase.product = rhel.value || rhel.code;
                 $scope.CaseService.onProductSelectChange();
                 $scope.RecommendationsService.getRecommendations();
-                this._.waitForElement('#sticky-ricky-static', function () {
-                    tour.intro.refresh();
-                })
+                var refresh = this.refreshPosition;
+                this._.waitForElement('#rha-recommendation-section', function () {
+                    refresh(step, index, tour);
+                });
             } catch (e) {}
         }
         this._.waitForElement(step.element, _.bind(_loadRecommendations, this));
