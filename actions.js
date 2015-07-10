@@ -29,13 +29,13 @@ var __actions = {
                 return;
             }
             if (typeof max === 'undefined') {
-                max = 100;
+                max = 50;
             }
             var found = $(selector).is(':visible');
             if (found) {
                 cb(document.querySelector(selector));
             } else {
-                setTimeout(_.bind(this.waitForElement, this, selector, cb, max--), 300);
+                setTimeout(_.bind(this.waitForElement, this, selector, cb, max--), 500);
             }
         }
     },
@@ -147,7 +147,7 @@ var __actions = {
             if (tour && tour.intro) {
                 tour.intro.refresh();
             }
-        }, 0);
+        }, 100);
     },
     loadRecommendations: function (step, index, tour) {
         function _loadRecommendations() {
