@@ -94,7 +94,7 @@ PortalTour.prototype.buildTour = function () {
         buttonClass: 'btn btn-sm',
         prevLabel: '&larr;',
         skipLabel: 'Close',
-        doneLabel: 'Close',
+        doneLabel: 'Finish',
         dock: false,
         showBullets: false,
         showProgress: true,
@@ -158,7 +158,8 @@ PortalTour.prototype.translateTour = function () {
     }
     var keyStr = 'tour.common.*',
         closeLabelKey = 'tour.common.closeLabel',
-        nextLabelKey = 'tour.common.nextLabel';
+        nextLabelKey = 'tour.common.nextLabel',
+        doneLabelKey = 'tour.common.doneLabel';
 
     if (this.currentTour.messagesNS) {
         keyStr += (',' + this.currentTour.messagesNS + '.*');
@@ -182,10 +183,11 @@ PortalTour.prototype.translateTour = function () {
             self.currentTour.steps[i].intro = getString(key);
         }
         var closeLabel = getString(closeLabelKey),
-            nextLabel = getString(nextLabelKey);
+            nextLabel = getString(nextLabelKey),
+            doneLabel = getString(doneLabelKey);
         self.intro.setOptions({
             skipLabel: closeLabel,
-            doneLabel: closeLabel
+            doneLabel: doneLabel
         });
         self.intro.setOption('nextLabel', nextLabel);
         dfd.resolve();

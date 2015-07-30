@@ -86,6 +86,11 @@ var __actions = {
         $tray.children().hide();
         $('#account-info').css('opacity', '1').show();
     },
+    openLanguages: function () {
+        var $tray = this._.showTray();
+        $tray.children().hide();
+        $('#language').css('opacity', '1').show();
+    },
     stripFixParents: function () {
         $('.introjs-fixParent').removeClass('introjs-fixParent');
     },

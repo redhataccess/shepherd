@@ -5,17 +5,47 @@
             "key": "tour.nimbus.home.welcome",
             "tooltipClass": "tooltip-lg"
         }, {
-            "element": ".top-nav ul",
-            "key": "tour.nimbus.home.topNav",
+            "element": ".top-nav ul #nav-subscription",
+            "key": "tour.nimbus.home.topNavSubscription",
             "tooltipClass": "tooltip-md",
-            "position": "right",
+            "position": "bottom",
             "highlightClass": "light top"
         }, {
-            "element": ".utility-nav ul",
-            "key": "tour.nimbus.home.utilityNav",
+            "element": ".top-nav ul #nav-downloads",
+            "key": "tour.nimbus.home.topNavDownloads",
             "tooltipClass": "tooltip-md",
-            "position": "left",
-            "highlightClass": "light top right"
+            "position": "bottom",
+            "highlightClass": "light top"
+        }, {
+            "element": ".top-nav ul #nav-support",
+            "key": "tour.nimbus.home.topNavSupport",
+            "tooltipClass": "tooltip-md",
+            "position": "bottom",
+            "highlightClass": "light top"
+        }, {
+            "element": "#account-info .row.account-settings .col-md-6:first-child",
+            "key":  "tour.nimbus.home.accountSettings1",
+            "tooltipClass": "tooltip-md",
+            "stepClass": "user-account-highlight",
+            "position": "bottom",
+            "after": "stripFixParents",
+            "before": "openProfile"
+        }, {
+            "element": "#account-info .row.account-settings .col-md-6:last-child",
+            "key": "tour.nimbus.home.accountSettings2",
+            "tooltipClass": "tooltip-md",
+            "stepClass": "user-account-highlight",
+            "position": "bottom",
+            "after": "stripFixParents",
+            "before": "openProfile"
+        }, {
+            "element": ".utility-tray-container #language",
+            "key": "tour.nimbus.home.language",
+            "tooltipClass": "tooltip-md",
+            "stepClass": "user-account-highlight",
+            "position": "bottom",
+            "after": "stripFixParents",
+            "before": "openLanguages"
         }, {
             "element": ".products-menu .col-md-6.col-sm-8 .root",
             "key": "tour.nimbus.home.products1",
@@ -43,14 +73,13 @@
             "tooltipClass": "tooltip-md",
             "before": "openCommunity"
         }, {
+            "element": "#home-login",
+            "key": "tour.nimbus.home.helloCard",
+            "tooltipClass": "tooltip-md",
+            "position": "left"
+        }, {
             "element": ".home-quick-links",
             "key": "tour.nimbus.home.quickLinks",
-            "tooltipClass": "tooltip-md",
-            "position": "top",
-            "highlightClass": "light"
-        }, {
-            "element": ".home-bottom .row",
-            "key": "tour.nimbus.home.whatsNew",
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
@@ -60,7 +89,7 @@
             "tooltipClass": "tooltip-lg final"
         }],
         "callBacks": {
-            "before": "resetMega"
+            "before": "reset"
         },
         "translate": true,
         "messagesNS": "tour.nimbus.home",
