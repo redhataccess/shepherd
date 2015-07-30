@@ -34,8 +34,9 @@
             "path": "/support/cases/",
             "hash": "#/case/new",
             "before": "loadRecommendations",
-            "position": "left",
-            "on": "waitThenRefresh"
+            "on": "waitThenRefresh",
+            "dockposition": "left",
+            "docked": true
         }, {
             "title": "Case Options",
             "element": "#page-wrap",

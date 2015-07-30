@@ -29,13 +29,13 @@ var __actions = {
                 return;
             }
             if (typeof max === 'undefined') {
-                max = 100;
+                max = 50;
             }
             var found = $(selector).is(':visible');
             if (found) {
                 cb(document.querySelector(selector));
             } else {
-                setTimeout(_.bind(this.waitForElement, this, selector, cb, max--), 300);
+                setTimeout(_.bind(this.waitForElement, this, selector, cb, max--), 500);
             }
         }
     },
@@ -52,10 +52,16 @@ var __actions = {
     reset: function (step, index, self) {
         this.resetMega(step, index, self);
         var $body = $(document.body);
+        var dockedClass = 'introjs-docked';
+        var dockedPosition = 'introjs-docked-position';
+        $body.removeAttr(dockedPosition);
         if (step && step.docked) {
-            $body.addClass('introjs-docked');
+            $body.addClass(dockedClass);
+            if (step.dockposition) {
+                $body.attr(dockedPosition, step.dockposition);
+            }
         } else {
-            $body.removeClass('introjs-docked');
+            $body.removeClass(dockedClass);
         }
         // Look for and remove last class
         var previousStepClass = $body.data('introjs-step-class');
@@ -129,12 +135,13 @@ var __actions = {
     },
     waitThenRefresh: function (step, index, tour) {
         var loadingClass = 'introjs-loading';
+        var refresh = this.refreshPosition;
         var $body = $(document.body);
         $body.addClass(loadingClass);
         this._.waitForElement(step._element, function (element) {
             var currentStep = tour.intro._introItems[tour.intro._currentStep];
             currentStep.element = element;
-            tour.intro.refresh();
+            refresh(step, index, tour);
             $body.removeClass(loadingClass);
         });
     },
@@ -145,7 +152,7 @@ var __actions = {
             if (tour && tour.intro) {
                 tour.intro.refresh();
             }
-        }, 0);
+        }, 100);
     },
     loadRecommendations: function (step, index, tour) {
         function _loadRecommendations() {
@@ -155,9 +162,10 @@ var __actions = {
                 $scope.CaseService.kase.product = rhel.value || rhel.code;
                 $scope.CaseService.onProductSelectChange();
                 $scope.RecommendationsService.getRecommendations();
-                this._.waitForElement('#sticky-ricky-static', function () {
-                    tour.intro.refresh();
-                })
+                var refresh = this.refreshPosition;
+                this._.waitForElement('#rha-recommendation-section', function () {
+                    refresh(step, index, tour);
+                });
             } catch (e) {}
         }
         this._.waitForElement(step.element, _.bind(_loadRecommendations, this));
