@@ -42,7 +42,7 @@
             "element": ".utility-tray-container #language",
             "key": "tour.nimbus.home.language",
             "tooltipClass": "tooltip-md",
-            "stepClass": "user-account-highlight",
+            "stepClass": "user-language-highlight",
             "position": "bottom",
             "after": "stripFixParents",
             "before": "openLanguages"
@@ -89,7 +89,8 @@
             "tooltipClass": "tooltip-lg final"
         }],
         "callBacks": {
-            "before": "reset"
+            "before": "reset",
+            "exit": "returnToLaunch"
         },
         "translate": true,
         "messagesNS": "tour.nimbus.home",
