@@ -1,0 +1,43 @@
+{
+    "6": {
+        "title": "Solution Overview",
+        "multipage": false,
+        "launchTour": true,
+        "overlayOpacity": 0.1,
+        "doneLabel": "OK",
+        "steps": [
+            {
+                "intro": "Welcome to the new Knowledgebase Solution experience. This short tour will highlight some of the new features."
+            },
+            {
+                "title": "Step 1",
+                "intro": "Knowledgebase Solutions are now mobile-friendly, making them easy to view on all your devices. We've also relocated elements from the right sidebar to allow the main content to fill more of your screen."
+            },
+            {
+                "element": "#action-nav",
+                "title": "Step 2",
+                "intro": "No matter where you are on the page, you can comment, rate, or follow using the buttons on the left.",
+                "position": "right",
+                "highlightClass": "light top"
+            },
+            {
+                "element": "[rh-action-sheet-toggler='helpfulActionSheet']",
+                "title": "Step 3",
+                "intro": "Now you can let us know if content is helpful to you. You and the community benefit by helping us improve content.",
+                "position": "right",
+                "highlightClass": "light top"
+            },
+            {
+                "element": "#page-title",
+                "title": "Step 4",
+                "intro": "Comments have an updated look and feel and are now optimized for mobile.",
+                "position": "bottom",
+                "highlightClass": "light top"
+            },
+            {
+                "title": "End",
+                "intro": "Thanks for taking the tour. Have feedback? Tell us about it <a href=\"https:\/\/access.redhat.com\/eform\/submit\/articles-and-solutions-redesign\">here<\/a>."
+            }
+        ]
+    }
+}
