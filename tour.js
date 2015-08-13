@@ -148,24 +148,17 @@ PortalTour.prototype.translateTour = function () {
     var dfd = new $.Deferred(),
         self = this;
 
-    var lang = 'en',
-        version = null;
+    var lang = 'en';
     if (window.portal && window.portal.lang) {
         lang = window.portal.lang;
     }
-    if (window.portal && window.portal.version) {
-        version = window.portal.version;
-    }
-    var keyStr = 'tour.common.*',
-        closeLabelKey = 'tour.common.closeLabel',
-        nextLabelKey = 'tour.common.nextLabel',
-        doneLabelKey = 'tour.common.doneLabel';
 
-    if (this.currentTour.messagesNS) {
-        keyStr += (',' + this.currentTour.messagesNS + '.*');
+    var messages = 'messages.json';
+    if (lang !== 'en') {
+        messages = 'messages_' + lang + '.json';
     }
-    P.t(keyStr, lang, version).then(function (values) {
-        var langObj = values && values[lang];
+
+    $.get('/webassets/avalon/j/messages/' + messages).then(function (langObj) {
         var getString = function (key) {
             if (langObj && langObj[key]) {
                 // We have the language object, and the key
@@ -182,14 +175,10 @@ PortalTour.prototype.translateTour = function () {
             var key = self.currentTour.steps[i].key;
             self.currentTour.steps[i].intro = getString(key);
         }
-        var closeLabel = getString(closeLabelKey),
-            nextLabel = getString(nextLabelKey),
-            doneLabel = getString(doneLabelKey);
         self.intro.setOptions({
-            skipLabel: closeLabel,
-            doneLabel: doneLabel
+            closeLabel: getString('tour_common_closeLabel'),
+            nextLabel: getString('tour_common_nextLabel')
         });
-        self.intro.setOption('nextLabel', nextLabel);
         dfd.resolve();
     });
 

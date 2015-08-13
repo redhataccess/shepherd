@@ -2,29 +2,29 @@
     "1": {
         "path": "(^\\/home\\/?$)|(^\\/$)",
         "steps": [{
-            "key": "tour.nimbus.home.welcome",
+            "key": "tour_nimbus_home_welcome",
             "tooltipClass": "tooltip-lg"
         }, {
             "element": ".top-nav ul #nav-subscription",
-            "key": "tour.nimbus.home.topNavSubscription",
+            "key": "tour_nimbus_home_topNavSubscription",
             "tooltipClass": "tooltip-md",
             "position": "bottom",
             "highlightClass": "light top"
         }, {
             "element": ".top-nav ul #nav-downloads",
-            "key": "tour.nimbus.home.topNavDownloads",
+            "key": "tour_nimbus_home_topNavDownloads",
             "tooltipClass": "tooltip-md",
             "position": "bottom",
             "highlightClass": "light top"
         }, {
             "element": ".top-nav ul #nav-support",
-            "key": "tour.nimbus.home.topNavSupport",
+            "key": "tour_nimbus_home_topNavSupport",
             "tooltipClass": "tooltip-md",
             "position": "bottom",
             "highlightClass": "light top"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:first-child",
-            "key":  "tour.nimbus.home.accountSettings1",
+            "key":  "tour_nimbus_home_accountSettings1",
             "tooltipClass": "tooltip-md",
             "stepClass": "user-account-highlight",
             "position": "bottom",
@@ -32,7 +32,7 @@
             "before": "openProfile"
         }, {
             "element": "#account-info .row.account-settings .col-md-6:last-child",
-            "key": "tour.nimbus.home.accountSettings2",
+            "key": "tour_nimbus_home_accountSettings2",
             "tooltipClass": "tooltip-md",
             "stepClass": "user-account-highlight",
             "position": "bottom",
@@ -40,7 +40,7 @@
             "before": "openProfile"
         }, {
             "element": ".utility-tray-container #language",
-            "key": "tour.nimbus.home.language",
+            "key": "tour_nimbus_home_language",
             "tooltipClass": "tooltip-md",
             "stepClass": "user-language-highlight",
             "position": "bottom",
@@ -48,28 +48,28 @@
             "before": "openLanguages"
         }, {
             "element": ".products-menu .col-md-6.col-sm-8 .root",
-            "key": "tour.nimbus.home.products1",
+            "key": "tour_nimbus_home_products1",
             "tooltipClass": "tooltip-md",
             "on": "openProducts",
             "position": "right"
         }, {
             "element": ".products-menu .col-md-6.col-sm-4.pull-right",
-            "key": "tour.nimbus.home.products2",
+            "key": "tour_nimbus_home_products2",
             "tooltipClass": "tooltip-md",
             "on": "openProducts"
         }, {
             "element": ".tools-menu > .row",
-            "key": "tour.nimbus.home.tools",
+            "key": "tour_nimbus_home_tools",
             "tooltipClass": "tooltip-md",
             "before": "openTools"
         }, {
             "element": ".security-menu .col-sm-12.basic",
-            "key": "tour.nimbus.home.security",
+            "key": "tour_nimbus_home_security",
             "tooltipClass": "tooltip-md",
             "before": "openSecurity"
         }, {
             "element": ".community-menu .col-sm-12.basic",
-            "key": "tour.nimbus.home.community",
+            "key": "tour_nimbus_home_community",
             "tooltipClass": "tooltip-md",
             "before": "openCommunity"
         }, {
@@ -79,12 +79,12 @@
             "position": "left"
         }, {
             "element": ".home-quick-links",
-            "key": "tour.nimbus.home.quickLinks",
+            "key": "tour_nimbus_home_quickLinks",
             "tooltipClass": "tooltip-md",
             "position": "top",
             "highlightClass": "light"
         }, {
-            "key": "tour.nimbus.home.feedback",
+            "key": "tour_nimbus_home_feedback",
             "before": "scrollTop",
             "tooltipClass": "tooltip-lg final"
         }],
@@ -93,7 +93,6 @@
             "exit": "returnToLaunch"
         },
         "translate": true,
-        "messagesNS": "tour.nimbus.home",
         "memento": "1014-nimbus-home",
         "startsOn": "20141105",
         "expiresOn": "20141207",
