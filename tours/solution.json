@@ -1,37 +1,37 @@
 {
     "6": {
-        "multipage": false,
-        "overlayOpacity": 0.1,
-        "doneLabel": "OK",
-        "closeLabel": "Close",
-        "tooltipClass": "tooltip-md",
         "steps": [
             {
-                "intro": "Welcome to the new Knowledgebase Solution experience. This short tour will highlight some of the new features."
+                "intro": "<p><strong>Welcome to the new Knowledgebase Solution experience.</strong></p> This short tour will highlight some of the new features.",
+                "tooltipClass": "tooltip-lg"
             },
             {
-                "intro": "Knowledgebase Solutions are now mobile-friendly, making them easy to view on all your devices. We've also relocated elements from the right sidebar to allow the main content to fill more of your screen."
+                "intro": "<strong>Knowledgebase Solutions</strong> are now mobile-friendly, making them easy to view on all your devices. We've also relocated elements from the right sidebar to allow the main content to fill more of your screen.",
+                "tooltipClass": "tooltip-md"
             },
             {
                 "element": "#action-nav",
-                "intro": "No matter where you are on the page, you can comment, rate, or follow using the buttons on the left.",
+                "intro": "No matter where you are on the page, you can <strong>comment, rate, or follow</strong> using the buttons on the left.",
                 "position": "right",
-                "highlightClass": "light top"
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
             },
             {
                 "element": "[rh-action-sheet-toggler='helpfulActionSheet']",
                 "intro": "Now you can let us know if content is helpful to you. You and the community benefit by helping us improve content.",
                 "position": "right",
-                "highlightClass": "light top"
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
             },
             {
                 "element": "#page-title",
-                "intro": "Comments have an updated look and feel and are now optimized for mobile.",
+                "intro": "<strong>Comments</strong> have an updated look and feel and are now optimized for mobile.",
                 "position": "bottom",
-                "highlightClass": "light top"
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
             },
             {
-                "intro": "Thanks for taking the tour. Have feedback? Tell us about it <a href=\"https:\/\/access.redhat.com\/eform\/submit\/articles-and-solutions-redesign\">here<\/a>.",
+                "intro": "<p><strong>Thank You</strong></p><p>If you have feedback about the new design, we would love to hear it.</p><p class=\"text-center\"><a class=\"btn btn-primary\" href=\"https:\/\/access.redhat.com\/eform\/submit\/articles-and-solutions-redesign\">Tell Us What You Think<\/a></p>",
                 "tooltipClass": "tooltip-lg final"
             }
         ]
