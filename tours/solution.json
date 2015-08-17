@@ -1,5 +1,9 @@
 {
     "6": {
+        "skipLabel": "Close",
+        "prevLabel": "←",
+        "nextLabel": "Next →",
+        "needsUserInfo": true,
         "steps": [
             {
                 "intro": "<p><strong>Welcome to the new Knowledgebase Solution experience.</strong></p> This short tour will highlight some of the new features.",
@@ -8,6 +12,16 @@
             {
                 "intro": "<strong>Knowledgebase Solutions</strong> are now mobile-friendly, making them easy to view on all your devices. We've also relocated elements from the right sidebar to allow the main content to fill more of your screen.",
                 "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "#page-wrap",
+                "_element": ".drawer-nav .toggler",
+                "intro": "Actions like <strong>Edit</strong> and <strong>Manage Revisions</strong> have been moved to an admin drawer to allow more space for content.",
+                "position": "left",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md",
+                "on": "waitThenRefresh",
+                "internalOnly": true
             },
             {
                 "element": "#action-nav",
@@ -24,7 +38,7 @@
                 "tooltipClass": "tooltip-md"
             },
             {
-                "element": "#page-title",
+                "element": "#comments",
                 "intro": "<strong>Comments</strong> have an updated look and feel and are now optimized for mobile.",
                 "position": "bottom",
                 "highlightClass": "light top",
@@ -32,6 +46,7 @@
             },
             {
                 "intro": "<p><strong>Thank You</strong></p><p>If you have feedback about the new design, we would love to hear it.</p><p class=\"text-center\"><a class=\"btn btn-primary\" href=\"https:\/\/access.redhat.com\/eform\/submit\/articles-and-solutions-redesign\">Tell Us What You Think<\/a></p>",
+                "before": "scrollTop",
                 "tooltipClass": "tooltip-lg final"
             }
         ]
