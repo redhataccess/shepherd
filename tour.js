@@ -56,6 +56,8 @@ PortalTour.prototype._init = function (tours, actions) {
     this.tours = tours;
     this.actions = actions;
     this.translateDfd = null;
+    this.userDfd = null;
+    this.deferreds = [];
     var searchObj = searchToObject();
     this.currentTour = this.getCurrentTour(searchObj);
     this.buildTour();
@@ -87,8 +89,14 @@ PortalTour.prototype.getCurrentTour = function (searchObj) {
 
 PortalTour.prototype.buildTour = function () {
     if (this.currentTour && this.currentTour.translate) {
-        this.translateDfd = this.translateTour();
+        // this.translateDfd = this.translateTour();
+        this.deferreds.push(this.translateTour());
     }
+
+    if (this.currentTour && this.currentTour.needsUserInfo) {
+        this.deferreds.push(this.getUserInfo());
+    }
+
     var self = this;
     var defaults = {
         buttonClass: 'btn btn-sm',
@@ -185,6 +193,33 @@ PortalTour.prototype.translateTour = function () {
     return dfd.promise();
 };
 
+PortalTour.prototype.getUserInfo = function () {
+    var dfd = $.Deferred(),
+        self = this;
+
+    function setSteps() {
+        if (!portal.user_info.internal) {
+            self.currentTour.steps = _.reject(self.currentTour.steps, function (step) {
+                return step.internalOnly;
+            });
+
+            self.intro.setOptions({
+                steps: self.currentTour.steps
+            });
+        }
+
+        dfd.resolve();
+    }
+
+    if (portal && portal.user_info) {
+        setSteps();
+    } else {
+        $(document).on('user_info_ready', setSteps);
+    }
+
+    return dfd.promise();
+};
+
 PortalTour.prototype.startTour = function () {
     // Don't start the tour if we can't display it.
     if (!this._canDisplay()) {
@@ -225,8 +260,8 @@ PortalTour.prototype.startTour = function () {
             }
         }));
     }
-    if (this.translateDfd) {
-        this.translateDfd.then(_start);
+    if (this.deferreds.length) {
+        $.when.apply($, this.deferreds).then(_start);
     } else {
         _start();
     }
