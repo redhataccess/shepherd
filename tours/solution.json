@@ -38,7 +38,7 @@
                 "tooltipClass": "tooltip-md"
             },
             {
-                "element": "#comments",
+                "element": "#comments h2",
                 "intro": "<strong>Comments</strong> have an updated look and feel and are now optimized for mobile.",
                 "position": "bottom",
                 "highlightClass": "light top",
