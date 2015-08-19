@@ -38,11 +38,13 @@
                 "tooltipClass": "tooltip-md"
             },
             {
-                "element": "#comments h2",
+                "element": "#page-wrap",
+                "_element": "#comments .comments-list-header h2",
                 "intro": "<strong>Comments</strong> have an updated look and feel and are now optimized for mobile.",
                 "position": "bottom",
                 "highlightClass": "light top",
-                "tooltipClass": "tooltip-md"
+                "tooltipClass": "tooltip-md",
+                "on": "waitThenRefresh"
             },
             {
                 "intro": "<p><strong>Thank You</strong></p><p>If you have feedback about the new design, we would love to hear it.</p><p class=\"text-center\"><a class=\"btn btn-primary\" href=\"https:\/\/access.redhat.com\/eform\/submit\/articles-and-solutions-redesign\">Tell Us What You Think<\/a></p>",
