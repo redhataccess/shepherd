@@ -1,6 +1,7 @@
 {
     "1": {
         "path": "(^\\/home\\/?$)|(^\\/$)",
+        "needsUserInfo": true,
         "steps": [{
             "key": "tour_nimbus_home_welcome",
             "tooltipClass": "tooltip-lg"
@@ -90,6 +91,7 @@
         }],
         "callBacks": {
             "before": "reset",
+            "on": "ensurePath",
             "exit": "returnToLaunch"
         },
         "translate": true,
