@@ -1,0 +1,64 @@
+{
+    "7": {
+        "skipLabel": "Close",
+        "prevLabel": "←",
+        "nextLabel": "Next →",
+        "needsUserInfo": true,
+        "steps": [
+            {
+                "intro": "<p><strong>Welcome to the new Red Hat Knowledgebase experience.</strong></p> This short tour will highlight new features and changes.",
+                "tooltipClass": "tooltip-lg"
+            },
+            {
+                "intro": "We've relocated elements from the right sidebar to allow the main content to fill more of your screen. The Knowledgebase is also now <strong>mobile-friendly</strong>, making it easy to view on all devices.",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "#page-wrap",
+                "_element": ".drawer-nav .toggler",
+                "intro": "As a Red Hatter, you'll notice actions like <strong>Edit</strong> and <strong>Manage Revisions</strong> have been moved to an admin drawer to allow more space for content.",
+                "position": "left",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md",
+                "on": "waitThenRefresh",
+                "internalOnly": true
+            },
+            {
+                "element": "#action-nav",
+                "intro": "No matter where you are on the page, you can <strong>comment, rate, or follow</strong> using the buttons on the left.",
+                "position": "right",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "[rh-action-sheet-toggler='helpfulActionSheet']",
+                "intro": "Now you can let us know if content is helpful to you with a simple yes or no. You and the community benefit by helping us improve content.",
+                "position": "right",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "intro": "If the author chooses, Articles now support a <strong>table of contents</strong>. This enables quick scanning of the content. Table of contents links make it easy to navigate directly to the information you need.",
+                "tooltipClass": "tooltip-md"
+            }
+            {
+                "element": "#page-wrap",
+                "_element": "#comments",
+                "intro": "<strong>Comments</strong> have an updated look and feel and are now optimized for mobile.",
+                "position": "top",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md",
+                "on": "waitThenRefresh"
+            },
+            {
+                "affix": "#action-nav",
+                "element": "#action-nav li:last-child",
+                "intro": "<p>Thanks for touring the new Knowledgebase experience.</p><p>Have feedback? Click the feedback button and tell us what you think.</p>",
+                "before": "affixScrollTop",
+                "position": "right",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-lg final"
+            }
+        ]
+    }
+}
