@@ -40,7 +40,7 @@
             {
                 "intro": "If the author chooses, Articles now support a <strong>table of contents</strong>. This enables quick scanning of the content. Table of contents links make it easy to navigate directly to the information you need.",
                 "tooltipClass": "tooltip-md"
-            }
+            },
             {
                 "element": "#page-wrap",
                 "_element": "#comments",
