@@ -172,5 +172,12 @@ var __actions = {
     },
     scrollTop: function () {
         window.scrollTo(0, 0);
+    },
+    affixScrollTop: function (step, index, tour) {
+        window.scrollTo(0, 0);
+        if (step.affix) {
+            $(step.affix).affix('checkPosition');
+        }
+        this.refreshPosition(step, index, tour);
     }
 };
