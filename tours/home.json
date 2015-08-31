@@ -28,7 +28,7 @@
             "element": "[data-portal-tour-1='4a']",
             "key":  "tour_nimbus_home_accountSettingsMenu",
             "tooltipClass": "tooltip-md",
-            "position": "bottom"
+            "position": "left"
         }, {
             "element": "[data-portal-tour-1='4']",
             "key":  "tour_nimbus_home_accountSettings1",
@@ -50,7 +50,7 @@
             "key": "tour_nimbus_home_language",
             "tooltipClass": "tooltip-md",
             "stepClass": "user-language-highlight",
-            "position": "bottom",
+            "position": "left",
             "after": "stripFixParents",
             "before": "openLanguages"
         }, {
