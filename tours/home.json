@@ -1,6 +1,7 @@
 {
     "1": {
         "path": "(^\\/home\\/?$)|(^\\/$)",
+        "overlayOpacity": 0.1,
         "needsUserInfo": true,
         "steps": [{
             "key": "tour_nimbus_home_welcome",
@@ -23,6 +24,11 @@
             "tooltipClass": "tooltip-md",
             "position": "bottom",
             "highlightClass": "light top"
+        }, {
+            "element": "[data-portal-tour-1='4a']",
+            "key":  "tour_nimbus_home_accountSettingsMenu",
+            "tooltipClass": "tooltip-md",
+            "position": "bottom"
         }, {
             "element": "[data-portal-tour-1='4']",
             "key":  "tour_nimbus_home_accountSettings1",
