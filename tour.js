@@ -93,6 +93,10 @@ PortalTour.prototype.buildTour = function () {
         this.deferreds.push(this.translateTour());
     }
 
+    if (this.currentTour && this.currentTour.needsAuthentication) {
+        this.deferreds.push(this.authenticateUser());
+    }
+    
     if (this.currentTour && this.currentTour.needsUserInfo) {
         this.deferreds.push(this.getUserInfo());
     }
@@ -217,6 +221,20 @@ PortalTour.prototype.getUserInfo = function () {
         $(document).on('user_info_ready', setSteps);
     }
 
+    return dfd.promise();
+};
+
+PortalTour.prototype.authenticateUser = function () {
+    var dfd = $.Deferred();
+    var newDoc = window.location.href;
+    var url = '';
+    if(!portal.user_info) {
+        if(window.location.search.indexOf("redirectTo=") == -1){
+            url = window.location.protocol + '//' + window.location.hostname +'/wapps/sso/login.html/redirect?redirectTo=' + newDoc;
+            window.location = url;
+        }
+    }
+    dfd.resolve();
     return dfd.promise();
 };
 

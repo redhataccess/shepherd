@@ -3,6 +3,7 @@
         "path": "(^\\/home\\/?$)|(^\\/$)",
         "overlayOpacity": 0.1,
         "needsUserInfo": true,
+        "needsAuthentication": true,
         "steps": [{
             "key": "tour_nimbus_home_welcome",
             "tooltipClass": "tooltip-lg"
