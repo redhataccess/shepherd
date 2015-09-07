@@ -225,17 +225,20 @@ PortalTour.prototype.getUserInfo = function () {
 };
 
 PortalTour.prototype.authenticateUser = function () {
-    var dfd = $.Deferred();
-    var newDoc = window.location.href;
+    var dfrd = $.Deferred();
+    var redirectTo = window.location.href;
     var url = '';
+    var key = redirectTo.split("/")[3];
+    
     if(!portal.user_info) {
-        if(window.location.search.indexOf("redirectTo=") == -1){
-            url = window.location.protocol + '//' + window.location.hostname +'/wapps/sso/login.html/redirect?redirectTo=' + newDoc;
+        if(window.location.search.indexOf("redirect=") === -1){
+            url = window.location.protocol+'//'+window.location.host+'/wapps/sso/login.html?redirect=/'+key;
             window.location = url;
         }
     }
-    dfd.resolve();
-    return dfd.promise();
+    dfrd.resolve();
+
+    return dfrd.promise();
 };
 
 PortalTour.prototype.startTour = function () {
