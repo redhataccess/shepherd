@@ -96,7 +96,7 @@ PortalTour.prototype.buildTour = function () {
     if (this.currentTour && this.currentTour.needsAuthentication) {
         this.deferreds.push(this.authenticateUser());
     }
-    
+
     if (this.currentTour && this.currentTour.needsUserInfo) {
         this.deferreds.push(this.getUserInfo());
     }
@@ -123,6 +123,10 @@ PortalTour.prototype.buildTour = function () {
             self.actions[self.currentTour.callBacks[phase]](step, index, self);
         }
         if (step) {
+            delete step._element;
+            delete step.element;
+            delete step.on;
+
             if (step && step[phase] && self.actions[step[phase]]) {
                 self.actions[step[phase]](step, index, self);
             }
@@ -229,7 +233,7 @@ PortalTour.prototype.authenticateUser = function () {
     var redirectTo = window.location.href;
     var url = '';
     var key = redirectTo.split("/")[3];
-    
+
     if(!portal.user_info) {
         if(window.location.search.indexOf("redirect=") === -1){
             url = window.location.protocol+'//'+window.location.host+'/wapps/sso/login.html?redirect=/'+key;
