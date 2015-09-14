@@ -2,6 +2,7 @@
     "6": {
         "translate": true,
         "needsUserInfo": true,
+        "centerAllWidth": 767,
         "steps": [
             {
                 "key": "tour_solution_welcome",

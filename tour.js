@@ -116,6 +116,10 @@ PortalTour.prototype.buildTour = function () {
     };
     this.intro.setOptions($.extend(defaults, this.currentTour));
     this.intro.executeCurrentStepCb = function (phase) {
+        if (self.currentTour.centerAll) {
+            return;
+        }
+
         var index = this._currentStep;
         var step = (this._options && this._options.steps && this._options.steps[index]);
         if (self.currentTour.callBacks && self.currentTour.callBacks[phase] &&
@@ -123,10 +127,6 @@ PortalTour.prototype.buildTour = function () {
             self.actions[self.currentTour.callBacks[phase]](step, index, self);
         }
         if (step) {
-            delete step._element;
-            delete step.element;
-            delete step.on;
-
             if (step && step[phase] && self.actions[step[phase]]) {
                 self.actions[step[phase]](step, index, self);
             }
@@ -250,6 +250,15 @@ PortalTour.prototype.startTour = function () {
     if (!this._canDisplay()) {
         return false;
     }
+
+    if (this.currentTour.centerAllWidth && window.innerWidth <= this.currentTour.centerAllWidth) {
+        this.currentTour.centerAll = true;
+
+        $.each(this.currentTour.steps, function (index, step) {
+            if (step.element) { delete step.element; }
+        });
+    }
+
     var self = this;
 
     function _start() {
