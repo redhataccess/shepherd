@@ -233,15 +233,14 @@ PortalTour.prototype.authenticateUser = function () {
     var redirectTo = window.location.href;
     var url = '';
     var key = redirectTo.split("/")[3];
-
-    if(!portal.user_info) {
-        if(window.location.search.indexOf("redirect=") === -1){
-            url = window.location.protocol+'//'+window.location.host+'/wapps/sso/login.html?redirect=/'+key;
-            window.location = url;
-        }
+    if(!document.cookie.match(/rh_user=./)) {
+            if(window.location.search.indexOf("redirect=") === -1){
+                url = window.location.protocol+'//'+window.location.host+'/wapps/sso/login.html?redirect=/'+key;
+                window.location = url;
+            }
+            dfred.reject();
     }
     dfrd.resolve();
-
     return dfrd.promise();
 };
 
