@@ -89,15 +89,10 @@ PortalTour.prototype.getCurrentTour = function (searchObj) {
 
 PortalTour.prototype.buildTour = function () {
     if (this.currentTour && this.currentTour.translate) {
-        // this.translateDfd = this.translateTour();
         this.deferreds.push(this.translateTour());
     }
 
-    if (this.currentTour && this.currentTour.needsAuthentication) {
-        this.deferreds.push(this.authenticateUser());
-    }
-
-    if (this.currentTour && this.currentTour.needsUserInfo) {
+    if (this.currentTour && (this.currentTour.needsUserInfo || this.currentTour.needsAuthentication)) {
         this.deferreds.push(this.getUserInfo());
     }
 
@@ -205,7 +200,11 @@ PortalTour.prototype.getUserInfo = function () {
     var dfd = $.Deferred(),
         self = this;
 
-    function setSteps() {
+    function userReady() {
+        if (self.currentTour.needsAuthentication && (!portal.user_info || !portal.user_info.login)) {
+            // bounce
+            window.location = ('/login?redirectTo=' + escape(window.location.href));
+        }
         if (!portal.user_info.internal) {
             self.currentTour.steps = _.reject(self.currentTour.steps, function (step) {
                 return step.internalOnly;
@@ -220,28 +219,12 @@ PortalTour.prototype.getUserInfo = function () {
     }
 
     if (portal && portal.user_info) {
-        setSteps();
+        userReady();
     } else {
-        $(document).on('user_info_ready', setSteps);
+        $(document).on('user_info_ready', userReady);
     }
 
     return dfd.promise();
-};
-
-PortalTour.prototype.authenticateUser = function () {
-    var dfrd = $.Deferred();
-    var redirectTo = window.location.href;
-    var url = '';
-    var key = redirectTo.split("/")[3];
-    if(!document.cookie.match(/rh_user=./)) {
-            if(window.location.search.indexOf("redirect=") === -1){
-                url = window.location.protocol+'//'+window.location.host+'/wapps/sso/login.html?redirect=/'+key;
-                window.location = url;
-            }
-            dfred.reject();
-    }
-    dfrd.resolve();
-    return dfrd.promise();
 };
 
 PortalTour.prototype.startTour = function () {
