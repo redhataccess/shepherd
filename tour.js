@@ -1,3 +1,4 @@
+/* global __tours, __actions */
 'use strict';
 var hasStorage = ('localStorage' in window && window.localStorage !== null),
     TOUR_STORAGE_KEY = 'RHCP-TOUR';

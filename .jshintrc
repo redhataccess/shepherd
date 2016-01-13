@@ -1,0 +1,13 @@
+{
+    "browser": true,
+    "globalstrict": true,
+    "globals": {
+        "$": false,
+        "introjs": false,
+        "portal": false,
+        "_": false,
+        "moment": false,
+        "angular": false,
+        "escape": true
+    }
+}

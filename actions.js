@@ -1,3 +1,4 @@
+'use strict';
 var __actions = {
     _: {
         click: function (selector) {
