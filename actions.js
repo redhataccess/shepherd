@@ -101,7 +101,11 @@ var __actions = {
     stripFixParents: function () {
         $('.introjs-fixParent').removeClass('introjs-fixParent');
     },
-    returnToLaunch: function () {
+    returnToLaunch: function (step, index, self) {
+        if (self.currentTour.redirectOnExit !== null && self.currentTour.redirectOnExit === false) {
+            return;
+        }
+
         if (window.location.host === 'www.redhat.com') {
             window.location = 'https://access.redhat.com/start/';
         } else {

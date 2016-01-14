@@ -66,6 +66,11 @@ PortalTour.prototype._init = function (tours, actions) {
         // Disable tour with tour=false query param
         return;
     }
+
+    if (searchObj['tour-redirect']) {
+        this.currentTour.redirectOnExit = (searchObj['tour-redirect'] === 'false') ? false : true;
+    }
+
     if (this.currentTour.steps && searchObj.tour) {
         this.startTour();
     } else if (this.currentTour.steps && this.shouldAutoStart()) {
