@@ -1,0 +1,77 @@
+{
+    "8": {
+        "translate": true,
+        "needsUserInfo": true,
+        "hideMobile": "767",
+        "centerAllWidth": 767,
+        "steps": [
+            {
+                "key": "tour_discussion_welcome",
+                "tooltipClass": "tooltip-lg"
+            },
+            {
+                "key": "tour_discussion_sidebar",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "#page-wrap",
+                "_element": ".drawer-nav .toggler",
+                "key": "tour_discussion_adminDrawer",
+                "position": "left",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md",
+                "on": "waitThenRefresh",
+                "internalOnly": true
+            },
+            {
+                "element": "#action-nav",
+                "key": "tour_discussion_actionNav",
+                "position": "right",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "#main-content .header-tag-list li:first-child",
+                "key": "tour_discussion_postedTag",
+                "position": "right",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "[rh-action-sheet-toggler='helpfulActionSheet']",
+                "key": "tour_discussion_helpful",
+                "position": "right",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "#page-wrap",
+                "_element": "#comments",
+                "key": "tour_discussion_responses",
+                "position": "top",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md",
+                "on": "waitThenRefresh"
+            },
+            {
+                "key": "tour_discussion_bestResponse",
+                "before": "affixScrollTop",
+                "tooltipClass": "tooltip-lg"
+            },
+            {
+                "key": "tour_discussion_bestResponseSearch",
+                "before": "affixScrollTop",
+                "tooltipClass": "tooltip-lg"
+            },
+            {
+                "affix": "#action-nav",
+                "element": "#action-nav li:last-child",
+                "key": "tour_discussion_feedback",
+                "before": "affixScrollTop",
+                "position": "top",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-lg final"
+            }
+        ]
+    }
+}
