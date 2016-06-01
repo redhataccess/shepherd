@@ -184,5 +184,29 @@ var __actions = {
             $(step.affix).affix('checkPosition');
         }
         this.refreshPosition(step, index, tour);
-    }
+    },
+    showCloseButton: function() {
+        $('.introjs-skipbutton').css('display', 'block');
+    },
+    addRemindMeLaterButton: function() {
+        var that = this;
+        $('.introjs-skipbutton').after( '<a class="btn btn-sm btn-primary introjs-remindmebutton" href="javascript:void(0);">' + this.remindMeLaterLabel + '</a>' );
+        $('.introjs-remindmebutton').on( "click", function() {
+            that._.hideTour();
+            that._.hideTray();
+            var ls = window.localStorage.getItem(TOUR_STORAGE_KEY);
+            ls = ls.replace(that.momento + ',' , '');
+            window.localStorage.setItem(TOUR_STORAGE_KEY, ls);
+
+        });
+    },
+    removeRemindMeLaterButton: function() {
+       $('.introjs-remindmebutton').css('display', 'none');
+    },
+    showCloseButtonAndRemindMeLaterButton: function() {
+        this.showCloseButton();
+        this.addRemindMeLaterButton();
+    },
+    remindMeLaterLabel: 'Remind Me Later', // if translation is set to true, it will be replaced by correct string
+    momento: '' // it will set on tour init
 };

@@ -76,6 +76,8 @@ PortalTour.prototype._init = function (tours, actions) {
     } else if (this.currentTour.steps && this.shouldAutoStart()) {
         this.startTour();
     }
+
+    this.actions.momento = hashFn(this.currentTour.memento);
 };
 
 PortalTour.prototype.getCurrentTour = function (searchObj) {
@@ -196,6 +198,9 @@ PortalTour.prototype.translateTour = function () {
             closeLabel: getString('tour_common_closeLabel'),
             nextLabel: getString('tour_common_nextLabel')
         });
+
+        self.actions.remindMeLaterLabel = getString('tour_common_remindMeLaterLabel');
+
         dfd.resolve();
     });
 
