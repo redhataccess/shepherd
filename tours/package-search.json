@@ -1,0 +1,53 @@
+{
+    "9": {
+        "translate": true,
+        "needsUserInfo": true,
+        "hideMobile": "767",
+        "centerAllWidth": 767,
+        "memento": "0416-package-search",
+        "startsOn": "20160401",
+        "expiresOn": "20160601",
+
+        "steps": [
+            {
+                "key": "tour_packagesearch_welcome",
+                "tooltipClass": "tooltip-lg",
+                "after": "showCloseButtonAndRemindMeLaterButton"
+            },
+            {
+                "element": "#page-wrap",
+                "_element": "#search-term",
+                "key": "tour_packagesearch_searchbox",
+                "position": "bottom",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md",
+                "on": "waitThenRefresh",
+                "internalOnly": true,
+                "before": "removeRemindMeLaterButton"
+            },
+            {
+                "element": "#prod_variant_chosen",
+                "key": "tour_packagesearch_productbox",
+                "position": "bottom",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "element": "#package_browser_list tbody tr",
+                "_element": "#package_browser_list tbody tr:first-child td:last-child",
+                "key": "tour_packagesearch_architecture",
+                "position": "left",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-md"
+            },
+            {
+                "affix": "#action-nav",
+                "element": "#action-nav li:last-child",
+                "key": "tour_packagesearch_feedback",
+                "position": "top",
+                "highlightClass": "light top",
+                "tooltipClass": "tooltip-lg final"
+            }
+        ]
+    }
+}
