@@ -12,7 +12,7 @@
             {
                 "key": "tour_packagesearch_welcome",
                 "tooltipClass": "tooltip-lg",
-                "after": "showCloseButtonAndRemindMeLaterButton"
+                "after": "showCloseButton"
             },
             {
                 "element": "#page-wrap",
