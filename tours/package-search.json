@@ -22,8 +22,7 @@
                 "highlightClass": "light top",
                 "tooltipClass": "tooltip-md",
                 "on": "waitThenRefresh",
-                "internalOnly": true,
-                "before": "removeRemindMeLaterButton"
+                "internalOnly": true
             },
             {
                 "element": "#prod_variant_chosen",
