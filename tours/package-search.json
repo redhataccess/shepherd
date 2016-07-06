@@ -1,12 +1,12 @@
 {
     "9": {
         "translate": true,
-        "needsUserInfo": true,
+        "needsUserInfo": false,
         "hideMobile": "767",
         "centerAllWidth": 767,
-        "memento": "0416-package-search",
-        "startsOn": "20160401",
-        "expiresOn": "20160601",
+        "memento": "0616-package-search",
+        "startsOn": "20160701",
+        "expiresOn": "20170701",
 
         "steps": [
             {
@@ -32,12 +32,14 @@
                 "tooltipClass": "tooltip-md"
             },
             {
-                "element": "#package_browser_list tbody tr",
+                "element": "#page-wrap",
                 "_element": "#package_browser_list tbody tr:first-child td:last-child",
                 "key": "tour_packagesearch_architecture",
                 "position": "left",
                 "highlightClass": "light top",
-                "tooltipClass": "tooltip-md"
+                "tooltipClass": "tooltip-md",
+                "before": "waitThenRefresh",
+                "on": "refreshPosition"
             },
             {
                 "affix": "#action-nav",
