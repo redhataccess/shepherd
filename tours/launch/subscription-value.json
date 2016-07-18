@@ -1,13 +1,14 @@
 {
     "5": {
+        "translate": true,
         "title": "Red Hat Subscription Benefits",
         "multipage": true,
         "launchTour": true,
         "overlayOpacity": 0.1,
         "doneLabel": "OK",
         "steps": [{
-            "intro": "Your Red Hat subscription provides many benefits including access to resources, expertise, upgrades, and the ability to directly influence our commitment to providing an exceptional customer experience. <br /><br />Take a moment to learn about these benefits and how to use them to get the most out of your Red Hat Subscription.",
-            "path": "/subscription-value/",
+            "key": "tour_subscriptionvalue_welcome",
+            "path": "/en/about/value-of-subscription/",
             "after": "stripFixParents"
         }],
         "callBacks": {
