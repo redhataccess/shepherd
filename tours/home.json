@@ -6,7 +6,8 @@
         "needsAuthentication": true,
         "steps": [{
             "key": "tour_nimbus_home_welcome",
-            "tooltipClass": "tooltip-lg"
+            "tooltipClass": "tooltip-lg",
+            "after": "showCloseButton"
         }, {
             "element": "[data-portal-tour-1='1']",
             "key": "tour_nimbus_home_topNavSubscription",
@@ -84,7 +85,8 @@
             "element": "[data-portal-tour-1='12']",
             "key": "tour_nimbus_home_helloCard",
             "tooltipClass": "tooltip-md",
-            "position": "left"
+            "position": "left",
+            "before": "refreshPosition"
         }, {
             "element": "[data-portal-tour-1='13']",
             "key": "tour_nimbus_home_quickLinks",
