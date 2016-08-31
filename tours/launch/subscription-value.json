@@ -1,14 +1,12 @@
 {
     "5": {
         "translate": true,
-        "title": "Red Hat Subscription Benefits",
         "multipage": true,
         "launchTour": true,
         "overlayOpacity": 0.1,
         "doneLabel": "OK",
         "steps": [{
             "key": "tour_subscriptionvalue_welcome",
-            "path": "/en/about/value-of-subscription/",
             "after": "stripFixParents"
         }],
         "callBacks": {
