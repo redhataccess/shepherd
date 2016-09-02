@@ -86,7 +86,7 @@
             "key": "tour_nimbus_home_helloCard",
             "tooltipClass": "tooltip-md",
             "position": "left",
-            "before": "refreshPosition"
+            "before": "affixScrollTop"
         }, {
             "element": "[data-portal-tour-1='13']",
             "key": "tour_nimbus_home_quickLinks",
@@ -105,8 +105,8 @@
         },
         "translate": true,
         "memento": "1014-nimbus-home",
-        "startsOn": "20141105",
-        "expiresOn": "20141207",
+        "startsOn": "20160105",
+        "expiresOn": "20171207",
         "hideMobile": "767",
         "disableInteraction": true,
         "exitOnOverlayClick": false

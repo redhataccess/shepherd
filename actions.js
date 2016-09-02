@@ -157,7 +157,7 @@ var __actions = {
             if (tour && tour.intro) {
                 tour.intro.refresh();
             }
-        }, 100);
+        }, 600);
     },
     loadRecommendations: function (step, index, tour) {
         function _loadRecommendations() {
