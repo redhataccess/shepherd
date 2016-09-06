@@ -1,0 +1,98 @@
+{
+    "10": {
+        "path": "(^\\/home\\/?$)|(^\\/$)",
+        "overlayOpacity": 0.1,
+        "needsUserInfo": false,
+        "needsAuthentication": false,
+        "steps": [{
+            "key": "tour_nimbus_home_welcome",
+            "tooltipClass": "tooltip-lg",
+            "after": "showCloseButton"
+        }, {
+            "element": "[data-portal-tour-1='1']",
+            "key": "tour_nimbus_home_topNavSubscription",
+            "tooltipClass": "tooltip-md",
+            "position": "bottom",
+            "highlightClass": "light top"
+        }, {
+            "element": "[data-portal-tour-1='2']",
+            "key": "tour_nimbus_home_topNavDownloads",
+            "tooltipClass": "tooltip-md",
+            "position": "bottom",
+            "highlightClass": "light top"
+        }, {
+            "element": "[data-portal-tour-1='3']",
+            "key": "tour_nimbus_home_topNavSupport",
+            "tooltipClass": "tooltip-md",
+            "position": "bottom",
+            "highlightClass": "light top"
+        }, {
+            "element": "[data-portal-tour-1='4a']",
+            "key":  "tour_nimbus_home_accountSettingsMenu",
+            "tooltipClass": "tooltip-md",
+            "position": "left"
+        }, {
+            "element": "[data-portal-tour-1='6']",
+            "key": "tour_nimbus_home_language",
+            "tooltipClass": "tooltip-md",
+            "stepClass": "user-language-highlight",
+            "position": "left",
+            "after": "stripFixParents",
+            "before": "openLanguages"
+        }, {
+            "element": "[data-portal-tour-1='7']",
+            "key": "tour_nimbus_home_products1",
+            "tooltipClass": "tooltip-md",
+            "on": "openProducts",
+            "position": "right"
+        }, {
+            "element": "[data-portal-tour-1='8']",
+            "key": "tour_nimbus_home_products2",
+            "tooltipClass": "tooltip-md",
+            "on": "openProducts",
+            "position": "left"
+        }, {
+            "element": "[data-portal-tour-1='9']",
+            "key": "tour_nimbus_home_tools",
+            "tooltipClass": "tooltip-md",
+            "before": "openTools"
+        }, {
+            "element": "[data-portal-tour-1='10']",
+            "key": "tour_nimbus_home_security",
+            "tooltipClass": "tooltip-md",
+            "before": "openSecurity"
+        }, {
+            "element": "[data-portal-tour-1='11']",
+            "key": "tour_nimbus_home_community",
+            "tooltipClass": "tooltip-md",
+            "before": "openCommunity"
+        }, {
+            "element": "[data-portal-tour-1='12']",
+            "key": "tour_nimbus_home_helloCard",
+            "tooltipClass": "tooltip-md",
+            "position": "left",
+            "after": "affixScrollTop"
+        }, {
+            "element": "[data-portal-tour-1='13']",
+            "key": "tour_nimbus_home_quickLinks",
+            "tooltipClass": "tooltip-md",
+            "position": "top",
+            "highlightClass": "light"
+        }, {
+            "key": "tour_nimbus_home_feedback",
+            "before": "scrollTop",
+            "tooltipClass": "tooltip-lg final"
+        }],
+        "callBacks": {
+            "before": "reset",
+            "on": "ensurePath"
+        },
+        "translate": true,
+        "memento": "1014-nimbus-home",
+        "startsOn": "20160105",
+        "expiresOn": "20171207",
+        "hideMobile": "767",
+        "disableInteraction": true,
+        "exitOnOverlayClick": false
+    }
+}
