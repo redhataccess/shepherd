@@ -65,7 +65,8 @@
             "element": "[data-portal-tour-1='8']",
             "key": "tour_nimbus_home_products2",
             "tooltipClass": "tooltip-md",
-            "on": "openProducts"
+            "on": "openProducts",
+            "position": "left"
         }, {
             "element": "[data-portal-tour-1='9']",
             "key": "tour_nimbus_home_tools",
