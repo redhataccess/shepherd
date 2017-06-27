@@ -64,12 +64,7 @@
                 "tooltipClass": "tooltip-lg"
             },
             {
-                "affix": "#action-nav",
-                "element": "#action-nav li:last-child",
                 "key": "tour_discussion_feedback",
-                "before": "affixScrollTop",
-                "position": "top",
-                "highlightClass": "light top",
                 "tooltipClass": "tooltip-lg final"
             }
         ]
