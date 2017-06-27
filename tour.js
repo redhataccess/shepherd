@@ -212,11 +212,10 @@ PortalTour.prototype.getUserInfo = function () {
         self = this;
 
     function userReady() {
-        if (self.currentTour.needsAuthentication && (!portal.user_info || !portal.user_info.login)) {
-            // bounce
-            window.location = ('/login?redirectTo=' + escape(window.location.href));
+        if (self.currentTour.needsAuthentication && !session.isAuthenticated()) {
+            session.login();
         }
-        if (!portal.user_info.internal) {
+        if (!session.isInternal()) {
             self.currentTour.steps = _.reject(self.currentTour.steps, function (step) {
                 return step.internalOnly;
             });
@@ -229,11 +228,7 @@ PortalTour.prototype.getUserInfo = function () {
         dfd.resolve();
     }
 
-    if (portal && portal.user_info) {
-        userReady();
-    } else {
-        $(document).on('user_info_ready', userReady);
-    }
+    userReady();
 
     return dfd.promise();
 };

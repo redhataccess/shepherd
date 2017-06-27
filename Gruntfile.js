@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          banner: 'define([\'introjs\', \'jquery\', \'underscore\', \'moment\'], function (introjs, $, _, moment) {\n',
+          banner: 'define([\'introjs\', \'jquery\', \'lodash\', \'moment\', \'session\'], function (introjs, $, _, moment, session) {\n',
           footer: '});',
         },
         files: {
